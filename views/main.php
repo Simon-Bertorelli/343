@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>343 - Noticias y Partidos</title>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
   
@@ -13,7 +13,7 @@
       <li>Más de futbol</li>
       <li>Premier league</li>
       <li>Primera B Nacional</li>
-     <li><a href="../LPF/lpf.html" class="liga-link">Liga profesional de Fútbol</a></li>
+     <li><a href="../views/lpf.php" class="liga-link">Liga profesional de Fútbol</a></li>
     </ul>
   </aside>
 
@@ -21,7 +21,7 @@
   <main>
     
     <header class="header">
-      <div class="logo"><img src="../343.png"></div>
+      <div class="logo"><img src="../img/logo343.jpeg"></div>
       <div class="search-container">
         <input type="text" placeholder="Buscar...">
         <button class="user-btn">👤</button>
@@ -32,12 +32,12 @@
     <section class="noticias">
       <h2>NOTICIAS</h2>
       <div class="noticias-carrusel">
-        <div class="card"> <img src="../LPF/escudos/gelp.png" alt="Noticia"><p class="texto-noticia">Se decreta el descenso de Gimnasia y Esgrima (LP)</p></div>
-        <div class="card"> <img src="../LPF/escudos/godoy.png" alt="Noticia"><p class="texto-noticia">Godoy cruz cierra su estadio por remodelaciones</p> </div>
-        <div class="card"> <img src="../LPF/escudos/boca.png" alt="Noticia"><p class="texto-noticia">Boca avanza a la final del Torneo Clausura</p> </div>
-        <div class="card"> <img src="../LPF/escudos/huracan.png" alt="Noticia"><p class="texto-noticia">Huracan contrata a Pep Guardiola como entrenador hasta 2028</p> </div>
-        <div class="card"> <img src="../LPF/escudos/platense.png" alt="Noticia"><p class="texto-noticia">Platense estrena nueva indumentaria acorde al campeonato ganado</p> </div>
-        <div class="card"> <img src="../LPF/escudos/river.png" alt="Noticia"><p class="texto-noticia">Avanzan las elecciones presidenciales en river</p> </div>
+        <div class="card"> <img src="../img/gelp.png" alt="Noticia"><p class="texto-noticia">Se decreta el descenso de Gimnasia y Esgrima (LP)</p></div>
+        <div class="card"> <img src="../img/godoy.png" alt="Noticia"><p class="texto-noticia">Godoy cruz cierra su estadio por remodelaciones</p> </div>
+        <div class="card"> <img src="../img/boca.png" alt="Noticia"><p class="texto-noticia">Boca avanza a la final del Torneo Clausura</p> </div>
+        <div class="card"> <img src="../img/huracan.png" alt="Noticia"><p class="texto-noticia">Huracan contrata a Pep Guardiola como entrenador hasta 2028</p> </div>
+        <div class="card"> <img src="../img/platense.png" alt="Noticia"><p class="texto-noticia">Platense estrena nueva indumentaria acorde al campeonato ganado</p> </div>
+        <div class="card"> <img src="../img/riber.png" alt="Noticia"><p class="texto-noticia">Avanzan las elecciones presidenciales en river</p> </div>
       </div>
        <div class="controles">
     <button id="prev">⬅</button>
@@ -49,35 +49,35 @@
     <section class="partidos">
       <h2>PARTIDOS DE HOY</h2>
       <div class="match">
-        <img src="../LPF/escudos/boca.png" alt="Boca">
+        <img src="../img/boca.png" alt="Boca">
         <span>Boca Juniors</span>
         <span>VS</span>
         <span>River Plate</span>
-        <img src="../LPF/escudos/river.png" alt="River">
+        <img src="../img/riber.png" alt="River">
       </div>
 
       <div class="match">
-        <img src="../LPF/escudos/gelp.png" alt="Gimnasia">
+        <img src="../img/gelp.png" alt="Gimnasia">
         <span>Gimnasia y Esgrima (LP)</span>
         <span>VS</span>
         <span>Atlético Tucumán</span>
-        <img src="../LPF/escudos/tucuman.png" alt="Tucumán">
+        <img src="../img/tucuman.png" alt="Tucumán">
       </div>
 
       <div class="match">
-        <img src="../LPF/escudos/platense.png" alt="Platense">
+        <img src="../img/platense.png" alt="Platense">
         <span>Platense</span>
         <span>VS</span>
         <span>Godoy Cruz</span>
-        <img src="../LPF/escudos/godoy.png" alt="Godoy Cruz">
+        <img src="../img/godoy.png" alt="Godoy Cruz">
       </div>
 
       <div class="match">
-        <img src="../LPF/escudos/talleres.png" alt="Talleres">
+        <img src="../img/talleres.png" alt="Talleres">
         <span>Talleres (C)</span>
         <span>VS</span>
         <span>Huracán</span>
-        <img src="../LPF/escudos/huracan.png" alt="Huracán">
+        <img src="../img/huracan.png" alt="Huracán">
       </div>
     </section>
   </main>
