@@ -7,12 +7,13 @@
   <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-  
+ <a href="../logout.php">Cerrar sesión</a>
   <aside class="sidebar">
     <ul>
       <li>Más de futbol</li>
       <li>Premier league</li>
       <li>Primera B Nacional</li>
+      <li><a href="foro.php">Foro</a></li>
      <li><a href="../views/lpf.php" class="liga-link">Liga profesional de Fútbol</a></li>
     </ul>
   </aside>

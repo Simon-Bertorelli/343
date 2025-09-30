@@ -16,7 +16,7 @@
         <li>Primera B Nacional</li>
         <li>Liga Profesional</li>
         <li>Premier</li>
-        <li><button class="volver">Volver</button></li>
+        <li><a href="main.php">volver</a></li>
       </ul>
     </nav>
   </header>
