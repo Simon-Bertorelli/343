@@ -14,8 +14,9 @@
     <nav>
       <ul>
         <li>Primera B Nacional</li>
-        <li>Liga Profesional</li>
+        <li><a href="lpf.php"></a>Liga Profesional</li>
         <li>Premier</li>
+        <li><a href="sobreNos.php">Sobre Nosotros</a></li>
         <li><a href="main.php">volver</a></li>
       </ul>
     </nav>
@@ -130,5 +131,22 @@
       </div>
     </div>
   </main>
+
+  <footer>
+        <div id="redes">
+            <h3>Nuestras redes</h3>
+            <ul>
+                <li><a href="https://www.instagram.com/beni_lovato/">Instragram</a></li>
+                <li><a href="https://ar.linkedin.com/in/sergio-galiana-6ba29234">Linkedin</a></li>
+            </ul>
+        </div>
+        <div id="contacto">
+            <h3>Contactanos</h3>
+            <ul>
+                <li>poncestudio@gmail.com</li>
+                <li>poncestudio@hotmail.com</li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

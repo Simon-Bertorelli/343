@@ -144,3 +144,18 @@ nav li {
   min-height: 180px;
   background-color: #003a5c;
 }
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2%;
+    border-top: solid 2px #f7b731;
+}
+
+footer div{
+    text-align: center;
+}
+
+footer li{
+    text-align: left;
+}
