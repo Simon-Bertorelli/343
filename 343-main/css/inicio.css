@@ -1,0 +1,114 @@
+/* inicio.css */
+
+/* --- Colores de la temática ---
+   Fondo principal: #002244 (Azul oscuro)
+   Fondo del formulario: #011b33 (Azul muy oscuro)
+   Color principal (texto/bordes): #f7b731 (Amarillo/Oro)
+   Texto secundario: #ffffff (Blanco)
+*/
+
+body {
+    /* Fondo principal de la página */
+    background-color: #002244; 
+    font-family: Arial, sans-serif;
+    display: flex;
+    /* Centrar el formulario vertical y horizontalmente */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+form {
+    /* Contenedor del formulario */
+    background-color: #011b33;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 350px;
+    text-align: center;
+    border: 2px solid #f7b731; /* Borde dorado/amarillo */
+}
+
+h2 {
+    /* Título "Iniciar Sesión" */
+    color: #f7b731;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #f7b731;
+    padding-bottom: 10px;
+}
+
+label {
+    /* Etiquetas de los campos */
+    display: block;
+    text-align: left;
+    color: #ffffff; /* Texto blanco para las etiquetas */
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+input[type="text"],
+input[type="password"] {
+    /* Campos de texto y contraseña */
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #f7b731; /* Borde dorado */
+    border-radius: 5px;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    background-color: #002244; /* Fondo del campo similar al body */
+    color: #ffffff; /* Texto dentro del campo en blanco */
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    /* Efecto al enfocar un campo */
+    border-color: #ffffff; /* Borde blanco al estar activo */
+    outline: none;
+}
+
+button[type="submit"] {
+    /* Botón de Iniciar Sesión */
+    background-color: #f7b731; /* Fondo dorado/amarillo */
+    color: #011b33; /* Texto oscuro */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px; /* Bordes redondeados */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    /* Efecto al pasar el ratón */
+    background-color: #e0a82b; /* Tono de amarillo ligeramente más oscuro */
+    transform: translateY(-2px);
+}
+
+p {
+    /* Párrafo "¿No tienes cuenta?" */
+    color: #ffffff; /* Texto blanco */
+    margin-top: 25px;
+    font-size: 0.9em;
+}
+
+a {
+    /* Enlace de registro */
+    color: #f7b731; /* Color dorado */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    /* Efecto al pasar el ratón sobre el enlace */
+    color: #ffffff; /* Blanco al pasar el ratón */
+    text-decoration: underline;
+}
