@@ -59,6 +59,7 @@ $equipos_result = $conexion->query("
     <link rel="stylesheet" href="./css/admin_crud.css"> 
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <div class="container">
         <h1>⚙️ Panel de Administración (Equipos)</h1>
         <div class="nav-links">
@@ -122,5 +123,6 @@ $equipos_result = $conexion->query("
             </table>
         </div>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

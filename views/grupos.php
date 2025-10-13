@@ -35,6 +35,7 @@ $grupos_disponibles = $conexion->query("
     <link rel="stylesheet" href="../css/grupos.css"> 
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <div class="container">
         <h1>Mis Grupos y Disponibles</h1>
 
@@ -86,5 +87,6 @@ $grupos_disponibles = $conexion->query("
             <?php endif; ?>
         </section>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

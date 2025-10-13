@@ -9,6 +9,7 @@
         <li>Equipos</li>
         <li>Partidos</li>
         <li>Contacto</li>
+        <li><a href="grupos.php">Foro</a></li>
         <li>Primera B Nacional</li>
         <li><a href="lpf.php">Liga Profesional</a></li>
         <li>Premier</li>

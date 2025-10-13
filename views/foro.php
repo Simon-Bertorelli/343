@@ -102,6 +102,7 @@ function mostrar_publicaciones($conexion, $id_grupo, $parent_id = NULL) {
 </script>
 </head>
 <body>
+    <?php include 'header.php'; ?>
     <div class="container">
         <div class="nav-links">
             <a href="../logout.php">Cerrar sesión</a>
@@ -120,5 +121,6 @@ function mostrar_publicaciones($conexion, $id_grupo, $parent_id = NULL) {
             <?php mostrar_publicaciones($conexion, $id_grupo); ?>
         </div>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
