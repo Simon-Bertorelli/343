@@ -7,20 +7,7 @@
   <link rel="stylesheet" href="../css/lpf.css">
 </head>
 <body>
-   <header class="header">
-    <div class="logo">
-      <img src="../img/logo343.jpeg" alt="Logo 343">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="main.php">Inicio</a></li>
-        <li>Equipos</li>
-        <li>Partidos</li>
-        <li>Contacto</li>
-      </ul>
-    </nav>
-    <button class="volver">Volver</button>
-  </header>
+   <?php include 'header.php'; ?>
 
   <main class="layout">
     <section class="tabla-central">
@@ -144,22 +131,7 @@
       </div>
     </div>
   </main>
-
-  <footer>
-        <div id="redes">
-            <h3>Nuestras redes</h3>
-            <ul>
-                <li><a href="https://www.instagram.com/beni_lovato/">Instragram</a></li>
-                <li><a href="https://ar.linkedin.com/in/sergio-galiana-6ba29234">Linkedin</a></li>
-            </ul>
-        </div>
-        <div id="contacto">
-            <h3>Contactanos</h3>
-            <ul>
-                <li>poncestudio@gmail.com</li>
-                <li>poncestudio@hotmail.com</li>
-            </ul>
-        </div>
-    </footer>
+  
+   <?php include 'footer.php'; ?>
 </body>
 </html>

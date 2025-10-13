@@ -3,50 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nosótros</title>
+    <title>Sobre Nosotros</title>
    <link rel="stylesheet" href="../css/sobreNos.css">
 </head>
 <body>
-      <header class="header">
-    <div class="logo">
-      <img src="../img/logo343.jpeg" alt="Logo 343">
-    </div>
-    <nav>
-      <ul>
-        <li>Primera B Nacional</li>
-        <li><a href="lpf.php"></a>Liga Profesional</li>
-        <li>Premier</li>
-        <li><a href="sobreNos.php">Sobre Nosotros</a></li>
-        <li><a href="main.php">Inicio</a></li>
-      </ul>
-    </nav>
-  </header>
+      <?php include 'header.php'; ?>
 
     <main>
     <h1>Sobre Nosotros</h1>
 
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio similique nihil nesciunt odio. Ab, temporibus ratione. Numquam recusandae magnam reprehenderit quasi accusamus sunt perferendis nostrum! Ut animi hic minus corrupti?
-    Nisi quasi inventore ex labore mollitia fuga iusto tempore, voluptatibus cum est laborum earum perferendis id eos soluta voluptas porro placeat nobis fugit! Similique nihil aut rerum temporibus, quam autem!
-    Voluptatem voluptatibus eum cumque, porro ducimus, quibusdam quam, facilis vero laudantium unde asperiores possimus odio repudiandae perspiciatis sint. Saepe iure qui cumque molestias distinctio consequatur, quia facilis veritatis maxime libero!
-    Maiores pariatur amet sit sunt iure error quidem, doloribus reiciendis ratione, consectetur perspiciatis voluptas recusandae eaque deserunt. Natus nam, rerum itaque repellendus architecto perferendis, consequuntur mollitia, ullam facere soluta explicabo?
-    Maiores ab unde atque deserunt reprehenderit quis veniam fuga ea, qui asperiores iusto deleniti nemo sequi placeat laboriosam aperiam consequatur explicabo quisquam quo doloribus reiciendis minus. Doloremque impedit magni est.</p>
+    <div>
+    <h2>¿Por qué hicimos la página?</h2>
+    <p>Creamos esta página con el objetivo de reunir en un solo lugar toda la información relevante del futbol. Queríamos ofrecer una plataforma clara, actualizada y fácil de navegar para los fanáticos del deporte, jugadores, entrenadores y cualquier persona interesada en seguir de cerca la competencia.</p>
+
+    <p>Nos motivó la pasión por el deporte y la necesidad de contar con una fuente confiable que mostrara estadísticas, posiciones, resultados y detalles de cada equipo, todo en un solo sitio.</p>
+    </div>
+
+    <div>
+    <h2>¿Qué es la página?</h2>
+    <p>Esta es una plataforma digital dedicada a informar sobre futbol. En ella vas a encontrar tablas de posiciones actualizadas, datos de partidos, estadísticas de jugadores y contenido relevante de cada equipo.</p>
+
+    <p>Nuestro enfoque es simple: que cualquier usuario pueda consultar rápida y fácilmente cómo va su equipo, quiénes son los goleadores del torneo o cómo se está desarrollando la temporada.</p>
+
+    <p>La página es parte de un proyecto académico/práctico que combina diseño web, organización de datos y pasión por el fútbol argentino.</p>
+    </div>
     </main>
 
-    <footer>
-        <div id="redes">
-            <h3>Nuestras redes</h3>
-            <ul>
-                <li><a href="https://www.instagram.com/beni_lovato/">Instragram</a></li>
-                <li><a href="https://ar.linkedin.com/in/sergio-galiana-6ba29234">Linkedin</a></li>
-            </ul>
-        </div>
-        <div id="contacto">
-            <h3>Contactanos</h3>
-            <ul>
-                <li>poncestudio@gmail.com</li>
-                <li>poncestudio@hotmail.com</li>
-            </ul>
-        </div>
-    </footer>
+ <?php include 'footer.php'; ?>
 </body>
 </html>

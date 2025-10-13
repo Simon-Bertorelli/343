@@ -1,0 +1,24 @@
+footer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2%;
+  border-top: solid 2px #f7b731;
+  padding-top: 15px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #002244;
+  color: #f7b731; 
+}
+
+footer div {
+  text-align: center;
+}
+
+footer li {
+  text-align: left;
+}
+
+a{
+  text-decoration: none;
+  color:#f7b731;
+}

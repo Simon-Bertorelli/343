@@ -4,7 +4,6 @@ body {
   font-family: Arial, sans-serif;
   background: #002244;
   color: #f7b731;
-  display: flex;
 }
 
 .sidebar {
@@ -36,70 +35,6 @@ a{
 main {
   flex: 1;
   padding: 20px;
-}
-
-.header {
-  display: flex;
-  /* Apilamos verticalmente los elementos (nav-top y header-content) */
-  flex-direction: column; 
-  /* Centramos estos elementos en el eje horizontal */
-  align-items: center; 
-  padding-bottom: 20px;
-}
-
-.nav-top {
-  /* Aseguramos que la nav-top use el ancho para alinearse con el header-content */
-  width: 100%; 
-  max-width: 1000px; 
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10px;
-}
-
-.header-content {
-  /* Contenedor principal del logo y búsqueda */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1000px; 
-}
-
-.logo {
-  /* Permite que el logo ocupe el espacio central */
-  flex-grow: 1; 
-  /* Centra la imagen dentro del div .logo */
-  text-align: center; 
-  /* Empuja el logo a la derecha para un mejor centrado óptico */
-  margin-left: 300px; 
-}
-.logo img {
-  width: 250px;
-  height: auto;
-}
-.search-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  /* Mueve la barra de búsqueda más a la derecha */
-  margin-right: 20px; 
-
-}
-.search-container input {
-  padding: 8px;
-  border-radius: 20px;
-  border: none;
-  width: 250px;
-  background:#002a44;
-  border-radius: 10px;
-  border: 1px solid #f7b731;
-}
-.user-btn {
-  background: #f7b731;
-  border: none;
-  border-radius: 50%;
-  padding: 8px 12px;
-  cursor: pointer;
 }
 
 

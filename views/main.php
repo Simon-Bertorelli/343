@@ -8,29 +8,11 @@
   <script src="../js/carrusel.js" defer></script>
 </head>
 <body>
-  
-  <aside class="sidebar">
-    <ul>
-      <li><a href="foro.php">Foro</a></li>
-      <li><a href="../views/lpf.php" class="liga-link">Liga profesional de Fútbol</a></li>
-      <li><a href="../logout.php" class="nav-link">Cerrar sesión</a></li>
-      <li><a href="../admin_crud.php" class="nav-link admin-link">Administracion</a></li>
-    </ul>
-  </aside>
 
+  <?php include 'header.php'; ?>
   <main>
     
-    <header class="header">
-      <div class="header-content">
-        <div class="logo">
-          <img src="../img/343-solo.png" alt="Logo 343">
-        </div>
-        <div class="search-container">
-          <input type="text" placeholder="Buscar...">
-          <button class="user-btn">👤</button>
-        </div>
-      </div>
-    </header>
+    
 
     
     <section class="noticias">
@@ -101,5 +83,7 @@
       </div>
     </section>
   </main>
+
+  <?php include 'footer.php'; ?>
 </body>
 </html>
