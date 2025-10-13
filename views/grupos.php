@@ -74,7 +74,7 @@ $grupos_disponibles = $conexion->query("
                             <strong><?= htmlspecialchars($g['nombre']) ?></strong>
                             <p class="description"><?= htmlspecialchars($g['descripcion']) ?></p>
                             <div class="actions">
-                                <form method="POST" action="/343-main/unirse.php" style="display:inline;">
+                                <form method="POST" action="/343/unirse.php" style="display:inline;">
                                     <input type="hidden" name="id_grupo" value="<?= $g['id_grupo'] ?>">
                                     <button type="submit" class="btn-primary">Unirse</button>
                                 </form>

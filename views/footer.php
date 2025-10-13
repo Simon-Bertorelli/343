@@ -14,4 +14,12 @@
                 <li>poncestudio@hotmail.com</li>
             </ul>
         </div>
+        <div id="admin">
+            <h3>Administración</h3>
+            <ul>
+                <li><a href="/343/admin_crud.php">Panel de Administración</a></li>
+            </ul>
+        </div>
+        
+           
     </footer>

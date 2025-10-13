@@ -1,0 +1,107 @@
+/*
+ * ----------------------------------------
+ * Estilos para la Vista de Noticia Completa (ver_noticia.php)
+ * ----------------------------------------
+ */
+body {
+    background-color: #001f3f; /* Fondo oscuro */
+    color: #ffffff; /* Texto en blanco para buen contraste */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.news-detail-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.full-article {
+    background-color: #011b33; /* Fondo oscuro */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 1px solid #012a4a;
+    color: #ffffff; /* Contenido en blanco para contraste */
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #f7b731; /* Dorado */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.full-article h1 {
+    color: #f7b731;
+    font-size: 2.2em;
+    border-bottom: 3px solid #f7b731;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.article-meta {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 30px;
+    padding-left: 5px;
+    border-left: 3px solid #f7b731;
+}
+
+.article-source {
+    font-weight: bold;
+    color: #f7b731;
+}
+
+.article-image-wrapper {
+    margin: 20px 0 40px 0;
+    max-height: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.article-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.article-content p {
+    line-height: 1.8;
+    color: #ddd; /* Texto de contenido en gris claro */
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    text-align: justify;
+    /* Mantiene los saltos de línea del HTML (si usas nl2br) */
+    white-space: pre-wrap; 
+}
+
+/* Estilos de Error (Si la noticia no existe) */
+.error-box {
+    text-align: center;
+    padding: 50px;
+    background-color: #330000;
+    border: 1px solid #cc0000;
+    border-radius: 8px;
+}
+
+.error-box h2 {
+    color: #ffb3b3;
+}
+
+.error-box p {
+    color: #ddd;
+}

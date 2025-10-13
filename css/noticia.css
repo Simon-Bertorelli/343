@@ -1,0 +1,126 @@
+/*
+ * ----------------------------------------
+ * Estilos para la Vista de Lista de Noticias (noticia.php)
+ * ----------------------------------------
+ */
+body {
+    background-color: #001f3f; /* Fondo oscuro */
+    color: #ffffff; /* Texto en blanco para buen contraste */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.news-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    /* Los estilos de fuente y color general vienen del body */
+}
+
+.news-container h1 {
+    text-align: center;
+    color: #f7b731; /* Título principal en color dorado */
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f7b731;
+    padding-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Configuración de la cuadrícula (Grid) para las noticias */
+.news-grid {
+    display: grid;
+    /* 3 columnas en pantallas grandes, ajustándose a un mínimo de 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background-color: #011b33; /* Fondo de tarjeta más oscuro que el body */
+    border: 1px solid #012a4a; /* Borde sutil del color del background de otras secciones */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #ffffff; /* Texto de la tarjeta en blanco para contraste */
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(247, 183, 49, 0.2); /* Sombra con toque dorado al pasar el mouse */
+    border-color: #f7b731;
+}
+
+.news-image-wrapper {
+    height: 200px; 
+    overflow: hidden;
+    border-bottom: 3px solid #f7b731; /* Separador dorado bajo la imagen */
+}
+
+.news-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.news-card:hover .news-image {
+    transform: scale(1.05); /* Pequeño zoom al pasar el mouse */
+}
+
+.news-content {
+    padding: 15px;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.news-content h2 {
+    font-size: 1.4em;
+    color: #f7b731; /* Título de tarjeta en dorado */
+    margin-top: 0;
+    margin-bottom: 10px;
+    min-height: 40px; /* Asegura altura mínima para títulos de una o dos líneas */
+}
+
+.news-meta {
+    font-size: 0.85em;
+    color: #aaa; /* Color gris claro para metadatos */
+    margin-bottom: 10px;
+}
+
+.news-source {
+    font-weight: bold;
+    color: #f7b731;
+}
+
+.news-content p {
+    color: #ccc;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: auto; 
+    color: #f7b731;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 0;
+    border-top: 1px dashed #012a4a;
+    transition: color 0.2s;
+}
+
+.read-more:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 650px) {
+    .news-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+    }
+}
