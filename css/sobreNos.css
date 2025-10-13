@@ -10,7 +10,7 @@ h1{
     text-align: center;
 }
 
-.pregunta, .integrantes{
+.pregunta{
     padding: 1%;
     margin: 2%;
     background: #003a5c; 
@@ -19,19 +19,19 @@ h1{
 
 }
 
-.pregunta:hover, .integrantes:hover{
+.pregunta:hover{
   h2{
     text-decoration: underline;
   }
   background-color: #0a5783;
 }
 
-.integrantes ul{
+.integrantes .a{
   display: flex;
-  justify-content: space-around;
-  margin: 0%;
+  justify-content: space-evenly;
+  text-align: center;
 }
 
-.integrantes{
-  text-align: center;
+.int img{
+  border-radius: 50%;
 }

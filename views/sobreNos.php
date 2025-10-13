@@ -38,29 +38,34 @@
    </div>
 
     <div class="integrantes">
-    <h2>Integrantes</h2>
-    <ul>
-      <li>
-         <h3>Juan Chiriff</h3>
-         <h4>-Scrum Master</h4>
-      </li>
-      <li>
-         <h3>Theo Soiffer</h3>
-         <h4>-Back-End</h4>
-      </li>
-      <li>
-         <h3>Simón Basante</h3>
-         <h4>-Back-End</h4>
-      </li>
-      <li>
-         <h3>Ciro Galiana</h3>
-         <h4>-Front-End & Diseñador</h4>
-      </li>
-      <li>
-         <h3>Benicio Lovato</h3>
-         <h4>-Fron-End & Tester</h4>
-      </li>
-    </ul>
+    <h1>Integrantes</h1>
+    <div class="a">
+      <div class="int">
+         <img src="../img/user-sin-foto.png" alt="Integrante">
+         <h2>Juan Chiriff</h2>
+         <h3>Scrum Master</h3>
+      </div>
+      <div class="int">
+         <img src="../img/user-sin-foto.png" alt="Integrante">
+         <h2>Theo Soiffer</h2>
+         <h3>Back-End</h3>
+      </div>
+      <div class="int">
+         <img src="../img/user-sin-foto.png" alt="Integrante">
+         <h2>Simón Basante</h2>
+         <h3>Back-End</h3>
+      </div>
+      <div class="int">
+         <img src="../img/user-sin-foto.png" alt="Integrante">
+         <h2>Ciro Galiana</h2>
+         <h3>Front-End & Diseñador</h3>
+      </div>
+      <div class="int">
+         <img src="../img/user-sin-foto.png" alt="Integrante">
+         <h2>Benicio Lovato</h2>
+         <h3>Front-End & Tester</h3>
+      </div>
+      </div>
     </div>
     </main>
 
