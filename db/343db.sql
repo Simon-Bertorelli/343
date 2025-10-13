@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2025 a las 05:44:33
+-- Tiempo de generación: 13-10-2025 a las 03:29:49
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `343bd`
+-- Base de datos: `343db`
 --
 
 -- --------------------------------------------------------
@@ -48,42 +48,6 @@ CREATE TABLE `entrenador` (
   `id_equipo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `entrenador`
---
-
-INSERT INTO `entrenador` (`id_entrenador`, `nombre`, `apellido`, `id_pais`, `id_equipo`) VALUES
-(1, 'Marcelo', 'Gallardo', NULL, 1),
-(2, 'Claudio', 'Ubeda', NULL, 2),
-(3, 'Gustavo', 'Costas', NULL, 3),
-(4, 'Gustavo', 'Quinteros', NULL, 4),
-(5, 'Damian', 'Ayude', NULL, 5),
-(6, 'Frank', 'Kudelka', NULL, 6),
-(7, 'Guillermo', 'Barros Schelotto', NULL, 7),
-(8, 'Nicolás', 'Diez', NULL, 8),
-(9, 'Eduardo', 'Domínguez', NULL, 9),
-(10, 'Alejandro', 'Orfila', NULL, 10),
-(11, 'Ariel', 'Holan', NULL, 11),
-(12, 'Cristian', 'Fabbiani', NULL, 12),
-(13, 'Diego', 'Davobe', NULL, 13),
-(14, 'Cristian', 'González', NULL, 14),
-(15, 'Rubén', 'Insúa', NULL, 15),
-(16, 'Facundo', 'Sava', NULL, 16),
-(17, 'Leonardo', 'Madelon', NULL, 17),
-(18, 'Guillermo', 'Farre', NULL, 18),
-(19, 'Lucas', 'Pusineri', NULL, 19),
-(20, 'Pedro', 'Troglio', NULL, 20),
-(21, 'Mauricio', 'Pellegrino', NULL, 21),
-(22, 'Mariano', 'Soso', NULL, 22),
-(23, 'Leandro', 'Romagnoli', NULL, 23),
-(24, 'Carlos', 'Tevez', NULL, 24),
-(25, 'Pedro', 'Troglio', NULL, 25),
-(26, 'Ricardo', 'Zielinski', NULL, 26),
-(27, 'Walter', 'Ribonetto', NULL, 27),
-(28, 'Omar', 'De Felippe', NULL, 28),
-(29, 'Gustavo', 'Benitez', NULL, 29),
-(30, 'Alfredo', 'Berti', NULL, 30);
-
 -- --------------------------------------------------------
 
 --
@@ -102,36 +66,10 @@ CREATE TABLE `equipo` (
 --
 
 INSERT INTO `equipo` (`id_equipo`, `nombre`, `formacion`, `id_liga`) VALUES
-(1, 'River Plate', '4-3-3', NULL),
-(2, 'Boca Juniors', '4-2-3-1', NULL),
-(3, 'Racing Club', '4-3-3', NULL),
-(4, 'Independiente', '4-4-2', NULL),
-(5, 'San Lorenzo', '5-3-2', NULL),
-(6, 'Huracán', '4-4-2', NULL),
-(7, 'Vélez Sarsfield', '4-3-3', NULL),
-(8, 'Argentinos Juniors', '3-4-3', NULL),
-(9, 'Estudiantes de La Plata', '4-4-2', NULL),
-(10, 'Gimnasia y Esgrima La Plata', '4-2-3-1', NULL),
-(11, 'Rosario Central', '4-3-3', NULL),
-(12, 'Newell’s Old Boys', '4-2-3-1', NULL),
-(13, 'Tigre', '4-4-2', NULL),
-(14, 'Platense', '4-4-2', NULL),
-(15, 'Barracas Central', '4-4-2', NULL),
-(16, 'Sarmiento de Junín', '4-4-2', NULL),
-(17, 'Unión de Santa Fe', '4-2-3-1', NULL),
-(18, 'Colón de Santa Fe', '4-4-2', NULL),
-(19, 'Atlético Tucumán', '4-4-2', NULL),
-(20, 'Banfield', '4-3-3', NULL),
-(21, 'Lanús', '4-3-3', NULL),
-(22, 'Defensa y Justicia', '4-2-3-1', NULL),
-(23, 'Arsenal de Sarandí', '4-4-2', NULL),
-(24, 'Talleres de Córdoba', '4-2-3-1', NULL),
-(25, 'Instituto de Córdoba', '4-4-2', NULL),
-(26, 'Belgrano de Córdoba', '4-4-2', NULL),
-(27, 'Godoy Cruz', '4-3-3', NULL),
-(28, 'Central Córdoba (SdE)', '5-3-2', NULL),
-(29, 'Barracas Central', '4-4-2', NULL),
-(30, 'Independiente Rivadavia', '4-4-2', NULL);
+(1, 'Boca Juniors', '4-3-3', NULL),
+(2, 'River Plate', '4-2-3-1', NULL),
+(3, 'Independiente', '4-4-2', NULL),
+(4, 'Racing Club', '3-5-2', NULL);
 
 -- --------------------------------------------------------
 
@@ -167,10 +105,10 @@ CREATE TABLE `grupo` (
 --
 
 INSERT INTO `grupo` (`id_grupo`, `nombre`, `descripcion`, `id_equipo`) VALUES
-(1, 'Hinchas de Boca', 'Grupo oficial para discutir noticias de Boca Juniors.', NULL),
-(2, 'Los Millonarios', 'Comunidad para fanáticos de River Plate y su historia.', NULL),
-(3, 'Rey de Copas', 'Espacio de debate sobre el Club Atlético Independiente.', NULL),
-(4, 'La Academia', 'Grupo de apoyo e información para los seguidores de Racing Club.', NULL);
+(1, 'Hinchas de Boca', 'Grupo oficial para discutir noticias de Boca Juniors.', 1),
+(2, 'Los Millonarios', 'Comunidad para fanáticos de River Plate y su historia.', 2),
+(3, 'Rey de Copas', 'Espacio de debate sobre el Club Atlético Independiente.', 3),
+(4, 'La Academia', 'Grupo de apoyo e información para los seguidores de Racing Club.', 4);
 
 -- --------------------------------------------------------
 
@@ -259,207 +197,6 @@ CREATE TABLE `pais` (
   `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `pais`
---
-
-INSERT INTO `pais` (`id_pais`, `nombre`) VALUES
-(1, 'Afganistán'),
-(2, 'Albania'),
-(3, 'Alemania'),
-(4, 'Andorra'),
-(5, 'Angola'),
-(6, 'Antigua y Barbuda'),
-(7, 'Arabia Saudita'),
-(8, 'Argelia'),
-(9, 'Argentina'),
-(10, 'Armenia'),
-(11, 'Australia'),
-(12, 'Austria'),
-(13, 'Azerbaiyán'),
-(14, 'Bahamas'),
-(15, 'Bangladés'),
-(16, 'Barbados'),
-(17, 'Baréin'),
-(18, 'Bélgica'),
-(19, 'Belice'),
-(20, 'Benín'),
-(22, 'Bielorrusia'),
-(23, 'Bolivia'),
-(24, 'Bosnia y Herzegovina'),
-(25, 'Botsuana'),
-(26, 'Brasil'),
-(27, 'Brunéi'),
-(28, 'Bulgaria'),
-(29, 'Burkina Faso'),
-(30, 'Burundi'),
-(21, 'Bután'),
-(31, 'Cabo Verde'),
-(32, 'Camboya'),
-(33, 'Camerún'),
-(34, 'Canadá'),
-(35, 'Catar'),
-(36, 'Chad'),
-(37, 'Chile'),
-(38, 'China'),
-(39, 'Chipre'),
-(40, 'Colombia'),
-(41, 'Comoras'),
-(42, 'Congo (República del Congo)'),
-(44, 'Corea del Norte'),
-(45, 'Corea del Sur'),
-(46, 'Costa de Marfil'),
-(47, 'Costa Rica'),
-(48, 'Croacia'),
-(49, 'Cuba'),
-(50, 'Dinamarca'),
-(51, 'Dominica'),
-(52, 'Ecuador'),
-(53, 'Egipto'),
-(54, 'El Salvador'),
-(55, 'Emiratos Árabes Unidos'),
-(56, 'Eritrea'),
-(57, 'Eslovaquia'),
-(58, 'Eslovenia'),
-(59, 'España'),
-(60, 'Estados Unidos'),
-(61, 'Estonia'),
-(62, 'Esuatini'),
-(63, 'Etiopía'),
-(64, 'Filipinas'),
-(65, 'Finlandia'),
-(66, 'Fiyi'),
-(67, 'Francia'),
-(68, 'Gabón'),
-(69, 'Gambia'),
-(70, 'Georgia'),
-(71, 'Ghana'),
-(73, 'Granada'),
-(72, 'Grecia'),
-(74, 'Guatemala'),
-(75, 'Guinea'),
-(77, 'Guinea Ecuatorial'),
-(76, 'Guinea-Bisáu'),
-(78, 'Guyana'),
-(79, 'Haití'),
-(80, 'Honduras'),
-(81, 'Hungría'),
-(82, 'India'),
-(83, 'Indonesia'),
-(84, 'Irak'),
-(85, 'Irán'),
-(86, 'Irlanda'),
-(87, 'Islandia'),
-(88, 'Islas Marshall'),
-(89, 'Islas Salomón'),
-(90, 'Israel'),
-(91, 'Italia'),
-(92, 'Jamaica'),
-(93, 'Japón'),
-(94, 'Jordania'),
-(95, 'Kazajistán'),
-(96, 'Kenia'),
-(99, 'Kirguistán'),
-(97, 'Kiribati'),
-(98, 'Kuwait'),
-(100, 'Laos'),
-(103, 'Lesoto'),
-(101, 'Letonia'),
-(102, 'Líbano'),
-(104, 'Liberia'),
-(105, 'Libia'),
-(106, 'Liechtenstein'),
-(107, 'Lituania'),
-(108, 'Luxemburgo'),
-(109, 'Macedonia del Norte'),
-(110, 'Madagascar'),
-(111, 'Malasia'),
-(112, 'Malaui'),
-(113, 'Maldivas'),
-(114, 'Malí'),
-(115, 'Malta'),
-(116, 'Marruecos'),
-(117, 'Mauricio'),
-(118, 'Mauritania'),
-(119, 'México'),
-(120, 'Micronesia'),
-(121, 'Moldavia'),
-(122, 'Mónaco'),
-(123, 'Mongolia'),
-(124, 'Montenegro'),
-(125, 'Mozambique'),
-(126, 'Myanmar'),
-(127, 'Namibia'),
-(128, 'Nauru'),
-(129, 'Nepal'),
-(130, 'Nicaragua'),
-(131, 'Níger'),
-(132, 'Nigeria'),
-(133, 'Noruega'),
-(134, 'Nueva Zelanda'),
-(135, 'Omán'),
-(136, 'Países Bajos'),
-(137, 'Pakistán'),
-(138, 'Palaos'),
-(194, 'Palestina'),
-(139, 'Panamá'),
-(140, 'Papúa Nueva Guinea'),
-(141, 'Paraguay'),
-(142, 'Perú'),
-(143, 'Polonia'),
-(144, 'Portugal'),
-(145, 'Reino Unido'),
-(146, 'República Centroafricana'),
-(147, 'República Checa'),
-(43, 'República Democrática del Congo'),
-(148, 'República Dominicana'),
-(149, 'Ruanda'),
-(150, 'Rumanía'),
-(151, 'Rusia'),
-(152, 'Samoa'),
-(153, 'San Cristóbal y Nieves'),
-(154, 'San Marino'),
-(155, 'San Vicente y las Granadinas'),
-(156, 'Santa Lucía'),
-(195, 'Santa Sede'),
-(157, 'Santo Tomé y Príncipe'),
-(158, 'Senegal'),
-(159, 'Serbia'),
-(160, 'Seychelles'),
-(161, 'Sierra Leona'),
-(162, 'Singapur'),
-(163, 'Siria'),
-(164, 'Somalia'),
-(165, 'Sri Lanka'),
-(166, 'Sudáfrica'),
-(167, 'Sudán'),
-(168, 'Sudán del Sur'),
-(169, 'Suecia'),
-(170, 'Suiza'),
-(171, 'Surinam'),
-(172, 'Tailandia'),
-(173, 'Tanzania'),
-(174, 'Tayikistán'),
-(175, 'Timor Oriental'),
-(176, 'Togo'),
-(177, 'Tonga'),
-(178, 'Trinidad y Tobago'),
-(179, 'Túnez'),
-(180, 'Turkmenistán'),
-(181, 'Turquía'),
-(182, 'Tuvalu'),
-(183, 'Ucrania'),
-(184, 'Uganda'),
-(185, 'Uruguay'),
-(186, 'Uzbekistán'),
-(187, 'Vanuatu'),
-(188, 'Venezuela'),
-(189, 'Vietnam'),
-(190, 'Yemen'),
-(191, 'Yibuti'),
-(192, 'Zambia'),
-(193, 'Zimbabue');
-
 -- --------------------------------------------------------
 
 --
@@ -484,24 +221,6 @@ CREATE TABLE `posicion` (
   `id_posicion` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `posicion`
---
-
-INSERT INTO `posicion` (`id_posicion`, `nombre`) VALUES
-(1, 'Arquero'),
-(2, 'Defensa-central'),
-(10, 'Delantero-centro'),
-(12, 'Extremo-derecho'),
-(11, 'Extremo-izquierdo'),
-(4, 'Lateral-derecho'),
-(3, 'Lateral-izquierdo'),
-(5, 'Mediocampista'),
-(7, 'Mediocampista-defensivo'),
-(9, 'Mediocampista-derecho'),
-(8, 'Mediocampista-izquierdo'),
-(6, 'Mediocampista-ofensivo');
 
 -- --------------------------------------------------------
 
@@ -586,9 +305,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `contrasena`, `email`, `id_equipo_favorito`, `rol`) VALUES
-(1, 'juan', '$2y$10$FDJz4hNGsGU1ezyxbLb/EeEJ8vEgmiB1BiqxRw5VqkFKfi5kQfdge', 'juanpatriciochiriff@gmail.com', NULL, 'admin'),
-(2, 'theo', '$2y$10$t.elQ9lhFM/rBptAowvDZu6qf5zRYT9e155peCwoNerhFJAYwU6Ru', 'gchiriff@gmail.com', NULL, 'user'),
-(3, 'ciro', '$2y$10$7LOJydmEYq5o7zXHo4CTOetYBhk.WNrNCoM13vf7Q.2aA98vWZWVm', 'theo@gmail.com', NULL, 'user');
+(1, 'juan', '$2y$10$FDJz4hNGsGU1ezyxbLb/EeEJ8vEgmiB1BiqxRw5VqkFKfi5kQfdge', 'juanpatriciochiriff@gmail.com', 3, 'admin'),
+(2, 'theo', '$2y$10$t.elQ9lhFM/rBptAowvDZu6qf5zRYT9e155peCwoNerhFJAYwU6Ru', 'gchiriff@gmail.com', 2, 'user'),
+(3, 'ciro', '$2y$10$7LOJydmEYq5o7zXHo4CTOetYBhk.WNrNCoM13vf7Q.2aA98vWZWVm', 'theo@gmail.com', 3, 'user');
 
 -- --------------------------------------------------------
 
@@ -761,13 +480,13 @@ ALTER TABLE `campeon_liga`
 -- AUTO_INCREMENT de la tabla `entrenador`
 --
 ALTER TABLE `entrenador`
-  MODIFY `id_entrenador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_entrenador` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `equipo`
 --
 ALTER TABLE `equipo`
-  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_equipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `estadisticas_liga`
@@ -809,7 +528,7 @@ ALTER TABLE `noticia`
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
+  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `partido`
@@ -821,7 +540,7 @@ ALTER TABLE `partido`
 -- AUTO_INCREMENT de la tabla `posicion`
 --
 ALTER TABLE `posicion`
-  MODIFY `id_posicion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_posicion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `publicacion`

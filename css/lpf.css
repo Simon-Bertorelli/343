@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #002a44;
-  color: white; 
+  background-color: #002244;
+  color: #f7b731; 
 }
 
 .header {
@@ -10,7 +10,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: #003a5c;
+  background-color: #002a44;
 }
 
 .logo img {
@@ -27,17 +27,23 @@ nav ul {
 }
 
 nav li {
-  color: #fff;
+  color: #f7b731;
   cursor: pointer;
 }
 
 .volver {
   background: transparent;
-  color: white;
-  border: 1px solid white;
+  color: #f7b731;
+  border: 1px solid #f7b731;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.volver:hover {
+  background-color: #f7b731;
+  color: #002244;
+  transition: 0.3s;
 }
 
 .layout {
@@ -55,7 +61,7 @@ nav li {
 
 .sidebar .card {
   min-height: 200px;
-  background-color: #003a5c;
+  background-color: #011b33;
   border-radius: 10px;
   padding: 15px;
 }
@@ -63,7 +69,7 @@ nav li {
 .tabla-central {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 30px;
 }
 
@@ -133,6 +139,84 @@ nav li {
   background: red;
 }
 
+.tabla-posiciones {
+  width: 100%;
+  border-collapse: collapse;
+  color: #f7b731;
+  background-color: #003a5c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla-posiciones thead {
+  background-color: #012a4a;
+}
+
+.tabla-posiciones th,
+.tabla-posiciones td {
+  padding: 10px;
+  text-align: center;
+}
+
+.tabla-posiciones th {
+  color: #f7b731;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tabla-posiciones tbody tr:nth-child(even) {
+  background-color: #004060;
+}
+
+.tabla-posiciones tbody tr:hover {
+  background-color: #00507a;
+  transition: 0.3s;
+}
+
+.tabla-posiciones td:first-child {
+  font-weight: bold;
+  color: #f7b731;
+}
+
+.tabla-equipos {
+  width: 100%;
+  border-collapse: collapse;
+  color: #f7b731;
+  background-color: #003a5c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla-equipos thead {
+  background-color: #012a4a;
+}
+
+.tabla-equipos th,
+.tabla-equipos td {
+  padding: 10px;
+  text-align: center;
+}
+
+.tabla-equipos th {
+  color: #f7b731;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tabla-equipos tbody tr:nth-child(even) {
+  background-color: #004060;
+}
+
+.tabla-equipos tbody tr:hover {
+  background-color: #00507a;
+  transition: 0.3s;
+}
+
+.tabla-equipos td:first-child {
+  font-weight: bold;
+  color: #f7b731;
+}
+
 .estadisticas {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -145,17 +229,23 @@ nav li {
   background-color: #003a5c;
 }
 
-footer{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 2%;
-    border-top: solid 2px #f7b731;
+footer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2%;
+  border-top: solid 2px #f7b731;
+  padding-top: 15px;
 }
 
-footer div{
-    text-align: center;
+footer div {
+  text-align: center;
 }
 
-footer li{
-    text-align: left;
+footer li {
+  text-align: left;
+}
+
+a{
+  text-decoration: none;
+  color:#f7b731;
 }

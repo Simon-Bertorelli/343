@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 include __DIR__ . '/../conexion.php';
 
@@ -39,15 +42,20 @@ function mostrar_publicaciones($conexion, $id_grupo, $parent_id = NULL) {
         WHERE p.id_grupo = $id_grupo AND p.parent_id $parent_sql
         ORDER BY p.fecha DESC
     ");
-
-    echo "<ul style='list-style:none; padding-left:20px;'>";
+    
+    echo "<ul>"; 
     while ($pub = $result->fetch_assoc()) {
-        echo "<li style='border:1px solid #ccc; margin:5px; padding:10px; border-radius:8px;'>";
+        echo "<li>"; 
         echo "<b>" . htmlspecialchars($pub['nombre_usuario']) . "</b> (" . $pub['fecha'] . ")<br>";
-        echo nl2br(htmlspecialchars($pub['contenido'])) . "<br>";
-        echo "👍 " . $pub['likes'] . " | ";
-        echo "<a href='#' onclick='responder(" . $pub['id_publicacion'] . ")'>Responder</a> | ";
-        echo "<a href='../like.php?id=" . $pub['id_publicacion'] . "&id_grupo=$id_grupo'>Like</a>";
+        echo "<p class='contenido-publicacion'>" . nl2br(htmlspecialchars($pub['contenido'])) . "</p>";
+        
+        // Interacciones (Likes y Responder)
+        echo "<div class='interacciones'>";
+        echo "<span id='likes_count_" . $pub['id_publicacion'] . "'>👍 " . $pub['likes'] . "</span> | ";
+        echo "<a href='#' onclick='darLike(" . $pub['id_publicacion'] . ", " . $id_grupo . "); return false;'>Like/Unlike</a> | ";
+        echo "<a href='#' onclick='responder(" . $pub['id_publicacion'] . ")'>Responder</a>";
+        echo "</div>";
+
         mostrar_publicaciones($conexion, $id_grupo, $pub['id_publicacion']);
         echo "</li>";
     }
@@ -60,28 +68,57 @@ function mostrar_publicaciones($conexion, $id_grupo, $parent_id = NULL) {
 <head>
 <meta charset="UTF-8">
 <title>Foro del Grupo</title>
-<style>
-textarea { width:100%; height:80px; padding:8px; }
-button { padding:8px 12px; margin-top:5px; cursor:pointer; }
-</style>
+<link rel="stylesheet" href="../css/foro.css"> 
+
 <script>
-function responder(id_publicacion){
-    document.getElementById('parent_id').value = id_publicacion;
-    document.getElementById('contenido').focus();
-}
+    // --- FUNCIÓN PARA RESPONDER ---
+    function responder(id_publicacion){
+        document.getElementById('parent_id').value = id_publicacion;
+        document.getElementById('contenido').focus();
+    }
+
+    // --- FUNCIÓN AJAX PARA DAR/QUITAR LIKE ---
+    function darLike(id_publicacion, id_grupo) {
+        let url = '../like.php?id=' + id_publicacion + '&id_grupo=' + id_grupo;
+        
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al procesar el like.');
+                }
+                return response.text(); 
+            })
+            .then(newLikesCount => {
+                let likeElement = document.getElementById('likes_count_' + id_publicacion);
+                if (likeElement) {
+                    likeElement.textContent = '👍 ' + newLikesCount.trim();
+                }
+            })
+            .catch(error => {
+                console.error('Error al dar like:', error);
+                alert('Hubo un error al dar like. Revisa la consola.');
+            });
+    }
 </script>
 </head>
 <body>
-<a href="../logout.php">Cerrar sesión</a>
-<a href="grupos.php">volver</a>
-<h2>Nuevo mensaje</h2>
-<form method="POST">
-    <textarea id="contenido" name="contenido" placeholder="Escribe algo..." required></textarea>
-    <input type="hidden" id="parent_id" name="parent_id" value="">
-    <button type="submit" name="publicar">Publicar</button>
-</form>
+    <div class="container">
+        <div class="nav-links">
+            <a href="../logout.php">Cerrar sesión</a>
+            <a href="grupos.php">Volver a Grupos</a>
+        </div>
+        
+        <h2>Nuevo mensaje</h2>
+        <form method="POST" class="form-publicar">
+            <textarea id="contenido" name="contenido" placeholder="Escribe algo..." required></textarea>
+            <input type="hidden" id="parent_id" name="parent_id" value="">
+            <button type="submit" name="publicar" class="btn-publicar">Publicar</button>
+        </form>
 
-<h2>Publicaciones del grupo</h2>
-<?php mostrar_publicaciones($conexion, $id_grupo); ?>
+        <h2>Publicaciones del grupo</h2>
+        <div class="publicaciones-container">
+            <?php mostrar_publicaciones($conexion, $id_grupo); ?>
+        </div>
+    </div>
 </body>
 </html>

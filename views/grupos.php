@@ -25,35 +25,66 @@ $grupos_disponibles = $conexion->query("
         SELECT id_grupo FROM usuario_grupo WHERE id_usuario = $id_usuario
     )
 ");
-
-
 ?>
 
-<h2>Mis Grupos</h2>
-<?php if ($mis_grupos->num_rows > 0): ?>
-    <?php while ($g = $mis_grupos->fetch_assoc()): ?>
-        <div>
-            <strong><?= htmlspecialchars($g['nombre']) ?></strong>
-            <p><?= htmlspecialchars($g['descripcion']) ?></p>
-            <a href="foro.php?id_grupo=<?= $g['id_grupo'] ?>">Entrar</a>
-        </div>
-    <?php endwhile; ?>
-<?php else: ?>
-    <p>No perteneces a ningún grupo.</p>
-<?php endif; ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Grupos</title>
+    <link rel="stylesheet" href="../css/grupos.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Mis Grupos y Disponibles</h1>
 
-<h2>Grupos Disponibles</h2>
-<?php if ($grupos_disponibles->num_rows > 0): ?>
-    <?php while ($g = $grupos_disponibles->fetch_assoc()): ?>
-        <div>
-            <strong><?= htmlspecialchars($g['nombre']) ?></strong>
-            <p><?= htmlspecialchars($g['descripcion']) ?></p>
-            <form method="POST" action="/343-main/unirse.php"> <!-- Ruta absoluta desde la raíz -->
-                <input type="hidden" name="id_grupo" value="<?= $g['id_grupo'] ?>">
-                <button type="submit">Unirse</button>
-            </form>
-        </div>
-    <?php endwhile; ?>
-<?php else: ?>
-    <p>No hay grupos disponibles.</p>
-<?php endif; ?>
+        <a href="main.php" class="btn-volver">Volver</a>
+        
+        <section class="group-section">
+            <h2>Mis Grupos</h2>
+            <?php if ($mis_grupos->num_rows > 0): ?>
+                <div class="group-list">
+                    <?php while ($g = $mis_grupos->fetch_assoc()): ?>
+                        <div class="group-card my-group">
+                            <strong><?= htmlspecialchars($g['nombre']) ?></strong>
+                            <p class="description"><?= htmlspecialchars($g['descripcion']) ?></p>
+                            <div class="actions">
+                                <a href="foro.php?id_grupo=<?= $g['id_grupo'] ?>" class="btn-primary">Entrar</a>
+
+                                <form method="POST" action="salir_grupo.php" style="display:inline;"> 
+                                    <input type="hidden" name="id_grupo" value="<?= $g['id_grupo'] ?>">
+                                    <button type="submit" class="btn-danger" onclick="return confirm('¿Estás seguro de que quieres salir del grupo <?= htmlspecialchars($g['nombre']) ?>?');">Salir</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            <?php else: ?>
+                <p class="no-groups">No perteneces a ningún grupo.</p>
+            <?php endif; ?>
+        </section>
+
+        <section class="group-section">
+            <h2>Grupos Disponibles</h2>
+            <?php if ($grupos_disponibles->num_rows > 0): ?>
+                <div class="group-list">
+                    <?php while ($g = $grupos_disponibles->fetch_assoc()): ?>
+                        <div class="group-card available-group">
+                            <strong><?= htmlspecialchars($g['nombre']) ?></strong>
+                            <p class="description"><?= htmlspecialchars($g['descripcion']) ?></p>
+                            <div class="actions">
+                                <form method="POST" action="/343-main/unirse.php" style="display:inline;">
+                                    <input type="hidden" name="id_grupo" value="<?= $g['id_grupo'] ?>">
+                                    <button type="submit" class="btn-primary">Unirse</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            <?php else: ?>
+                <p class="no-groups">No hay grupos disponibles.</p>
+            <?php endif; ?>
+        </section>
+    </div>
+</body>
+</html>

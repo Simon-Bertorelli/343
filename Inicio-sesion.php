@@ -9,7 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contrasena = $_POST['contrasena'] ?? '';
 
     if ($nombre_usuario && $contrasena) {
-        $stmt = $conexion->prepare("SELECT id_usuario, nombre_usuario, contrasena, email FROM usuario WHERE nombre_usuario=?");
+        // MODIFICACIÓN: Se agrega 'rol' a la consulta SELECT
+        $stmt = $conexion->prepare("SELECT id_usuario, nombre_usuario, contrasena, email, rol FROM usuario WHERE nombre_usuario=?");
         $stmt->bind_param("s", $nombre_usuario);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -21,7 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['usuario_id'] = $user['id_usuario'];
                 $_SESSION['usuario_nombre'] = $user['nombre_usuario'];
                 $_SESSION['usuario_email'] = $user['email'];
-                header("Location: views/main.php");
+                
+                // NUEVO: Almacenar el rol del usuario en la sesión
+                $_SESSION['usuario_rol'] = $user['rol']; 
+                
+                // Opcional: Redirigir al admin a la página CRUD, si no, va a main.php
+                if ($user['rol'] === 'admin') {
+                    header("Location: views/main.php"); // Redirige al CRUD
+                } else {
+                    header("Location: views/main.php"); // Redirige a la página principal
+                }
                 exit;
             } else {
                 $message = "Usuario o contraseña incorrectos.";

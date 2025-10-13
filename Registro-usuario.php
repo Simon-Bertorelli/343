@@ -83,7 +83,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro 343</title>
-    <link rel="stylesheet" href="./pages/form.css">
+    <link rel="stylesheet" href="./css/registro.css">
 </head>
 <body>
     <div class="container">
@@ -114,7 +114,7 @@ $conn->close();
             <p>¿Ya tenés cuenta? <a href="Inicio-sesion-html.php">Iniciar sesión</a></p>
         </div>
         <div class="imagen">
-            <img src="./src/logo343.jpeg" alt="Logo 343">
+            <img src="./img/logo343.jpeg" alt="Logo 343">
         </div>
     </div>
 </body>

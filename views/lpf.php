@@ -7,81 +7,94 @@
   <link rel="stylesheet" href="../css/lpf.css">
 </head>
 <body>
-  <header class="header">
+   <header class="header">
     <div class="logo">
       <img src="../img/logo343.jpeg" alt="Logo 343">
     </div>
     <nav>
       <ul>
-        <li>Primera B Nacional</li>
-        <li><a href="lpf.php"></a>Liga Profesional</li>
-        <li>Premier</li>
-        <li><a href="sobreNos.php">Sobre Nosotros</a></li>
-        <li><a href="main.php">volver</a></li>
+        <li><a href="main.php">Inicio</a></li>
+        <li>Equipos</li>
+        <li>Partidos</li>
+        <li>Contacto</li>
       </ul>
     </nav>
+    <button class="volver">Volver</button>
   </header>
 
-  <main>
-    <div class="layout">
-      <div class="sidebar">
-        <div class="card">
-          <h2>EQUIPOS</h2>
-        </div>
-        <div class="card">
-          <h2>CAMPEONES</h2>
-          <ul class="tabla">
-            <li><span class="pos azul">1</span>River Plate - 2023</li>
-            <li><span class="pos azul">2</span>Boca Juniors - 2022</li>
-            <li><span class="pos azul">3</span>Racing Club - 2021</li>
-            <li><span class="pos azul">4</span>Independiente - 2020</li>
-            <li><span class="pos azul">5</span>Vélez Sarsfield - 2019</li>
-          </ul>
-        </div>
+  <main class="layout">
+    <section class="tabla-central">
+      <div class="card">
+        <h2>CLAUSURA - GRUPO A</h2>
+        <table class="tabla-posiciones">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Equipo</th>
+              <th>PTS</th>
+              <th>J</th>
+              <th>Gol</th>
+              <th>+/-</th>
+              <th>G</th>
+              <th>E</th>
+              <th>P</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Defensa y Justicia</td><td>19</td><td>12</td><td>13:10</td><td>+3</td><td>5</td><td>4</td><td>3</td></tr>
+            <tr><td>2</td><td>Central Córdoba</td><td>18</td><td>12</td><td>15:10</td><td>+5</td><td>5</td><td>3</td><td>4</td></tr>
+            <tr><td>3</td><td>Estudiantes</td><td>18</td><td>12</td><td>13:8</td><td>+5</td><td>5</td><td>3</td><td>4</td></tr>
+            <tr><td>4</td><td>Boca Jrs.</td><td>17</td><td>12</td><td>18:18</td><td>0</td><td>5</td><td>2</td><td>5</td></tr>
+            <tr><td>5</td><td>Unión</td><td>17</td><td>12</td><td>16:15</td><td>+1</td><td>5</td><td>2</td><td>5</td></tr>
+            <tr><td>6</td><td>Barracas</td><td>17</td><td>13</td><td>11:11</td><td>0</td><td>4</td><td>5</td><td>4</td></tr>
+            <tr><td>7</td><td>Tigre</td><td>17</td><td>13</td><td>14:9</td><td>+5</td><td>5</td><td>2</td><td>6</td></tr>
+            <tr><td>8</td><td>Huracán</td><td>16</td><td>12</td><td>6:10</td><td>-4</td><td>4</td><td>4</td><td>4</td></tr>
+            <tr><td>9</td><td>Argentinos</td><td>15</td><td>12</td><td>12:9</td><td>+3</td><td>4</td><td>3</td><td>5</td></tr>
+            <tr><td>10</td><td>Belgrano</td><td>15</td><td>12</td><td>11:9</td><td>+2</td><td>4</td><td>3</td><td>5</td></tr>
+            <tr><td>11</td><td>Racing</td><td>15</td><td>12</td><td>13:13</td><td>0</td><td>4</td><td>3</td><td>5</td></tr>
+            <tr><td>12</td><td>Banfield</td><td>14</td><td>12</td><td>7:13</td><td>-6</td><td>3</td><td>5</td><td>4</td></tr>
+            <tr><td>13</td><td>Ind. Rivadavia</td><td>12</td><td>12</td><td>12:12</td><td>0</td><td>3</td><td>3</td><td>6</td></tr>
+            <tr><td>14</td><td>Newell’s</td><td>11</td><td>12</td><td>10:18</td><td>-8</td><td>2</td><td>5</td><td>5</td></tr>
+            <tr><td>15</td><td>Aldosivi</td><td>9</td><td>12</td><td>5:14</td><td>-9</td><td>2</td><td>3</td><td>7</td></tr>
+          </tbody>
+        </table>
       </div>
+      <div class="card">
+  <h2>CLAUSURA - GRUPO B</h2>
+  <table class="tabla-posiciones">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Equipo</th>
+        <th>PTS</th>
+        <th>J</th>
+        <th>Gol</th>
+        <th>+/-</th>
+        <th>G</th>
+        <th>E</th>
+        <th>P</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Riestra</td><td>23</td><td>11</td><td>16:8</td><td>+8</td><td>7</td><td>2</td><td>2</td></tr>
+      <tr><td>2</td><td>Lanús</td><td>23</td><td>12</td><td>13:9</td><td>+4</td><td>7</td><td>2</td><td>3</td></tr>
+      <tr><td>3</td><td>Vélez</td><td>22</td><td>12</td><td>17:9</td><td>+8</td><td>6</td><td>4</td><td>2</td></tr>
+      <tr><td>4</td><td>Central</td><td>21</td><td>11</td><td>13:6</td><td>+7</td><td>5</td><td>6</td><td>0</td></tr>
+      <tr><td>5</td><td>River</td><td>18</td><td>12</td><td>18:12</td><td>+6</td><td>5</td><td>3</td><td>4</td></tr>
+      <tr><td>6</td><td>San Lorenzo</td><td>16</td><td>12</td><td>9:9</td><td>0</td><td>4</td><td>4</td><td>4</td></tr>
+      <tr><td>7</td><td>Atl. Tucumán</td><td>15</td><td>12</td><td>13:13</td><td>0</td><td>4</td><td>3</td><td>5</td></tr>
+      <tr><td>8</td><td>Sarmiento</td><td>15</td><td>11</td><td>9:11</td><td>-2</td><td>4</td><td>3</td><td>4</td></tr>
+      <tr><td>9</td><td>Instituto</td><td>15</td><td>12</td><td>7:11</td><td>-4</td><td>3</td><td>6</td><td>3</td></tr>
+      <tr><td>10</td><td>San Martín</td><td>14</td><td>12</td><td>9:11</td><td>-2</td><td>3</td><td>5</td><td>4</td></tr>
+      <tr><td>11</td><td>Talleres</td><td>14</td><td>12</td><td>7:10</td><td>-3</td><td>3</td><td>5</td><td>4</td></tr>
+      <tr><td>12</td><td>Gimnasia</td><td>13</td><td>12</td><td>8:14</td><td>-6</td><td>4</td><td>1</td><td>7</td></tr>
+      <tr><td>13</td><td>Platense</td><td>10</td><td>10</td><td>10:15</td><td>-5</td><td>2</td><td>7</td><td>1</td></tr>
+      <tr><td>14</td><td>Godoy Cruz</td><td>10</td><td>12</td><td>9:14</td><td>-5</td><td>2</td><td>7</td><td>4</td></tr>
+      <tr><td>15</td><td>Independiente</td><td>6</td><td>11</td><td>6:12</td><td>-6</td><td>0</td><td>6</td><td>5</td></tr>
+    </tbody>
+  </table>
+</div>
 
-      <div class="tabla-central">
-        <div class="card">
-          <h2>ZONA A</h2>
-          <ul class="tabla">
-            <li><span class="pos azul">1</span>Barracas</li>
-            <li><span class="pos azul">2</span>Central Cordoba</li>
-            <li><span class="pos azul">3</span>Boca</li>
-            <li><span class="pos azul">4</span>Union</li>
-            <li><span class="pos azul">5</span>Defensa y justicia</li>
-            <li><span class="pos azul">6</span>Estudiantes</li>
-            <li><span class="pos azul">7</span>Huracan</li>
-            <li><span class="pos azul">8</span>Banfield</li>
-            <li><span class="pos">9</span>Argentinos</li>
-            <li><span class="pos">10</span>Ind. Rivadavia</li>
-            <li><span class="pos">11</span>Belgrano</li>
-            <li><span class="pos">12</span>Tigre</li>
-            <li><span class="pos">13</span>Newell's</li>
-            <li><span class="pos">14</span>Racing</li>
-            <li><span class="pos">15</span>Aldosivi</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h2>ZONA B</h2>
-          <ul class="tabla">
-            <li><span class="pos azul">1</span>River</li>
-            <li><span class="pos azul">2</span>Velez</li>
-            <li><span class="pos azul">3</span>Riestra</li>
-            <li><span class="pos azul">4</span>San Lorenzo</li>
-            <li><span class="pos azul">5</span>Rosario Central</li>
-            <li><span class="pos azul">6</span>Gimnasia y Esgrima (LP)</li>
-            <li><span class="pos azul">7</span>Lanus</li>
-            <li><span class="pos azul">8</span>Atletico Tucuman</li>
-            <li><span class="pos">9</span>San Martin (SJ)</li>
-            <li><span class="pos">10</span>Godoy Cruz</li>
-            <li><span class="pos">11</span>Platense</li>
-            <li><span class="pos">12</span>Sarmiento</li>
-            <li><span class="pos">13</span>Instituto</li>
-            <li><span class="pos">14</span>Talleres</li>
-            <li><span class="pos">15</span>Independiente</li>
-          </ul>
-        </div>
 
         <section class="estadisticas">
           <div class="card">
