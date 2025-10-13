@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2025 a las 05:44:33
+-- Tiempo de generación: 14-10-2025 a las 01:26:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `343bd`
+-- Base de datos: `343db`
 --
 
 -- --------------------------------------------------------
@@ -102,36 +102,36 @@ CREATE TABLE `equipo` (
 --
 
 INSERT INTO `equipo` (`id_equipo`, `nombre`, `formacion`, `id_liga`) VALUES
-(1, 'River Plate', '4-3-3', NULL),
-(2, 'Boca Juniors', '4-2-3-1', NULL),
-(3, 'Racing Club', '4-3-3', NULL),
-(4, 'Independiente', '4-4-2', NULL),
-(5, 'San Lorenzo', '5-3-2', NULL),
-(6, 'Huracán', '4-4-2', NULL),
-(7, 'Vélez Sarsfield', '4-3-3', NULL),
-(8, 'Argentinos Juniors', '3-4-3', NULL),
-(9, 'Estudiantes de La Plata', '4-4-2', NULL),
-(10, 'Gimnasia y Esgrima La Plata', '4-2-3-1', NULL),
-(11, 'Rosario Central', '4-3-3', NULL),
-(12, 'Newell’s Old Boys', '4-2-3-1', NULL),
-(13, 'Tigre', '4-4-2', NULL),
-(14, 'Platense', '4-4-2', NULL),
-(15, 'Barracas Central', '4-4-2', NULL),
-(16, 'Sarmiento de Junín', '4-4-2', NULL),
-(17, 'Unión de Santa Fe', '4-2-3-1', NULL),
-(18, 'Colón de Santa Fe', '4-4-2', NULL),
-(19, 'Atlético Tucumán', '4-4-2', NULL),
-(20, 'Banfield', '4-3-3', NULL),
-(21, 'Lanús', '4-3-3', NULL),
-(22, 'Defensa y Justicia', '4-2-3-1', NULL),
-(23, 'Arsenal de Sarandí', '4-4-2', NULL),
-(24, 'Talleres de Córdoba', '4-2-3-1', NULL),
-(25, 'Instituto de Córdoba', '4-4-2', NULL),
-(26, 'Belgrano de Córdoba', '4-4-2', NULL),
-(27, 'Godoy Cruz', '4-3-3', NULL),
-(28, 'Central Córdoba (SdE)', '5-3-2', NULL),
-(29, 'Barracas Central', '4-4-2', NULL),
-(30, 'Independiente Rivadavia', '4-4-2', NULL);
+(1, 'River Plate', '4-3-3', 129),
+(2, 'Boca Juniors', '4-2-3-1', 129),
+(3, 'Racing Club', '4-3-3', 129),
+(4, 'Independiente', '4-4-2', 129),
+(5, 'San Lorenzo', '5-3-2', 129),
+(6, 'Huracán', '4-4-2', 129),
+(7, 'Vélez Sarsfield', '4-3-3', 129),
+(8, 'Argentinos Juniors', '3-4-3', 129),
+(9, 'Estudiantes de La Plata', '4-4-2', 129),
+(10, 'Gimnasia y Esgrima La Plata', '4-2-3-1', 129),
+(11, 'Rosario Central', '4-3-3', 129),
+(12, 'Newell’s Old Boys', '4-2-3-1', 129),
+(13, 'Tigre', '4-4-2', 129),
+(14, 'Platense', '4-4-2', 129),
+(15, 'Barracas Central', '4-4-2', 129),
+(16, 'Sarmiento de Junín', '4-4-2', 129),
+(17, 'Unión de Santa Fe', '4-2-3-1', 129),
+(18, 'Colón de Santa Fe', '4-4-2', 129),
+(19, 'Atlético Tucumán', '4-4-2', 129),
+(20, 'Banfield', '4-3-3', 129),
+(21, 'Lanús', '4-3-3', 129),
+(22, 'Defensa y Justicia', '4-2-3-1', 129),
+(23, 'Arsenal de Sarandí', '4-4-2', 129),
+(24, 'Talleres de Córdoba', '4-2-3-1', 129),
+(25, 'Instituto de Córdoba', '4-4-2', 129),
+(26, 'Belgrano de Córdoba', '4-4-2', 129),
+(27, 'Godoy Cruz', '4-3-3', 129),
+(28, 'Central Córdoba (SdE)', '5-3-2', 129),
+(29, 'Barracas Central', '4-4-2', 129),
+(30, 'Independiente Rivadavia', '4-4-2', 129);
 
 -- --------------------------------------------------------
 
@@ -167,10 +167,35 @@ CREATE TABLE `grupo` (
 --
 
 INSERT INTO `grupo` (`id_grupo`, `nombre`, `descripcion`, `id_equipo`) VALUES
-(1, 'Hinchas de Boca', 'Grupo oficial para discutir noticias de Boca Juniors.', NULL),
-(2, 'Los Millonarios', 'Comunidad para fanáticos de River Plate y su historia.', NULL),
-(3, 'Rey de Copas', 'Espacio de debate sobre el Club Atlético Independiente.', NULL),
-(4, 'La Academia', 'Grupo de apoyo e información para los seguidores de Racing Club.', NULL);
+(5, 'River Plate', 'Grupo de debate y noticias sobre River Plate.', NULL),
+(6, 'Boca Juniors', 'Grupo de debate y noticias sobre Boca Juniors.', NULL),
+(7, 'Racing Club', 'Grupo de debate y noticias sobre Racing Club.', NULL),
+(8, 'Independiente', 'Grupo de debate y noticias sobre Independiente.', NULL),
+(9, 'San Lorenzo', 'Grupo de debate y noticias sobre San Lorenzo.', NULL),
+(10, 'Huracán', 'Grupo de debate y noticias sobre Huracán.', NULL),
+(11, 'Vélez Sarsfield', 'Grupo de debate y noticias sobre Vélez Sarsfield.', NULL),
+(12, 'Argentinos Juniors', 'Grupo de debate y noticias sobre Argentinos Juniors.', NULL),
+(13, 'Estudiantes de La Plata', 'Grupo de debate y noticias sobre Estudiantes de La Plata.', NULL),
+(14, 'Gimnasia y Esgrima La Plata', 'Grupo de debate y noticias sobre Gimnasia y Esgrima La Plata.', NULL),
+(15, 'Rosario Central', 'Grupo de debate y noticias sobre Rosario Central.', NULL),
+(16, 'Newell’s Old Boys', 'Grupo de debate y noticias sobre Newell’s Old Boys.', NULL),
+(17, 'Tigre', 'Grupo de debate y noticias sobre Tigre.', NULL),
+(18, 'Platense', 'Grupo de debate y noticias sobre Platense.', NULL),
+(19, 'Barracas Central', 'Grupo de debate y noticias sobre Barracas Central.', NULL),
+(20, 'Sarmiento de Junín', 'Grupo de debate y noticias sobre Sarmiento de Junín.', NULL),
+(21, 'Unión de Santa Fe', 'Grupo de debate y noticias sobre Unión de Santa Fe.', NULL),
+(22, 'Colón de Santa Fe', 'Grupo de debate y noticias sobre Colón de Santa Fe.', NULL),
+(23, 'Atlético Tucumán', 'Grupo de debate y noticias sobre Atlético Tucumán.', NULL),
+(24, 'Banfield', 'Grupo de debate y noticias sobre Banfield.', NULL),
+(25, 'Lanús', 'Grupo de debate y noticias sobre Lanús.', NULL),
+(26, 'Defensa y Justicia', 'Grupo de debate y noticias sobre Defensa y Justicia.', NULL),
+(27, 'Arsenal de Sarandí', 'Grupo de debate y noticias sobre Arsenal de Sarandí.', NULL),
+(28, 'Talleres de Córdoba', 'Grupo de debate y noticias sobre Talleres de Córdoba.', NULL),
+(29, 'Instituto de Córdoba', 'Grupo de debate y noticias sobre Instituto de Córdoba.', NULL),
+(30, 'Belgrano de Córdoba', 'Grupo de debate y noticias sobre Belgrano de Córdoba.', NULL),
+(31, 'Godoy Cruz', 'Grupo de debate y noticias sobre Godoy Cruz.', NULL),
+(32, 'Central Córdoba (SdE)', 'Grupo de debate y noticias sobre Central Córdoba (SdE).', NULL),
+(33, 'Independiente Rivadavia', 'Grupo de debate y noticias sobre Independiente Rivadavia.', NULL);
 
 -- --------------------------------------------------------
 
@@ -244,6 +269,7 @@ CREATE TABLE `noticia` (
   `id_noticia` int(11) NOT NULL,
   `titulo` varchar(200) DEFAULT NULL,
   `contenido` text DEFAULT NULL,
+  `imagen_url` varchar(255) DEFAULT NULL,
   `fuente` varchar(100) DEFAULT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -523,21 +549,7 @@ CREATE TABLE `publicacion` (
 --
 
 INSERT INTO `publicacion` (`id_publicacion`, `contenido`, `fecha`, `id_usuario`, `id_grupo`, `parent_id`) VALUES
-(1, 'hola', '2025-10-12 23:39:58', 1, 1, NULL),
-(2, 'hola', '2025-10-12 23:40:02', 1, 1, 1),
-(3, 'bot', '2025-10-12 23:44:31', 2, 1, NULL),
-(4, 'h', '2025-10-12 23:52:14', 1, 1, NULL),
-(5, 'h', '2025-10-12 23:52:15', 1, 1, NULL),
-(6, 'h', '2025-10-12 23:52:16', 1, 1, NULL),
-(7, 'h', '2025-10-12 23:52:18', 1, 1, NULL),
-(8, 'h', '2025-10-12 23:52:20', 1, 1, NULL),
-(9, 'hola', '2025-10-13 00:01:00', 1, 2, NULL),
-(10, 'hola', '2025-10-13 00:27:03', 1, 1, 2),
-(11, 'ganamossssssss', '2025-10-13 01:23:18', 1, 4, NULL),
-(12, 'fue suerte', '2025-10-13 01:23:31', 1, 4, 11),
-(13, 'go0dddddd', '2025-10-13 01:23:41', 1, 4, NULL),
-(14, 'hola', '2025-10-13 01:24:29', 2, 4, NULL),
-(15, 'hola', '2025-10-13 01:25:20', 3, 2, NULL);
+(16, 'holaaa', '2025-10-13 23:22:50', 1, 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -600,18 +612,6 @@ CREATE TABLE `usuario_grupo` (
   `id_usuario` int(11) NOT NULL,
   `id_grupo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuario_grupo`
---
-
-INSERT INTO `usuario_grupo` (`id_usuario`, `id_grupo`) VALUES
-(1, 1),
-(1, 2),
-(1, 4),
-(2, 1),
-(2, 4),
-(3, 2);
 
 --
 -- Índices para tablas volcadas
@@ -779,7 +779,7 @@ ALTER TABLE `estadisticas_liga`
 -- AUTO_INCREMENT de la tabla `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_grupo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_equipo`
@@ -803,7 +803,7 @@ ALTER TABLE `liga`
 -- AUTO_INCREMENT de la tabla `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id_noticia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_noticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
@@ -827,13 +827,13 @@ ALTER TABLE `posicion`
 -- AUTO_INCREMENT de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `reaccion`
 --
 ALTER TABLE `reaccion`
-  MODIFY `id_reaccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_reaccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
