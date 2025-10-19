@@ -1,37 +1,155 @@
+/* === Variables de color === */
+:root {
+    --color-text: #f7b731; /* amarillo dorado */
+    --color-background: #002a44; /* fondo azul oscuro */
+    --color-dark-blue: #002244;
+}
+
+/* === Estilos generales === */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #002a44;
-  color: white; 
-  color: #f7b731;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: white;
 }
 
-h1{
+h1 {
     text-align: center;
+    color: white;
 }
 
-.pregunta{
-    padding: 1%;
-    margin: 2%;
-    background: #003a5c; 
-    border-radius: 10px;
+.pregunta {
     padding: 15px;
-
+    margin: 2%;
+    background: #003a5c;
+    border-radius: 10px;
+    color: white;
 }
 
-.pregunta:hover{
-  h2{
-    text-decoration: underline;
-  }
-  background-color: #0a5783;
+.pregunta h2 {
+    color: var(--color-text);
 }
 
-.integrantes .a{
-  display: flex;
-  justify-content: space-evenly;
-  text-align: center;
+.pregunta:hover {
+    background-color: #0a5783;
 }
 
-.int img{
-  border-radius: 50%;
+/* === Integrantes === */
+.integrantes .a {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.int {
+    width: 200px;
+    position: relative;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.int:hover {
+    transform: scale(1.05);
+}
+
+.int img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid var(--color-text);
+    transition: 0.3s ease;
+}
+
+.int:hover img {
+    box-shadow: 0 0 15px var(--color-text);
+}
+
+.int h2 {
+    color: var(--color-text);
+    margin: 10px 0 0 0;
+}
+
+.int h3 {
+    color: white;
+    margin: 5px 0 0 0;
+}
+
+
+/* === Tooltip === */
+#dynamic-tooltip {
+    /* CRÍTICO: Posicionamiento flotante */
+    position: fixed; 
+    
+    /* Oculto por defecto */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(5px); /* Posición inicial para la animación: sube desde abajo */
+    
+    /* Diseño */
+    width: 300px;
+    background-color: #ffffff;
+    color: var(--color-dark-blue);
+    border: 3px solid var(--color-text);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    pointer-events: none;
+    z-index: 1000;
+    
+    /* Transición controlada por la clase .visible */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+/* Mostrar tooltip */
+#dynamic-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Vuelve a posición normal (sube) */
+}
+
+/* --- Flecha que apunta hacia ABAJO (hacia la tarjeta) --- */
+#dynamic-tooltip::before,
+#dynamic-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Coloca la flecha en la parte inferior del tooltip */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Ajuste fino de centrado */
+    border-style: solid;
+}
+
+/* Borde exterior de la flecha (color de acento) */
+#dynamic-tooltip::before {
+    border-width: 12px; /* Tamaño total de la flecha */
+    /* El color de acento va en la parte superior del triángulo (la base) */
+    border-color: var(--color-text) transparent transparent transparent; 
+}
+
+/* Flecha interior (color blanco) */
+#dynamic-tooltip::after {
+    border-width: 10px; /* Un poco más pequeño para dejar el borde */
+    /* El color blanco va en la parte superior del triángulo (la base) */
+    border-color: #ffffff transparent transparent transparent; 
+    top: calc(100% - 3px); /* Ajusta este valor para que quede dentro del borde exterior */
+}
+
+
+/* Contenido interno */
+#tooltip-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--color-dark-blue);
+    border-bottom: 2px solid var(--color-text);
+    padding-bottom: 6px;
+}
+
+#tooltip-detail {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
 }

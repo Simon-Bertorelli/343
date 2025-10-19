@@ -103,6 +103,7 @@ input[type="text"], input[type="number"] {
     border-radius: 4px;
     background-color: #fff;
     color: var(--color-background);
+    
 }
 
 /* Botones */
@@ -164,3 +165,110 @@ tr:nth-child(even) {
 .actions a {
     margin-right: 5px;
 }
+
+/* --- MEJORAS DE ESTILO PARA INPUTS Y TEXTAREA (AJUSTE DE ANCHO) --- */
+
+/* Estilo Base para Inputs y Textarea */
+input[type="text"], 
+input[type="number"],
+textarea { 
+    /* ANCHO MODIFICADO: Cambiado de 100% a 50% para reducir su longitud. */
+    width: 50%; 
+    
+    /* Propiedades de estilo ya definidas (mantener): */
+    padding: 10px; 
+    border: 1px solid var(--color-border);
+    border-radius: 6px; 
+    background-color: #1a3a5a; 
+    color: #fff; 
+    box-sizing: border-box; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* El textarea es un caso especial; si quieres que sea igual de ancho: */
+textarea {
+    width: 50%; /* Aplicar el mismo 50% de ancho */
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Enfocar/Seleccionar Input (mantener) */
+input[type="text"]:focus, 
+input[type="number"]:focus,
+textarea:focus {
+    border-color: var(--color-text); 
+    box-shadow: 0 0 5px rgba(247, 183, 49, 0.7); 
+    outline: none; 
+    background-color: #2a4c6a; 
+}
+
+/* Estilo para el input[type="file"] (mantener 100% si deseas que el botón de subir sea visible) */
+input[type="file"] {
+    display: block;
+    width: 100%; /* Deja el input file al 100% para que se vea bien */
+    padding: 10px 0;
+    margin-top: 5px;
+    color: white;
+}
+
+/* === CARRUSEL CONTROLS (centrados y separados) === */
+.carrusel-container {
+  position: relative;
+}
+
+
+
+/* Botones del carrusel */
+.carrusel-controls  {
+
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+}
+
+.carrusel-controls button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* === INPUT FILE MODERNO === */
+input[type="file"] {
+  position: relative;
+  font-size: 14px;
+  color: #ccc;
+ 
+  padding: 10px;
+  width: 40%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Oculta el input nativo (solo deja visible el botón personalizado) */
+input[type="file"]::file-selector-button {
+ 
+  border-radius: 100px; 
+  border: none;
+background-color: var(--color-text);
+  padding: 8px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover del botón */
+input[type="file"]::file-selector-button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* Texto del nombre del archivo */
+input[type="file"]:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros</title>
    <link rel="stylesheet" href="../css/sobreNos.css">
+   <script src="../js/integrantes_tooltip.js" defer></script>
 </head>
 <body>
       <?php include 'header.php'; ?>
@@ -37,38 +39,61 @@
     <p>Cada sección de la página fue pensada y diseñada para brindar una experiencia clara, útil y visualmente atractiva para quienes siguen la liga jornada tras jornada.</p>
    </div>
 
-    <div class="integrantes">
-    <h1>Integrantes</h1>
-    <div class="a">
-      <div class="int">
-         <img src="../img/user-sin-foto.png" alt="Integrante">
-         <h2>Juan Chiriff</h2>
-         <h3>Scrum Master</h3>
-      </div>
-      <div class="int">
-         <img src="../img/user-sin-foto.png" alt="Integrante">
-         <h2>Theo Soiffer</h2>
-         <h3>Back-End</h3>
-      </div>
-      <div class="int">
-         <img src="../img/user-sin-foto.png" alt="Integrante">
-         <h2>Simón Basante</h2>
-         <h3>Back-End</h3>
-      </div>
-      <div class="int">
-         <img src="../img/user-sin-foto.png" alt="Integrante">
-         <h2>Ciro Galiana</h2>
-         <h3>Front-End & Diseñador</h3>
-      </div>
-      <div class="int">
-         <img src="../img/user-sin-foto.png" alt="Integrante">
-         <h2>Benicio Lovato</h2>
-         <h3>Front-End & Tester</h3>
-      </div>
-      </div>
-    </div>
-    </main>
+   <div class="integrantes">
+      <h1>Integrantes</h1>
 
+      <div class="a">
+        <div class="int info-card"
+             data-titulo="Juan Chiriff"
+             data-detalle="Rol: Scrum Master. Responsable de la gestión del equipo y metodologías ágiles.">
+          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <h2>Juan Chiriff</h2>
+          <h3>Scrum Master</h3>
+        </div>
+
+        <div class="int info-card"
+             data-titulo="Theo Soiffer"
+             data-detalle="Rol: Back-End: Desarrollo de la lógica y la gestión de la base de datos.">
+          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <h2>Theo Soiffer</h2>
+          <h3>Back-End</h3>
+        </div>
+
+        <div class="int info-card"
+             data-titulo="Simón Basante"
+             data-detalle="Rol: Back-End. Implementación de la API, seguridad y optimización..">
+          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <h2>Simón Basante</h2>
+          <h3>Back-End</h3>
+        </div>
+
+        <div class="int info-card"
+             data-titulo="Ciro Galiana"
+             data-detalle="Rol: Front-End & Diseñador: Diseño de interfaz y desarrollo de la parte visual.">
+          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <h2>Ciro Galiana</h2>
+          <h3>Front-End & Diseñador</h3>
+        </div>
+
+        <div class="int info-card"
+             data-titulo="Benicio Lovato"
+             data-detalle="Rol: Front-End & Tester: Implementación de CSS para el cliente y control de calidad de la pagina.">
+          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <h2>Benicio Lovato</h2>
+          <h3>Front-End & Tester</h3>
+        </div>
+      </div>
+
+      
+    
+   </div>
+   
+    </main>
+        
+        <div id="dynamic-tooltip">
+        <h3 id="tooltip-title"></h3>
+        <p id="tooltip-detail"></p>
+      </div>
  <?php include 'footer.php'; ?>
 </body>
 </html>

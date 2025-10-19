@@ -150,6 +150,94 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
     $stmt_delete->close();
 }
 
+// --- G. CREATE GRUPO ---
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_grupo'])) {
+    // Usamos 'nombre' que es el nombre REAL de la columna en la BD
+    $nombre = trim($_POST['nombre']); 
+    // La tabla 'grupo' no tiene 'creador_id' ni 'fecha_creacion' en tu dump,
+    // pero tiene 'descripcion' y 'id_equipo'. Si quieres usar el ID del equipo asociado:
+    $descripcion = trim($_POST['descripcion']); 
+    $id_equipo = intval($_POST['id_equipo']);
+
+    if ($nombre) { // Ya no es necesario creador_id
+        // Adaptamos el INSERT a la estructura real de tu tabla: `nombre`, `descripcion`, `id_equipo`
+        $stmt = $conexion->prepare("INSERT INTO grupo (nombre, descripcion, id_equipo) VALUES (?, ?, ?)");
+        $stmt->bind_param("ssi", $nombre, $descripcion, $id_equipo);
+        
+        if ($stmt->execute()) {
+            $message = "<p class='success'>Grupo '{$nombre}' creado con éxito.</p>";
+        } else {
+            $message = "<p class='error'>Error al crear grupo: " . $conexion->error . "</p>";
+        }
+        $stmt->close();
+    } else {
+        $message = "<p class='error'>Faltan campos obligatorios para crear el grupo.</p>";
+    }
+}
+
+// --- H. DELETE GRUPO ---
+if (isset($_GET['action']) && $_GET['action'] == 'delete_grupo' && isset($_GET['id'])) {
+    $id_grupo = intval($_GET['id']);
+    
+    $stmt_delete = $conexion->prepare("DELETE FROM grupo WHERE id_grupo = ?");
+    $stmt_delete->bind_param("i", $id_grupo);
+    
+    if ($stmt_delete->execute()) {
+        $message = "<p class='success'>Grupo eliminado con éxito.</p>";
+    } else {
+        $message = "<p class='error'>Error al eliminar grupo: " . $conexion->error . "</p>";
+    }
+    $stmt_delete->close();
+}
+
+// --- I. READ GRUPOS: Obtener todos los grupos para la tabla ---
+// CORRECCIÓN: Usamos 'g.nombre AS nombre_grupo' para solucionar el Fatal Error.
+$grupos_result = $conexion->query("
+    SELECT 
+        g.id_grupo, 
+        g.nombre AS nombre_grupo, 
+        g.descripcion, 
+        e.nombre AS nombre_equipo_asociado
+    FROM grupo g
+    LEFT JOIN equipo e ON g.id_equipo = e.id_equipo
+    ORDER BY g.id_grupo ASC
+");
+
+
+// --- J. DELETE USUARIO ---
+if (isset($_GET['action']) && $_GET['action'] == 'delete_usuario' && isset($_GET['id'])) {
+    $id_usuario = intval($_GET['id']);
+    
+    // Evita que el admin activo se elimine a sí mismo
+    if ($id_usuario == $_SESSION['usuario_id']) {
+        $message = "<p class='error'>No puedes eliminar tu propia cuenta de administrador mientras estás conectado.</p>";
+    } else {
+        // La tabla 'usuario' tiene 'id_usuario', 'nombre_usuario', 'email'
+        $stmt_delete = $conexion->prepare("DELETE FROM usuario WHERE id_usuario = ?");
+        $stmt_delete->bind_param("i", $id_usuario);
+        
+        if ($stmt_delete->execute()) {
+            $message = "<p class='success'>Usuario eliminado con éxito.</p>";
+        } else {
+            $message = "<p class='error'>Error al eliminar usuario: " . $conexion->error . "</p>";
+        }
+        $stmt_delete->close();
+    }
+}
+
+// --- K. READ USUARIOS: Obtener todos los usuarios para la tabla ---
+// La tabla 'usuario' tiene 'id_usuario', 'nombre_usuario', 'email', 'rol'
+$usuarios_result = $conexion->query("
+    SELECT 
+        u.id_usuario, 
+        u.nombre_usuario, 
+        u.email, 
+        u.rol,
+        e.nombre AS equipo_favorito
+    FROM usuario u
+    LEFT JOIN equipo e ON u.id_equipo_favorito = e.id_equipo
+    ORDER BY u.id_usuario ASC
+");
 // -------------------------------------------------------------------------------------
 // D. READ: Obtener todos los equipos para la tabla... (Esta línea ya la tenías, déjala)
 // -------------------------------------------------------------------------------------
@@ -167,6 +255,7 @@ $equipos_result = $conexion->query("
     <meta charset="UTF-8">
     <title>Panel de Administración - CRUD</title>
     <link rel="stylesheet" href="./css/admin_crud.css"> 
+    <script src="./js/admin_carrusel.js" defer></script>
 </head>
 <body>
     
@@ -199,7 +288,7 @@ $equipos_result = $conexion->query("
                     </div>
 
                     <div class="form-group">
-                        <label for="imagen">Imagen (JPG, PNG, GIF):</label>
+                        <label id="seleccionar" for="imagen">Imagen (JPG, PNG, GIF):</label>
                         <input type="file" name="imagen" id="imagen" accept="image/*" required>
                     </div>
                     
@@ -304,7 +393,128 @@ $equipos_result = $conexion->query("
                 </table>
             </div>
         </div>
+
+
+        <hr style="margin: 50px 0;">
+<div class="crud-section" id="grupos">
+    <h2>👥 CRUD de Grupos</h2>
+    <div class="form-section">
+        <h3>Crear Nuevo Grupo</h3>
+        <form method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre del Grupo:</label>
+                <input type="text" name="nombre" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea name="descripcion" id="descripcion" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="id_equipo">ID Equipo Asociado (Opcional):</label>
+                <input type="number" name="id_equipo" id="id_equipo"> 
+            </div>
+            <button type="submit" name="create_grupo" class="btn-primary">Crear Grupo</button>
+        </form>
     </div>
+
+    <hr>
+    
+    <div class="table-section carrusel-container">
+        <h3>Lista de Grupos</h3>
+        <div class="carrusel-wrapper" data-items-per-page="5">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Equipo Asociado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="carrusel-track">
+                    <?php 
+                    while($grupo = $grupos_result->fetch_assoc()): 
+                    ?>
+                    <tr class="carrusel-item">
+                        <td><?= htmlspecialchars($grupo['id_grupo']) ?></td>
+                        <td><?= htmlspecialchars($grupo['nombre_grupo']) ?></td>
+                        <td><?= htmlspecialchars(substr($grupo['descripcion'], 0, 50)) . '...' ?></td>
+                        <td><?= htmlspecialchars($grupo['nombre_equipo_asociado'] ?: 'Ninguno') ?></td>
+                        <td class="actions">
+                            <a href="?action=delete_grupo&id=<?= $grupo['id_grupo'] ?>" class="btn-danger" 
+                                onclick="return confirm('¿Seguro de eliminar el grupo: <?= htmlspecialchars($grupo['nombre_grupo']) ?>?');">Eliminar</a>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="carrusel-controls">
+            <button class="btn-secondary prev-btn" data-target="#grupos">Anterior</button>
+            <button class="btn-secondary next-btn" data-target="#grupos">Siguiente</button>
+        </div>
+    </div>
+</div>
+
+<hr style="margin: 50px 0;">
+<div class="crud-section" id="usuarios">
+    <h2>👤 CRUD de Usuarios</h2>
+    
+    <div class="table-section carrusel-container">
+        <h3>Lista de Usuarios</h3>
+        <div class="carrusel-wrapper" data-items-per-page="5">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Equipo Favorito</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="carrusel-track">
+                    <?php 
+                    while($usuario = $usuarios_result->fetch_assoc()): 
+                    ?>
+                    <tr class="carrusel-item">
+                        <td><?= htmlspecialchars($usuario['id_usuario']) ?></td>
+                        <td><?= htmlspecialchars($usuario['nombre_usuario']) ?></td>
+                        <td><?= htmlspecialchars($usuario['email']) ?></td>
+                        <td><?= htmlspecialchars($usuario['rol']) ?></td>
+                        <td><?= htmlspecialchars($usuario['equipo_favorito'] ?: 'N/A') ?></td>
+                        <td class="actions">
+                            <?php 
+                            // Evitar que el admin se elimine a sí mismo
+                            if ($usuario['id_usuario'] != $_SESSION['usuario_id']): 
+                            ?>
+                            <a href="?action=delete_usuario&id=<?= $usuario['id_usuario'] ?>" class="btn-danger" 
+                                onclick="return confirm('¿Seguro de eliminar al usuario: <?= htmlspecialchars($usuario['nombre_usuario']) ?>?');">Eliminar</a>
+                            <?php 
+                            else:
+                            ?>
+                            <span class="btn-disabled">Admin Activo</span>
+                            <?php
+                            endif; 
+                            ?>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="carrusel-controls">
+            <button id="booton-anterior" class="btn-secondary prev-btn" data-target="#usuarios">Anterior</button>
+            <button id="booton-siguiente" class="btn-secondary next-btn" data-target="#usuarios">Siguiente</button>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
 
 </body>
 </html>

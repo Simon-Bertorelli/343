@@ -14,7 +14,17 @@ if (carrusel && prev && next && firstCard) {
     const gap = parseFloat(gapStyle) || 0; 
     
     // La cantidad de desplazamiento es el ancho de una tarjeta más el gap
-    const scrollAmount = cardWidth + gap;
+    const fullScrollAmount = cardWidth + gap;
+
+    // -----------------------------------------------------------------
+    // MODIFICACIÓN CLAVE: Reducir la distancia para mayor "fluidez"
+    // -----------------------------------------------------------------
+    // Reduce el desplazamiento al 75% de una tarjeta.
+    // Puedes ajustar el 0.75 a un valor menor (ej. 0.5) para más fluidez, 
+    // o a un valor mayor (ej. 1.2) si quieres que se mueva más rápido.
+    const scrollFactor = 0.75; 
+    const scrollAmount = fullScrollAmount * scrollFactor; 
+    // -----------------------------------------------------------------
 
     next.addEventListener("click", function() {
         carrusel.scrollBy({ left: scrollAmount, behavior: "smooth" });

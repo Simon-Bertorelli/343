@@ -31,6 +31,10 @@ include("Inicio-sesion.php");
         ¿No tienes cuenta? 
         <a href="Registro-usuario.php">Regístrate aquí</a>
     </p>
+    <p>
+        ¿No quieres iniciar sesion? 
+        <a href="./views/main.php">Ingresa aquí</a>
+    </p>
 
 
 </form>
