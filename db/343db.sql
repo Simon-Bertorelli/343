@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2025 a las 01:26:21
+-- Tiempo de generación: 21-10-2025 a las 17:29:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -273,6 +273,15 @@ CREATE TABLE `noticia` (
   `fuente` varchar(100) DEFAULT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `noticia`
+--
+
+INSERT INTO `noticia` (`id_noticia`, `titulo`, `contenido`, `imagen_url`, `fuente`, `fecha`) VALUES
+(7, 'Probando las noticias', 'asdadsa', 'uploads/noticias/img_68f6f737993ab0.95609370.jpg', 'asdasd', '2025-10-21 03:00:07'),
+(8, 'Probando las noticias', 'holaaaaaaaaaaaa', 'uploads/noticias/img_68f7a12abf1539.44398157.jpg', 'https://trello.com/b/1yQDcDi5/ponce-studio-343', '2025-10-21 15:05:14'),
+(9, 'Probando las noticias', 'dasdsadsaa', 'uploads/noticias/img_68f7a135bd4967.54857756.jpg', 'asdasd', '2025-10-21 15:05:25');
 
 -- --------------------------------------------------------
 
@@ -549,7 +558,9 @@ CREATE TABLE `publicacion` (
 --
 
 INSERT INTO `publicacion` (`id_publicacion`, `contenido`, `fecha`, `id_usuario`, `id_grupo`, `parent_id`) VALUES
-(16, 'holaaa', '2025-10-13 23:22:50', 1, 6, NULL);
+(16, 'holaaa', '2025-10-13 23:22:50', 1, 6, NULL),
+(17, 'hola', '2025-10-19 21:32:06', 1, 5, NULL),
+(18, 'hola', '2025-10-19 21:32:11', 1, 5, 17);
 
 -- --------------------------------------------------------
 
@@ -576,7 +587,8 @@ INSERT INTO `reaccion` (`id_reaccion`, `tipo`, `id_usuario`, `tipo_objeto`, `id_
 (20, 'like', 1, 'publicacion', 1, '2025-10-13 01:17:33'),
 (21, 'like', 1, 'publicacion', 3, '2025-10-13 01:17:34'),
 (23, 'like', 1, 'publicacion', 4, '2025-10-13 01:17:36'),
-(27, 'like', 1, 'publicacion', 11, '2025-10-13 01:23:23');
+(27, 'like', 1, 'publicacion', 11, '2025-10-13 01:23:23'),
+(29, 'like', 1, 'publicacion', 17, '2025-10-19 21:32:07');
 
 -- --------------------------------------------------------
 
@@ -589,6 +601,7 @@ CREATE TABLE `usuario` (
   `nombre_usuario` varchar(50) NOT NULL,
   `contrasena` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `descripcion` text DEFAULT NULL,
   `id_equipo_favorito` int(11) DEFAULT NULL,
   `rol` enum('admin','user') NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -597,10 +610,10 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `contrasena`, `email`, `id_equipo_favorito`, `rol`) VALUES
-(1, 'juan', '$2y$10$FDJz4hNGsGU1ezyxbLb/EeEJ8vEgmiB1BiqxRw5VqkFKfi5kQfdge', 'juanpatriciochiriff@gmail.com', NULL, 'admin'),
-(2, 'theo', '$2y$10$t.elQ9lhFM/rBptAowvDZu6qf5zRYT9e155peCwoNerhFJAYwU6Ru', 'gchiriff@gmail.com', NULL, 'user'),
-(3, 'ciro', '$2y$10$7LOJydmEYq5o7zXHo4CTOetYBhk.WNrNCoM13vf7Q.2aA98vWZWVm', 'theo@gmail.com', NULL, 'user');
+INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `contrasena`, `email`, `descripcion`, `id_equipo_favorito`, `rol`) VALUES
+(1, 'juan', '$2y$10$61SVLlkhjGAJiUJfUR7tke2hO6qgDWRwEBWhhIr0D0j62rhQ69nlC', 'juanpatriciochiriff@gmail.com', 'sfdsdf', 2, 'admin'),
+(2, 'theo', '$2y$10$t.elQ9lhFM/rBptAowvDZu6qf5zRYT9e155peCwoNerhFJAYwU6Ru', 'gchiriff@gmail.com', NULL, NULL, 'user'),
+(3, 'ciro', '$2y$10$7LOJydmEYq5o7zXHo4CTOetYBhk.WNrNCoM13vf7Q.2aA98vWZWVm', 'theo@gmail.com', NULL, NULL, 'user');
 
 -- --------------------------------------------------------
 
@@ -803,7 +816,7 @@ ALTER TABLE `liga`
 -- AUTO_INCREMENT de la tabla `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id_noticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_noticia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
@@ -827,13 +840,13 @@ ALTER TABLE `posicion`
 -- AUTO_INCREMENT de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_publicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `reaccion`
 --
 ALTER TABLE `reaccion`
-  MODIFY `id_reaccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_reaccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
