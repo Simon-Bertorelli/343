@@ -27,10 +27,12 @@ $noticias_result = $conexion->query("
         <section class="news-grid">
             <?php if ($noticias_result->num_rows > 0): ?>
                 <?php while($noticia = $noticias_result->fetch_assoc()): ?>
+                   
+                   
                     <article class="news-card">
                         <?php if ($noticia['imagen_url']): ?>
                             <div class="news-image-wrapper">
-                                <img src="<?= htmlspecialchars($noticia['imagen_url']) ?>" alt="<?= htmlspecialchars($noticia['titulo']) ?>" class="news-image">
+                            <img src="../<?= htmlspecialchars($noticia['imagen_url']) ?>" alt="<?= htmlspecialchars($noticia['titulo']) ?>" class="news-image">
                             </div>
                         <?php endif; ?>
                         
