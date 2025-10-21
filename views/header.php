@@ -7,6 +7,7 @@
     <nav>
       <ul>
         <li><a href="main.php">Inicio</a></li>
+        <li><a href="usuario.php">Usuario</a></li>
         <li>Partidos</li>
         <li>Contacto</li>
         <li><a href="noticia.php">Noticias</a></li>
@@ -43,9 +44,4 @@
     
     ?>
     </div>
-    
-    
-    
-    
-
   </header>

@@ -1,0 +1,103 @@
+/* === Variables de color === */
+:root {
+    --color-text: #f7b731; /* amarillo dorado */
+    --color-background: #002a44; /* fondo azul oscuro */
+    --color-dark-blue: #002244;
+}
+
+/* === Estilos generales === */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+main {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#foto{
+    display: flex;
+    justify-content: center;
+}
+
+#foto img{
+    border-radius: 50%;
+}
+
+#club{
+    display: flex;
+}
+
+#club img{
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#desc, #club{
+    background-color: #003a5c;
+    padding: 10px;
+    border: #f7b731 1px solid;
+    border-radius: 10px
+}
+
+/* === RESPONSIVE === */
+
+/* Pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #foto img {
+        max-width: 150px;
+    }
+
+    #club {
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+/* Pantallas pequeñas (celulares) */
+@media (max-width: 480px) {
+    main {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    #foto img {
+        max-width: 120px;
+    }
+
+    #desc, #club {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #club {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #club img {
+        margin: 10px 0 0 0;
+    }
+}

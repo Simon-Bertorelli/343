@@ -10,6 +10,10 @@
   background-color: #002244;
   color: #f7b731; 
   border-bottom: 1px solid #f7b731;
+  position: sticky;
+  top: 0;
+  width: 96%;
+  z-index: 100;
 }
 
 .logo img {
