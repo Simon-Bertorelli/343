@@ -31,7 +31,8 @@ $grupos_disponibles = $conexion->query("
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Grupos</title>
+    <title>Grupos - 343</title>
+    <link rel="icon" href="../img/343-logo.png" type="image/png">
     <link rel="stylesheet" href="../css/grupos.css"> 
 </head>
 <body>

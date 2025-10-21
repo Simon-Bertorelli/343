@@ -16,7 +16,8 @@ $noticias_result = $conexion->query("
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noticias Deportivas - Tu Portal</title>
+    <title>Noticias Deportivas - 343</title>
+    <link rel="icon" href="../img/343-logo.png" type="image/png">
     <link rel="stylesheet" href="../css/noticia.css"> 
 </head>
 <body>

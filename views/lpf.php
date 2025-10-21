@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liga Profesional Argentina - 343</title>
+  <link rel="icon" href="../img/343-logo.png" type="image/png">
   <link rel="stylesheet" href="../css/lpf.css">
 </head>
 <body>

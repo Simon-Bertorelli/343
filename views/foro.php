@@ -67,7 +67,8 @@ function mostrar_publicaciones($conexion, $id_grupo, $parent_id = NULL) {
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Foro del Grupo</title>
+<title>Foro - 343</title>
+<link rel="icon" href="../img/343-logo.png" type="image/png">
 <link rel="stylesheet" href="../css/foro.css"> 
 
 <script>

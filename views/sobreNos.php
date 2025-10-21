@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nosotros</title>
+    <title>Sobre Nosotros - 343</title>
    <link rel="stylesheet" href="../css/sobreNos.css">
+   <link rel="icon" href="../img/343-logo.png" type="image/png">
    <script src="../js/integrantes_tooltip.js" defer></script>
 </head>
 <body>
