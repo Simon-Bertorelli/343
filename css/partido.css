@@ -1,74 +1,270 @@
+/* --- CSS Mejorado: Tema Oscuro Moderno con Acentos Dorados --- */
+
+/* Paleta:
+   - Fondo Principal: #1a202c (Navy/Charcoal Oscuro)
+   - Color Principal/Acento (Gold/Amarillo): #f7b731
+   - Color Secundario/Detalles (Gris Claro): #a0aec0
+   - Bordes/Divisores: #4a5568
+   - Fondo Secundario/Cajas: #242c38
+*/
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #001f3f;
-  color: #f7b731;
-  height: 100%;
-}
-
-#vs{
+    margin: 0;
+    /* Fuente: Añadir 'Roboto' si está disponible, sino Arial */
+    font-family: 'Roboto', Arial, sans-serif;
+    /* Fondo Oscuro Elegante */
+    background-color: #001f3f;
+    color: #f7b731;
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.equipo{
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
 }
 
-.equipo img{
-    width: 100px;
-    height: 100px;
-}
-
-main{
+main {
     flex: 1;
     padding: 20px;
+    max-width: 1200px; /* Limitar el ancho para mejor lectura */
+    margin: 0 auto; /* Centrar el contenido principal */
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no rompa el layout */
 }
 
-h1, h2, h3{
+/* --- Títulos --- */
+h1, h2, h3 {
     text-align: center;
+    color: #f7b731;
+    padding: 10px 0;
+    font-weight: 700;
 }
 
-#info{
+h1 {
+    font-size: 2.5em;
+    border-bottom: 2px solid #2d3748; /* Línea sutil de separación */
+    margin-bottom: 20px;
+}
+
+/* --- Sección VS (Boca vs River) --- */
+#vs {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0;
+    background-color: #072d53; /* Fondo sutil para la sección VS */
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombra para profundidad */
 }
 
-li{
-    padding: 5px;
+#vs h1 {
+    font-size: 3em;
+    margin: 0 20px;
+    color: #a0aec0; /* Color secundario para el 'VS' */
+    border-bottom: none;
 }
 
-#info-general, #info-detalles, #info-trans{
-    border: 1px solid #f7b731;
-    border-radius: 10px;
+.equipo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 10px;
 }
 
-#alineaciones{
-    margin-top: 20px;
+.equipo img {
+    width: 120px; /* Aumento del tamaño del logo */
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%; /* Logos redondos */
+    border: 3px solid #f7b731; /* Borde de color de acento */
+    box-shadow: 0 0 15px rgba(247, 183, 49, 0.4); /* Sombra brillante */
+    transition: transform 0.3s ease;
+}
+
+.equipo img:hover {
+    transform: scale(1.05); /* Efecto hover */
+}
+
+.equipo h2 {
+    font-size: 1.8em;
+    margin-top: 15px;
+    color: #f7b731;
+}
+
+/* --- Sección de Información General --- */
+#info {
     display: flex;
-    justify-content: space-evenly;
-    text-align: center;
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre las cajas de info */
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* <-- Clave para responsividad */
 }
 
-table{
-    border-collapse: collapse;
-    width: 400px;
-    height: 600px;
-    margin-top: 10px;
-
+#info-general, #info-detalles, #info-trans {
+    flex: 1; /* Permite que crezcan */
+    min-width: 280px; /* Ancho mínimo antes de envolverse */
+    border: 1px solid #4a5568; /* Borde más sutil */
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #242c38;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-th, td{
-    border: 1px solid #f7b731;
-    padding: 8px;
-    text-align: center;
+#info p {
+    margin: 8px 0;
+    color: #a0aec0; /* Texto secundario más suave */
 }
 
-.dt{
+#info h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #f7b731;
+    padding-bottom: 10px;
+    color: #f7b731;
+}
+
+li {
+    padding: 5px;
+    list-style: none;
+    color: #a0aec0;
+}
+
+
+/* --- Sección Alineaciones --- */
+#alineaciones {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* <-- Clave para responsividad */
+}
+
+.alineacion {
+    flex: 1;
+    min-width: 320px; /* Ancho mínimo flexible */
+    max-width: 450px;
+    margin: 10px;
+    background-color: #242c38;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.alineacion h3 {
+    /* El fondo del h3 dentro de alineacion puede ser temático */
     background-color: #072d53;
+    color: #f7b731;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    height: auto;
+    font-size: 0.95em;
+    border: 1px solid #f7b731 ;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #f7b731;
+    padding: 12px 8px;
+    text-align: center;
+    color: #a0aec0;
+}
+
+th {
+    background-color: #072d53;
+    color: #f7b731;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Efecto 'Zebra' para filas */
+tr:nth-child(even) {
+    background-color: #1a202c; /* Fondo de la fila par */
+}
+
+tr:nth-child(odd) {
+    background-color: #242c38; /* Fondo de la fila impar */
+}
+
+/* Fila del Director Técnico (DT) */
+.dt td {
+    background-color: #2d3748 !important; /* Fondo resaltado para el DT */
+    color: #f7b731; /* Texto de color de acento */
+    font-weight: bold;
+    border-top: 2px solid #f7b731; /* Separador claro */
+}
+
+/* ================================================= */
+/* ---               RESPONSIVIDAD               --- */
+/* ================================================= */
+
+/* Tabletas y Móviles Grandes (stackea las secciones principales) */
+@media (max-width: 1000px) {
+    #alineaciones {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .alineacion {
+        /* Se estirará al 90% del contenedor padre (#alineaciones) */
+        width: 90%; 
+        max-width: 500px; /* Limitar en tabletas */
+    }
+
+    #info {
+        flex-direction: column; /* Apila las cajas de info */
+        align-items: center;
+    }
+
+    #info-general, #info-detalles, #info-trans {
+        width: 90%; /* Ocupan el 90% */
+        max-width: 500px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Móviles Pequeños (ajusta tamaños de fuente y logos) */
+@media (max-width: 600px) {
+    #vs {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    #vs h1 {
+        margin: 15px 0;
+        font-size: 2.5em;
+    }
+    
+    .equipo img {
+        width: 100px; /* Reducir logos */
+        height: 100px;
+    }
+    
+    .equipo h2 {
+        font-size: 1.5em; /* Reducir H2 */
+    }
+    
+    h1 {
+        font-size: 2em; /* Reducir H1 principal */
+    }
+
+    .alineacion {
+        min-width: 90%; /* Asegura que ocupe casi todo el ancho */
+        padding: 5px;
+    }
+
+    table {
+        font-size: 0.9em; /* Achicar un poco la fuente de la tabla */
+    }
+
+    th, td {
+        padding: 8px 4px; /* Reducir padding en celdas */
+    }
 }

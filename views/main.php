@@ -51,14 +51,15 @@
     <section class="partidos">
       <h2>PARTIDOS DE HOY</h2>
       <div class="match-list">
-        <div class="match">
+      <a href="partido.php">
+      <div class="match">
           <img src="../img/boca.png" alt="Boca">
           <span class="team-name">Boca Juniors</span>
           <span class="vs">VS</span>
           <span class="team-name">River Plate</span>
           <img src="../img/riber.png" alt="River">
         </div>
-
+       </a> 
         <div class="match">
           <img src="../img/gelp.png" alt="Gimnasia">
           <span class="team-name">Gimnasia y Esgrima (LP)</span>
