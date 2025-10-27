@@ -248,6 +248,86 @@ $equipos_result = $conexion->query("
     LEFT JOIN liga l ON e.id_liga = l.id_liga
     ORDER BY e.id_equipo ASC
 ");
+
+
+// --- L. CREATE SLIDE CARRUSEL ---
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_slide'])) {
+    $titulo = trim($_POST['titulo_slide']);
+    // 🚨 NUEVA LÍNEA: Capturamos el contenido
+    $contenido = trim($_POST['contenido_slide'] ?? ''); 
+    $orden = intval($_POST['orden'] ?? 0); 
+    $imagen_url = null;
+    $error_imagen = '';
+
+    // ... (Lógica de subida de imagen, ya existente) ...
+    if (isset($_FILES['imagen_slide']) && $_FILES['imagen_slide']['error'] == UPLOAD_ERR_OK) {
+        $upload_dir_slide = 'uploads/carrusel/';
+        if (!is_dir($upload_dir_slide)) {
+             mkdir($upload_dir_slide, 0777, true);
+        }
+        
+        $upload_result = subir_imagen($_FILES['imagen_slide'], $upload_dir_slide);
+        
+        if (is_string($upload_result) && strpos($upload_result, 'Error:') === 0) {
+            $error_imagen = $upload_result;
+        } else {
+            $imagen_url = $upload_result; 
+        }
+    }
+
+    if ($error_imagen) {
+        $message = "<p class='error'>" . $error_imagen . "</p>";
+    } elseif ($titulo && $imagen_url) {
+        // 🚨 MODIFICACIÓN CLAVE: Agregamos 'contenido' al INSERT y a bind_param
+        $stmt = $conexion->prepare("INSERT INTO carrusel_slide (titulo, contenido, imagen_url, orden) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("sssi", $titulo, $contenido, $imagen_url, $orden); // 's' extra para el contenido
+        if ($stmt->execute()) {
+            $message = "<p class='success'>Slide de Carrusel creado con éxito.</p>";
+        } else {
+            $message = "<p class='error'>Error al crear slide: " . $conexion->error . "</p>";
+        }
+        $stmt->close();
+    } else {
+        $message = "<p class='error'>Faltan el título o la imagen para crear el slide.</p>";
+    }
+}
+
+// --- M. DELETE SLIDE CARRUSEL ---
+if (isset($_GET['action']) && $_GET['action'] == 'delete_slide' && isset($_GET['id'])) {
+    $id_slide = intval($_GET['id']);
+    
+    // 1. Obtener la ruta de la imagen antes de eliminar
+    $stmt_select = $conexion->prepare("SELECT imagen_url FROM carrusel_slide WHERE id_slide = ?");
+    $stmt_select->bind_param("i", $id_slide);
+    $stmt_select->execute();
+    $result = $stmt_select->get_result();
+    $slide = $result->fetch_assoc();
+    $stmt_select->close();
+
+    // 2. Eliminar el slide
+    $stmt_delete = $conexion->prepare("DELETE FROM carrusel_slide WHERE id_slide = ?");
+    $stmt_delete->bind_param("i", $id_slide);
+    if ($stmt_delete->execute()) {
+        // 3. Eliminar la imagen del servidor
+        if ($slide && $slide['imagen_url'] && file_exists($slide['imagen_url'])) {
+            unlink($slide['imagen_url']);
+        }
+        $message = "<p class='success'>Slide de Carrusel eliminado con éxito.</p>";
+    } else {
+        $message = "<p class='error'>Error al eliminar slide: " . $conexion->error . "</p>";
+    }
+    $stmt_delete->close();
+}
+
+
+// --- N. READ SLIDES CARRUSEL ---
+// 🚨 MODIFICACIÓN AQUÍ: Se añade 'contenido' a la selección
+$slides_result = $conexion->query("
+    SELECT id_slide, titulo, contenido, imagen_url, orden, activo 
+    FROM carrusel_slide 
+    ORDER BY orden ASC, fecha_creacion DESC
+");
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -511,6 +591,89 @@ $equipos_result = $conexion->query("
         </div>
     </div>
 </div>
+
+
+<hr style="margin: 50px 0;">
+
+<div class="crud-section" id="carrusel">
+    <h2>🖼️ CRUD de Carrusel Principal</h2>
+    
+    <div class="form-section">
+        <h3>Crear Nuevo Slide</h3>
+        <form method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="titulo_slide">Título/Encabezado del Slide:</label>
+                <input type="text" name="titulo_slide" id="titulo_slide" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="contenido_slide">Contenido/Texto del Slide:</label>
+                <textarea name="contenido_slide" id="contenido_slide" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="orden">Orden (Número):</label>
+                <input type="number" name="orden" id="orden" value="0">
+            </div>
+
+            <div class="form-group">
+                <label for="imagen_slide">Imagen del Slide (JPG, PNG, GIF):</label>
+                <input type="file" name="imagen_slide" id="imagen_slide" accept="image/*" required>
+            </div>
+            
+            <button type="submit" name="create_slide" class="btn-primary">Añadir Slide</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="table-section">
+        <h3>Lista de Slides del Carrusel</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Orden</th>
+                    <th>Imagen</th>
+                    <th>Título</th>
+                    <th>Contenido</th> <th>Activo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                // Asegúrate que esta variable ya existe y tiene resultados de la sección N. READ SLIDES CARRUSEL
+                if (isset($slides_result)) {
+                    while($slide = $slides_result->fetch_assoc()): 
+                ?>
+                <tr>
+                    <td><?= htmlspecialchars($slide['id_slide']) ?></td>
+                    <td><?= htmlspecialchars($slide['orden']) ?></td>
+                    <td>
+                        <?php if ($slide['imagen_url']): ?>
+                            <img src="<?= htmlspecialchars($slide['imagen_url']) ?>" alt="Slide" style="width: 100px; height: auto;">
+                        <?php else: ?>
+                            Sin imagen
+                        <?php endif; ?>
+                    </td>
+                    <td><?= htmlspecialchars(substr($slide['titulo'], 0, 50)) ?>...</td>
+                    <td><?= htmlspecialchars(substr($slide['contenido'], 0, 50)) ?>...</td> 
+                    <td><?= $slide['activo'] ? 'Sí' : 'No' ?></td>
+                    <td class="actions">
+                        <a href="edit_slide.php?id=<?= $slide['id_slide'] ?>" class="btn-secondary">Editar</a> 
+                        <a href="?action=delete_slide&id=<?= $slide['id_slide'] ?>" class="btn-danger" 
+                            onclick="return confirm('¿Seguro de eliminar este Slide?');">Eliminar</a>
+                    </td>
+                </tr>
+                <?php 
+                    endwhile;
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
     </div>
 
