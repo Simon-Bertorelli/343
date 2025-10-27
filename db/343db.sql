@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2025 a las 17:29:38
+-- Tiempo de generación: 27-10-2025 a las 23:56:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -33,6 +33,34 @@ CREATE TABLE `campeon_liga` (
   `temporada` year(4) DEFAULT NULL,
   `id_equipo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carrusel_slide`
+--
+
+CREATE TABLE `carrusel_slide` (
+  `id_slide` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `imagen_url` varchar(255) NOT NULL,
+  `orden` int(11) DEFAULT 0,
+  `activo` tinyint(1) DEFAULT 1,
+  `fecha_creacion` datetime DEFAULT current_timestamp(),
+  `contenido` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `carrusel_slide`
+--
+
+INSERT INTO `carrusel_slide` (`id_slide`, `titulo`, `imagen_url`, `orden`, `activo`, `fecha_creacion`, `contenido`) VALUES
+(1, 'hola', 'uploads/carrusel/img_68fff206c301b0.77050825.png', 2, 1, '2025-10-27 19:28:22', NULL),
+(2, 'hola', 'uploads/carrusel/img_68fff306228389.75866924.jpg', 0, 1, '2025-10-27 19:32:38', NULL),
+(3, 'messi', 'uploads/carrusel/img_68fff317c8ff03.88575718.jpg', 0, 1, '2025-10-27 19:32:55', NULL),
+(4, 'messi', 'uploads/carrusel/img_68fff3466975d9.37376050.jpg', 0, 1, '2025-10-27 19:33:42', NULL),
+(5, 'messi', 'uploads/carrusel/img_68fff35c685c85.29264625.jpg', 0, 1, '2025-10-27 19:34:04', NULL),
+(9, 'messi', 'uploads/carrusel/img_68fff5f99221e9.15403716.png', 0, 1, '2025-10-27 19:45:13', 'godeano gooooooooood');
 
 -- --------------------------------------------------------
 
@@ -639,6 +667,12 @@ ALTER TABLE `campeon_liga`
   ADD KEY `campeon_liga_ibfk_2` (`id_equipo`);
 
 --
+-- Indices de la tabla `carrusel_slide`
+--
+ALTER TABLE `carrusel_slide`
+  ADD PRIMARY KEY (`id_slide`);
+
+--
 -- Indices de la tabla `entrenador`
 --
 ALTER TABLE `entrenador`
@@ -769,6 +803,12 @@ ALTER TABLE `usuario_grupo`
 --
 ALTER TABLE `campeon_liga`
   MODIFY `id_campeon` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `carrusel_slide`
+--
+ALTER TABLE `carrusel_slide`
+  MODIFY `id_slide` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `entrenador`
