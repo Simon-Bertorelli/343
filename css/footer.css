@@ -1,29 +1,63 @@
+/* ======================================= */
+/* ESTILOS BASE DEL FOOTER                 */
+/* ======================================= */
 footer {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 2%;
-  border-top: solid 2px #f7b731;
-  padding-top: 15px;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #002244;
-  color: #f7b731;
-  position:static;
-  bottom: 0;
-  width: 100%;
-  z-index: 100;
-  margin-top: 60px;
+    display: flex;
+    justify-content: space-around;
+    border-top: solid 2px #f7b731;
+    padding-top: 15px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #002244;
+    color: #f7b731;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    margin-top: 60px;
+    padding-bottom: 15px; /* Agregada para completar el padding vertical */
+    padding-left: 10px;  /* Agregada para tener algo de padding lateral en desktop */
+    padding-right: 10px; /* Agregada para tener algo de padding lateral en desktop */
 }
 
 footer div {
-  text-align: center;
+    text-align: center;
+    /* Agregamos una base de margen en desktop para evitar que los divs se peguen */
+    margin: 0 10px; 
 }
 
 footer li {
-  text-align: left;
+    text-align: left;
+    list-style: none; /* Sugerencia: Quitar viñetas para un footer más limpio */
 }
 
-a{
-  text-decoration: none;
-  color:#f7b731;
+a {
+    text-decoration: none;
+    color: #f7b731;
+}
+
+
+/* ======================================= */
+/* ESTILOS RESPONSIVE (Móviles)            */
+/* ======================================= */
+
+/* Media Query para Dispositivos Móviles (máx. 768px) */
+@media screen and (max-width: 768px) {
+    /* En pantallas más pequeñas, cambiamos la dirección del flexbox */
+    footer {
+        flex-direction: column; /* Apila los divs verticalmente */
+        text-align: center;      /* Centra todo el texto del footer */
+        padding: 20px 0;         /* Más padding vertical y eliminamos padding lateral fijo */
+        gap: 20px;               /* Añade espacio entre cada div apilado */
+    }
+
+    footer div {
+        width: 90%;             /* Ocupa casi todo el ancho */
+        margin: 10px auto;      /* Centra el div en el footer */
+        text-align: center;     /* Centra el contenido del div */
+    }
+
+    footer li {
+        text-align: center;     /* Centra los elementos de la lista */
+    }
 }

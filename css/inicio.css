@@ -1,12 +1,13 @@
-/* inicio.css */
-
 /* --- Colores de la temática ---
-   Fondo principal: #002244 (Azul oscuro)
-   Fondo del formulario: #011b33 (Azul muy oscuro)
-   Color principal (texto/bordes): #f7b731 (Amarillo/Oro)
-   Texto secundario: #ffffff (Blanco)
+    Fondo principal: #002244 (Azul oscuro)
+    Fondo del formulario: #011b33 (Azul muy oscuro)
+    Color principal (texto/bordes): #f7b731 (Amarillo/Oro)
+    Texto secundario: #ffffff (Blanco)
 */
 
+/* ======================================= */
+/* ESTILOS BASE (Mismo código original)    */
+/* ======================================= */
 body {
     /* Fondo principal de la página */
     background-color: #002244; 
@@ -25,9 +26,10 @@ form {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    width: 350px;
+    /* Mantendremos un ancho máximo en desktop y lo ajustaremos en la Media Query */
+    width: 350px; 
     text-align: center;
-    border: 2px solid #f7b731; /* Borde dorado/amarillo */
+    border: 2px solid #f7b731; 
 }
 
 h2 {
@@ -43,7 +45,7 @@ label {
     /* Etiquetas de los campos */
     display: block;
     text-align: left;
-    color: #ffffff; /* Texto blanco para las etiquetas */
+    color: #ffffff; 
     margin-bottom: 5px;
     font-weight: bold;
     margin-top: 15px;
@@ -55,11 +57,11 @@ input[type="password"] {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #f7b731; /* Borde dorado */
+    border: 1px solid #f7b731; 
     border-radius: 5px;
-    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
-    background-color: #002244; /* Fondo del campo similar al body */
-    color: #ffffff; /* Texto dentro del campo en blanco */
+    box-sizing: border-box; 
+    background-color: #002244; 
+    color: #ffffff; 
     font-size: 1em;
     transition: border-color 0.3s;
 }
@@ -67,17 +69,17 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="password"]:focus {
     /* Efecto al enfocar un campo */
-    border-color: #ffffff; /* Borde blanco al estar activo */
+    border-color: #ffffff; 
     outline: none;
 }
 
 button[type="submit"] {
     /* Botón de Iniciar Sesión */
-    background-color: #f7b731; /* Fondo dorado/amarillo */
-    color: #011b33; /* Texto oscuro */
+    background-color: #f7b731; 
+    color: #011b33; 
     padding: 12px 20px;
     border: none;
-    border-radius: 25px; /* Bordes redondeados */
+    border-radius: 25px; 
     cursor: pointer;
     font-size: 1.1em;
     font-weight: bold;
@@ -88,20 +90,20 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     /* Efecto al pasar el ratón */
-    background-color: #e0a82b; /* Tono de amarillo ligeramente más oscuro */
+    background-color: #e0a82b; 
     transform: translateY(-2px);
 }
 
 p {
     /* Párrafo "¿No tienes cuenta?" */
-    color: #ffffff; /* Texto blanco */
+    color: #ffffff; 
     margin-top: 25px;
     font-size: 0.9em;
 }
 
 a {
     /* Enlace de registro */
-    color: #f7b731; /* Color dorado */
+    color: #f7b731; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -109,6 +111,47 @@ a {
 
 a:hover {
     /* Efecto al pasar el ratón sobre el enlace */
-    color: #ffffff; /* Blanco al pasar el ratón */
+    color: #ffffff; 
     text-decoration: underline;
+}
+
+/* ======================================= */
+/* ESTILOS RESPONSIVE (Móviles)            */
+/* ======================================= */
+
+/* Media Query para Dispositivos Móviles (máx. 450px) */
+/* Usamos 450px porque el formulario tiene 350px, necesitamos un poco de margen */
+@media screen and (max-width: 450px) {
+    
+    /* Hacemos que el body no centre la verticalmente el contenido 
+       si la pantalla es muy pequeña y el teclado ocupa espacio */
+    body {
+        align-items: flex-start; /* Alinea el formulario en la parte superior del viewport */
+        padding-top: 5vh;       /* Le damos un pequeño margen superior */
+        min-height: auto;       /* Permitimos que el cuerpo crezca si es necesario */
+    }
+
+    form {
+        /* El formulario se adapta al 90% del ancho del viewport */
+        width: 90%; 
+        /* Usamos box-sizing ya en el input, no es necesario aquí */
+        padding: 30px 20px; /* Reducimos el padding interno para ahorrar espacio */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Reducimos ligeramente el tamaño del título */
+        margin-bottom: 20px;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* AJUSTE para pantallas un poco más grandes que el móvil (ej. tablet vertical) */
+/* -------------------------------------------------------------------------- */
+@media screen and (min-width: 451px) and (max-width: 768px) {
+    form {
+        /* En tablets, mantenemos el ancho base de 350px, pero permitimos un margen */
+        max-width: 80%;
+        width: 350px;
+        padding: 35px;
+    }
 }

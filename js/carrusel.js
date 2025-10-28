@@ -22,7 +22,7 @@ if (carrusel && prev && next && firstCard) {
     // Reduce el desplazamiento al 75% de una tarjeta.
     // Puedes ajustar el 0.75 a un valor menor (ej. 0.5) para más fluidez, 
     // o a un valor mayor (ej. 1.2) si quieres que se mueva más rápido.
-    const scrollFactor = 0.75; 
+    const scrollFactor = 0.1; 
     const scrollAmount = fullScrollAmount * scrollFactor; 
     // -----------------------------------------------------------------
 

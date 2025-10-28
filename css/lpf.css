@@ -1,192 +1,255 @@
+/*
+ * ----------------------------------------
+ * Estilos para la Vista de la Liga (lpf.php)
+ * ----------------------------------------
+ */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #002244;
-  color: #f7b731; 
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #002244; /* Fondo oscuro */
+    color: #f7b731; /* Color principal (dorado) */
 }
 
 .layout {
-  display: flex;
-  gap: 30px;
-  padding: 20px;
+    display: flex;
+    gap: 30px;
+    padding: 20px;
 }
 
+/* -------------------------------------- */
+/* 1. Barra Lateral (Sidebar)             */
+/* -------------------------------------- */
 .sidebar {
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    width: 280px; /* Incrementamos un poco el ancho para desktop */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0; /* Evita que se encoja en desktop */
 }
 
 .sidebar .card {
-  min-height: 200px;
-  background-color: #011b33;
-  border-radius: 10px;
-  padding: 15px;
+    min-height: 200px;
+    background-color: #011b33; /* Más oscuro que el fondo */
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid #012a4a; /* Borde sutil */
 }
 
+/* -------------------------------------- */
+/* 2. Contenido Central (Tabla Central)   */
+/* -------------------------------------- */
 .tabla-central {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
 }
 
 .card {
-  background: #003a5c; 
-  border-radius: 10px;
-  padding: 15px;
-  min-height: 250px;
-  border: 1px solid #f7b731;
+    background: #003a5c; 
+    border-radius: 10px;
+    padding: 15px;
+    min-height: 250px;
+    border: 1px solid #f7b731;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card h2 {
-  font-size: 18px;
-  color: #f7b731;
-  margin-bottom: 10px;
+    font-size: 18px;
+    color: #f7b731;
+    margin-bottom: 10px;
 }
 
+/* -------------------------------------- */
+/* 3. Estilos de Lista (Tabla NO pos.)    */
+/* -------------------------------------- */
 .tabla {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .tabla li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0;
 }
 
 .pos {
-  background: #ccc;
-  color: black;
-  border-radius: 50%;
-  padding: 5px 10px;
-  font-size: 12px;
-  font-weight: bold;
-  min-width: 20px;
-  text-align: center;
-  display: inline-block;
+    background: #ccc;
+    color: black;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+    display: inline-block;
 }
 
 .pos.azul {
-  background: #007bff;
-  color: white;
+    background: #007bff;
+    color: white;
 }
 
 .circle {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
 }
 
-.amarillo {
-  background: yellow;
+.amarillo { background: yellow; }
+.celeste { background: #00c2ff; }
+.blanco { background: white; }
+.rojo { background: red; }
+
+
+/* -------------------------------------- */
+/* 4. Estilos de Tablas (Posiciones)      */
+/* -------------------------------------- */
+
+/* Estilos para Tablas (Posiciones y Equipos) */
+.tabla-posiciones,
+.tabla-equipos {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f7b731;
+    background-color: #003a5c;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.celeste {
-  background: #00c2ff;
-}
-
-.blanco {
-  background: white;
-}
-
-.rojo {
-  background: red;
-}
-
-.tabla-posiciones {
-  width: 100%;
-  border-collapse: collapse;
-  color: #f7b731;
-  background-color: #003a5c;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.tabla-posiciones thead {
-  background-color: #012a4a;
+.tabla-posiciones thead,
+.tabla-equipos thead {
+    background-color: #012a4a;
 }
 
 .tabla-posiciones th,
-.tabla-posiciones td {
-  padding: 10px;
-  text-align: center;
-}
-
-.tabla-posiciones th {
-  color: #f7b731;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.tabla-posiciones tbody tr:nth-child(even) {
-  background-color: #004060;
-}
-
-.tabla-posiciones tbody tr:hover {
-  background-color: #00507a;
-  transition: 0.3s;
-}
-
-.tabla-posiciones td:first-child {
-  font-weight: bold;
-  color: #f7b731;
-}
-
-.tabla-equipos {
-  width: 100%;
-  border-collapse: collapse;
-  color: #f7b731;
-  background-color: #003a5c;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.tabla-equipos thead {
-  background-color: #012a4a;
-}
-
+.tabla-posiciones td,
 .tabla-equipos th,
 .tabla-equipos td {
-  padding: 10px;
-  text-align: center;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap; /* Evita que el contenido se rompa en varias líneas */
 }
 
+.tabla-posiciones th,
 .tabla-equipos th {
-  color: #f7b731;
-  font-weight: bold;
-  font-size: 14px;
+    color: #f7b731;
+    font-weight: bold;
+    font-size: 14px;
 }
 
+.tabla-posiciones tbody tr:nth-child(even),
 .tabla-equipos tbody tr:nth-child(even) {
-  background-color: #004060;
+    background-color: #004060;
 }
 
+.tabla-posiciones tbody tr:hover,
 .tabla-equipos tbody tr:hover {
-  background-color: #00507a;
-  transition: 0.3s;
+    background-color: #00507a;
+    transition: 0.3s;
 }
 
+.tabla-posiciones td:first-child,
 .tabla-equipos td:first-child {
-  font-weight: bold;
-  color: #f7b731;
+    font-weight: bold;
+    color: #f7b731;
 }
 
+/* -------------------------------------- */
+/* 5. Sección de Estadísticas             */
+/* -------------------------------------- */
 .estadisticas {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
 }
 
 .estadisticas .card {
-  min-height: 180px;
-  background-color: #003a5c;
+    min-height: 180px;
+    background-color: #003a5c;
 }
 
 
+/* =========================================== */
+/* === AJUSTES RESPONSIVOS (TABLET Y MÓVIL) === */
+/* =========================================== */
+
+/* Tablet (hasta 1024px) */
+@media screen and (max-width: 1024px) {
+    .layout {
+        padding: 15px;
+        gap: 20px;
+    }
+    
+    .sidebar {
+        /* Reduce un poco el ancho de la barra lateral */
+        width: 250px;
+    }
+
+    .estadisticas {
+        /* Reduce a 3 columnas en tabletas */
+        grid-template-columns: repeat(3, 1fr);
+        padding: 10px;
+        gap: 15px;
+    }
+}
+
+
+/* Móvil (hasta 768px) */
+@media screen and (max-width: 768px) {
+    .layout {
+        /* CLAVE: Apila la barra lateral y el contenido principal verticalmente */
+        flex-direction: column;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .sidebar {
+        /* Ocupa el 100% del ancho cuando se apila */
+        width: 100%;
+        gap: 15px;
+        order: -1; /* Coloca la barra lateral encima del contenido central */
+    }
+
+    .sidebar .card {
+        min-height: auto;
+    }
+    
+    .card {
+        min-height: auto;
+        padding: 10px;
+    }
+
+    .estadisticas {
+        /* CLAVE: Reduce a 2 columnas en móvil */
+        grid-template-columns: repeat(2, 1fr);
+        padding: 5px;
+        gap: 10px;
+    }
+
+    /* CLAVE: Ocultar columnas menos importantes en las tablas */
+    .tabla-posiciones th:nth-child(n+5), 
+    .tabla-posiciones td:nth-child(n+5),
+    .tabla-equipos th:nth-child(n+5), 
+    .tabla-equipos td:nth-child(n+5) {
+        display: none; /* Oculta las columnas a partir de la 5ª */
+    }
+    
+    .tabla-posiciones th,
+    .tabla-posiciones td,
+    .tabla-equipos th,
+    .tabla-equipos td {
+        padding: 8px 5px; /* Reduce el padding de las celdas */
+        font-size: 0.8em;
+    }
+
+    /* Asegura que el título no sea demasiado grande en móvil */
+    .card h2 {
+        font-size: 16px; 
+    }
+}

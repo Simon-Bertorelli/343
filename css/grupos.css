@@ -1,18 +1,24 @@
-/* Variables de color */
+/* ============================================================
+   VARIABLES DE COLOR
+   ============================================================ */
 :root {
-    --color-background: #002244; /* Azul oscuro principal */
-    --color-text: #f7b731;     /* Amarillo/Naranja de acento */
-    --color-light-bg: #003366; /* Fondo más claro para el contenedor */
-    --color-card-bg: #01182c;  /* Fondo para las tarjetas de grupo */
-    --color-border: #444;      /* Borde gris oscuro */
-    --color-danger: #f44336;   /* Rojo para el botón Salir */
+    --color-background: #002244;      /* Azul oscuro principal */
+    --color-text: #f7b731;            /* Amarillo/Naranja de acento */
+    --color-light-bg: #003366;        /* Fondo más claro para el contenedor */
+    --color-card-bg: #01182c;         /* Fondo para las tarjetas de grupo */
+    --color-border: #444;             /* Borde gris oscuro */
+    --color-danger: #f44336;          /* Rojo para el botón Salir */
+    --color-success: #4CAF50;         /* Verde para el botón Unirse/Crear */
+    --color-primary-dark: #002a44;    /* Fondo de contraste en botones */
 }
 
-/* Estilos Generales */
+/* ============================================================
+   ESTILOS GENERALES
+   ============================================================ */
 body {
     font-family: Arial, sans-serif;
     background-color: var(--color-background);
-    color: white; 
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -32,16 +38,23 @@ h1 {
     text-align: center;
     border-bottom: 2px solid var(--color-text);
     padding-bottom: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
+/* ============================================================
+   TÍTULOS DE SECCIÓN
+   ============================================================ */
 h2 {
     color: var(--color-text);
     margin-top: 25px;
     padding-left: 10px;
+    border-left: 3px solid var(--color-text);
+    margin-bottom: 15px;
 }
 
-/* Enlace Volver */
+/* ============================================================
+   ENLACE VOLVER
+   ============================================================ */
 .btn-volver {
     display: inline-block;
     color: white;
@@ -50,26 +63,52 @@ h2 {
     border-radius: 5px;
     text-decoration: none;
     margin-bottom: 20px;
+    transition: background-color 0.2s;
 }
 
 .btn-volver:hover {
     background-color: #5a6268;
 }
 
-/* Contenedor de Grupos */
+/* ============================================================
+   CONTENEDOR DE GRUPOS
+   ============================================================ */
 .group-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
-    padding: 10px;
+    padding: 10px 0;
 }
 
+/* ============================================================
+   TARJETAS DE GRUPOS
+   ============================================================ */
 .group-card {
     background-color: var(--color-card-bg);
     padding: 15px;
     border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+    transition: transform 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.group-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Mis grupos */
+.group-card.my-group {
+    border: 2px solid var(--color-text);
+}
+
+/* Grupos disponibles */
+.group-card.available-group {
     border: 1px solid var(--color-border);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .group-card strong {
@@ -83,6 +122,7 @@ h2 {
     font-size: 0.9em;
     color: #ccc;
     margin-bottom: 15px;
+    flex-grow: 1;
 }
 
 .no-groups {
@@ -91,15 +131,18 @@ h2 {
     text-align: center;
 }
 
-/* Acciones (Botones y Enlaces) */
-.actions, .group-card .actions {
+/* ============================================================
+   ACCIONES (BOTONES Y ENLACES)
+   ============================================================ */
+.actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
 }
 
-/* Estilo de botones */
-.btn-primary, .btn-danger, button[type="submit"] {
+/* Estilo base de botones */
+.btn-primary, .btn-danger, .btn-success {
     padding: 8px 12px;
     border: none;
     border-radius: 4px;
@@ -108,17 +151,21 @@ h2 {
     text-decoration: none;
     transition: background-color 0.2s;
     font-size: 0.9em;
+    text-align: center;
+    white-space: nowrap;
 }
 
-.btn-primary, button[type="submit"] {
+/* Botón Entrar / Unirse */
+.btn-primary {
     background-color: var(--color-text);
-    color: var(--color-background);
+    color: var(--color-primary-dark);
 }
 
-.btn-primary:hover, button[type="submit"]:hover {
-    opacity: 0.9;
+.btn-primary:hover {
+    filter: brightness(0.9);
 }
 
+/* Botón Salir */
 .btn-danger {
     background-color: var(--color-danger);
     color: white;
@@ -126,4 +173,53 @@ h2 {
 
 .btn-danger:hover {
     background-color: #d32f2f;
+}
+
+/* Formularios dentro de tarjetas (para botones tipo submit) */
+.group-card .actions button[type="submit"] {
+    all: unset;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 95%;
+        margin: 15px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .group-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .group-card {
+        min-height: auto;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .actions .btn-primary,
+    .actions .btn-danger,
+    .actions button[type="submit"] {
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+    }
 }

@@ -30,6 +30,7 @@ $grupos_disponibles = $conexion->query("
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Grupos - 343</title>
     <link rel="icon" href="../img/343-logo.png" type="image/png">

@@ -1,18 +1,23 @@
-/* Variables de color */
+/* ============================================
+   🎨 FORO 343 - ESTILO COMPLETO Y RESPONSIVO
+   ============================================ */
+
+/* === VARIABLES DE COLOR === */
 :root {
     --color-background: #002244; /* Azul oscuro principal */
-    --color-text: #f7b731;     /* Amarillo/Naranja de acento */
+    --color-text: #f7b731; /* Amarillo/Naranja de acento */
     --color-light-bg: #003366; /* Fondo más claro para el contenedor */
-    --color-card-bg: #01182c;  /* Fondo para publicaciones anidadas */
-    --color-border: #444;      /* Borde gris oscuro */
-    --color-link: #f7b731;     /* Color de enlaces */
+    --color-card-bg: #01182c; /* Fondo para publicaciones anidadas */
+    --color-border: #0055aa; /* Borde azul medio */
+    --color-link: #f7b731;
+    --color-date: #aaa;
 }
 
-/* Estilos Generales */
+/* === ESTILO GENERAL === */
 body {
     font-family: Arial, sans-serif;
     background-color: var(--color-background);
-    color: white; 
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -22,146 +27,228 @@ body {
     max-width: 900px;
     margin: 30px auto;
     background-color: var(--color-light-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
 
+/* === TÍTULOS === */
 h2 {
     color: var(--color-text);
-    border-bottom: 1px solid var(--color-text);
-    padding-bottom: 10px;
-    margin-top: 20px;
+    border-bottom: 2px solid var(--color-text);
+    padding-bottom: 12px;
+    margin-top: 25px;
 }
 
-/* Navegación (Cerrar sesión, Volver) */
+/* === NAVEGACIÓN (Volver / Cerrar sesión) === */
 .nav-links {
     text-align: right;
     margin-bottom: 20px;
 }
 
 .nav-links a {
-    color: var(--color-text);
+    color: var(--color-link);
     text-decoration: none;
     margin-left: 15px;
     font-weight: bold;
+    transition: color 0.2s;
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
+    color: #ffd76d;
 }
 
-/* Formulario de Publicación */
+/* ============================================
+   📝 FORMULARIO PUBLICAR
+   ============================================ */
 .form-publicar {
-    padding: 15px;
+    padding: 20px;
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 30px;
     background-color: var(--color-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 
-textarea { 
-    width: calc(100% - 16px); 
-    height: 80px; 
-    padding: 8px; 
-    border: 1px solid var(--color-border);
-    border-radius: 4px; 
-    margin-bottom: 10px;
-    background-color: #fff;
-    color: var(--color-background);
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 2px solid #555;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    background-color: #1a1a1a;
+    color: white;
     box-sizing: border-box;
-    resize: vertical; /* Permite redimensionar solo verticalmente */
+    resize: vertical;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+textarea:focus {
+    border-color: var(--color-text);
+    box-shadow: 0 0 8px rgba(247, 183, 49, 0.7);
+    outline: none;
 }
 
 .btn-publicar {
-    padding: 8px 15px;
+    padding: 10px 20px;
     background-color: var(--color-text);
     color: var(--color-background);
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    font-weight: bold;
-    display: block; /* Ocupa todo el ancho si lo deseas, o ajusta */
-    /* display: inline-block; si quieres que solo ocupe el ancho del contenido */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .btn-publicar:hover {
-    opacity: 0.9;
+    background-color: #ffc950;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Lista y Estructura de Publicaciones */
-.publicaciones-container {
-    /* Asegura que el contenedor de publicaciones tenga suficiente espacio */
-    padding-bottom: 30px; 
-}
-
+/* ============================================
+   💬 PUBLICACIONES Y RESPUESTAS
+   ============================================ */
 .publicaciones-container > ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.publicaciones-container ul li {
-    /* Fondo para publicaciones principales y respuestas */
-    border: 1px solid var(--color-border);
+/* Tarjetas de publicación */
+.publicaciones-container li {
+    background-color: var(--color-light-bg);
+    border-radius: 12px;
+    padding: 18px 20px;
     margin: 15px 0;
-    padding: 15px;
-    border-radius: 8px;
-    background-color: var(--color-light-bg); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    position: relative;
+    word-wrap: break-word;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Estilo para las respuestas anidadas (Identación) */
-.publicaciones-container ul ul {
-    list-style: none;
-    padding-left: 0; /* Quita el padding por defecto del <ul> anidado */
-    margin-top: 10px;
-    margin-bottom: 0;
+.publicaciones-container li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
 }
 
-.publicaciones-container ul ul li {
-    /* Hace que la respuesta esté identada y use un fondo ligeramente diferente */
-    margin-left: 20px; 
-    background-color: var(--color-card-bg); /* Un azul más oscuro para la respuesta */
-    margin-top: 10px;
+/* Cabecera (usuario + fecha) */
+.meta-publicacion {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
     margin-bottom: 10px;
 }
 
-/* Contenido de la Publicación */
-li b {
+.meta-publicacion b {
     color: var(--color-text);
     font-size: 1.1em;
-    display: inline-block;
-    margin-right: 5px; /* Espacio después del nombre de usuario */
 }
 
-.contenido-publicacion {
-    white-space: pre-wrap;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    color: #ccc; 
-    line-height: 1.4; /* Mejora la legibilidad del texto largo */
-}
-
-/* Interacciones (Likes, Responder) */
-.interacciones {
-    margin-top: 10px;
-    padding-top: 5px;
-    border-top: 1px dotted var(--color-border); /* Separador sutil */
-    display: flex; /* Asegura que los elementos estén en línea */
-    align-items: center;
-}
-
-.interacciones span {
-    margin-right: 15px; /* Espacio después del contador de likes */
-    font-weight: bold;
-}
-
-.interacciones a {
-    color: var(--color-link);
-    text-decoration: none;
-    margin-right: 10px; /* Espacio entre los enlaces de acción */
+.meta-publicacion .fecha-publicacion {
+    color: var(--color-date);
     font-size: 0.9em;
 }
 
+/* Contenido del mensaje */
+.contenido-publicacion {
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin: 10px 0;
+    font-size: 1rem;
+    white-space: pre-wrap;
+}
+
+/* Interacciones (like / responder) */
+.interacciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.interacciones span {
+    font-weight: 600;
+    color: #fff;
+}
+
+.interacciones a {
+    color: var(--color-text);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
 .interacciones a:hover {
-    text-decoration: underline;
+    background-color: rgba(247, 183, 49, 0.1);
+    color: #ffd76d;
+}
+
+/* === Respuestas anidadas === */
+.publicaciones-container ul ul {
+    margin-left: 25px;
+    margin-top: 12px;
+    padding-left: 15px;
+    border-left: 2px solid rgba(247, 183, 49, 0.3);
+}
+
+.publicaciones-container ul ul li {
+    background-color: var(--color-card-bg);
+    box-shadow: none;
+    margin: 10px 0;
+    padding: 15px;
+}
+
+/* Limitar profundidad de anidación (3 niveles) */
+.publicaciones-container ul ul ul ul {
+    border-left: none;
+    margin-left: 0;
+}
+
+/* ============================================
+   📱 RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+        margin: 15px auto;
+        border-radius: 8px;
+    }
+
+    .meta-publicacion {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .interacciones {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .interacciones a,
+    .interacciones span {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .btn-publicar {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .publicaciones-container ul ul {
+        margin-left: 12px;
+        padding-left: 10px;
+    }
 }

@@ -1,99 +1,203 @@
-header{
+/* ======================================= */
+/* 1. ESTILOS GENERALES DEL HEADER         */
+/* ======================================= */
+
+.header {
+    background-color: #001f3f; /* Azul Oscuro */
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background-color: #002a44;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #f7b731; 
-    border-bottom: 1px solid #f7b731;
-    position: sticky;
-    top: 0;
-    width: 100%;
-}
-
-.logo img {
-    height: 50px;
-}
-
-nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-}
-
-nav li {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     color: #f7b731;
-    cursor: pointer;
+    position: relative;
+    z-index: 100;
 }
 
-/* NUEVOS ESTILOS PARA LA SECCIÓN DE ACCIONES DE USUARIO */
+/* LOGO */
+.logo img {
+    height: 45px;
+    vertical-align: middle;
+}
+
+/* NAV PRINCIPAL */
+.header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.header nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.header nav ul li a:hover {
+    color: #f1c40f;
+}
+
+/* ACCIONES DE USUARIO */
 .user-actions {
     display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
-    gap: 15px; /* Espacio entre el ícono de perfil y el botón */
+    align-items: center;
+    gap: 15px;
 }
 
-/* ESTILOS PARA EL ÍCONO DE PERFIL CIRCULAR */
 .profile-icon {
-    width: 40px; /* Tamaño del ícono */
+    width: 40px;
     height: 40px;
-    border-radius: 50%; /* Hace que la imagen sea circular */
-    object-fit: cover; /* Asegura que la imagen cubra el círculo sin distorsionarse */
-    border: 2px solid #f7b731; /* Borde para resaltarlo */
+    border-radius: 50%;
+    border: 2px solid #f1c40f;
+    object-fit: cover;
+}
+
+.user-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s;
+    color: #2c3e50;
+    transition: all 0.3s ease;
 }
 
-.profile-icon:hover {
-    transform: scale(1.05);
+.user-actions .iniciar-sesion {
+    background-color: #f1c40f;
 }
 
-.volver {
-    background: transparent;
-    color: #f7b731;
-    border: 1px solid #f7b731;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+.user-actions .iniciar-sesion:hover {
+    background-color: #f39c12;
 }
 
-.iniciar-sesion{
-    background: transparent;
-    color: #f7b731;
-    border: 1px solid #f7b731;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.volver:hover {
-    background-color: #f7b731;
-    color: #002244;
-    transition: 0.3s;
-}
-
-.iniciar-sesion:hover {
-    background-color: #f7b731;
-    color: #002244;
-    transition: 0.3s;
-}
-
-li:hover {
+.user-actions .volver {
+    background-color: #e74c3c;
     color: white;
-    text-decoration: underline;
-    transition: 0.3s;
 }
 
-header {
-  box-sizing: border-box;
-  overflow-x: hidden;
+.user-actions .volver:hover {
+    background-color: #c0392b;
 }
 
-html, body {
-  overflow-x: hidden;
+/* ======================================= */
+/* 2. MENÚ HAMBURGUESA RESPONSIVE          */
+/* ======================================= */
+
+/* Oculto por defecto (solo se muestra en móviles) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #f7b731;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Checkbox hack para abrir/cerrar el menú */
+#menu-toggle {
+    display: none;
+}
+
+#menu-toggle:checked + nav ul {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ======================================= */
+/* 3. RESPONSIVE DESIGN                    */
+/* ======================================= */
+
+/* --- Tablets --- */
+@media screen and (max-width: 900px) {
+    .header {
+        flex-wrap: wrap;
+        padding: 10px 15px;
+    }
+
+    .user-actions {
+        order: 2;
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+
+    .profile-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .header nav ul li a {
+        font-size: 15px;
+    }
+}
+
+/* --- Móviles --- */
+@media screen and (max-width: 700px) {
+    .hamburger {
+        display: flex;
+        order: 3;
+    }
+
+    .header nav ul {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #001f3f;
+        width: 100%;
+        text-align: center;
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        border-top: 2px solid rgba(247, 183, 49, 0.3);
+    }
+
+    .header nav ul li {
+        padding: 12px 0;
+    }
+
+    .header nav ul li a {
+        font-size: 1rem;
+    }
+
+    /* Efecto al abrir menú */
+    #menu-toggle:checked + nav ul {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Animación del ícono hamburguesa */
+    #menu-toggle:checked + nav + .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    #menu-toggle:checked + nav + .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    #menu-toggle:checked + nav + .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .user-actions {
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .user-actions button {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
 }

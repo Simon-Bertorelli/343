@@ -1,258 +1,152 @@
-/* Variables de color */
+/* =========================================================
+   🎨 VARIABLES DE COLOR
+========================================================= */
 :root {
-    --color-background: #002244;
-    --color-text: #f7b731;
-    --color-light-bg: #003366; /* Un tono más claro del fondo */
-    --color-border: #444;
-    --color-success: #4CAF50; /* Verde para éxito */
-    --color-error: #f44336; /* Rojo para error */
+  --color-background: #002244;
+  --color-text: #f7b731;
+  --color-light-bg: #003366;
+  --color-border: #444;
+  --color-success: #4caf50;
+  --color-error: #f44336;
 }
 
-/* Estilos Generales */
+/* =========================================================
+   🧱 ESTRUCTURA GENERAL
+========================================================= */
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--color-background);
-    color: white; /* Texto principal en blanco para que resalte */
-    margin: 0;
-    padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--color-background);
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 30px auto;
-    background-color: var(--color-light-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  background-color: var(--color-light-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-h1, h2 {
-    color: var(--color-text); /* Títulos en color de acento */
-    text-align: center;
-    border-bottom: 2px solid var(--color-text);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+/* =========================================================
+   🏷️ TITULOS Y HR
+========================================================= */
+h1,
+h2 {
+  color: var(--color-text);
+  text-align: center;
+  border-bottom: 2px solid var(--color-text);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 hr {
-    border: none;
-    border-top: 1px solid var(--color-border);
-    margin: 20px 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 30px 0;
 }
 
-/* Mensajes de feedback */
-.success {
-    background-color: var(--color-success);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
+/* =========================================================
+   💬 MENSAJES DE ESTADO
+========================================================= */
+.success,
 .error {
-    background-color: var(--color-error);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    text-align: center;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+.success {
+  background-color: var(--color-success);
+  color: white;
+}
+.error {
+  background-color: var(--color-error);
+  color: white;
 }
 
-/* Navegación */
+/* =========================================================
+   🔗 NAVEGACIÓN
+========================================================= */
 .nav-links {
-    text-align: right;
-    margin-bottom: 20px;
+  text-align: right;
+  margin-bottom: 20px;
 }
-
 .nav-links a {
-    color: var(--color-text);
-    text-decoration: none;
-    margin-left: 15px;
-    font-weight: bold;
+  color: var(--color-text);
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
 }
-
 .nav-links a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Formulario (Crear/Editar) */
+/* =========================================================
+   📝 FORMULARIOS
+========================================================= */
 .form-section {
-    padding: 15px;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: white;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  color: white;
+  font-weight: bold;
 }
 
-input[type="text"], input[type="number"] {
-    width: calc(100% - 16px);
-    padding: 8px;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    background-color: #fff;
-    color: var(--color-background);
-    
-}
-
-/* Botones */
-button, .btn-primary, .btn-secondary, .btn-danger {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-}
-
-.btn-primary, button[type="submit"] {
-    background-color: var(--color-text);
-    color: var(--color-background);
-    margin-top: 10px;
-}
-
-.btn-primary:hover, button[type="submit"]:hover {
-    opacity: 0.9;
-}
-
-.btn-secondary {
-    background-color: #6c757d; /* Gris */
-    color: white;
-}
-
-.btn-danger {
-    background-color: var(--color-error);
-    color: white;
-}
-
-/* Tabla (Leer) */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid var(--color-border);
-    padding: 12px;
-    text-align: left;
-    color: white; /* Contenido de celda en blanco */
-}
-
-th {
-    background-color: var(--color-text); /* Encabezados en color de acento */
-    color: var(--color-background); /* Texto de encabezado oscuro */
-    font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: var(--color-background); /* Rayado suave */
-}
-
-.actions a {
-    margin-right: 5px;
-}
-
-/* --- MEJORAS DE ESTILO PARA INPUTS Y TEXTAREA (AJUSTE DE ANCHO) --- */
-
-/* Estilo Base para Inputs y Textarea */
-input[type="text"], 
+input[type="text"],
 input[type="number"],
-textarea { 
-    /* ANCHO MODIFICADO: Cambiado de 100% a 50% para reducir su longitud. */
-    width: 50%; 
-    
-    /* Propiedades de estilo ya definidas (mantener): */
-    padding: 10px; 
-    border: 1px solid var(--color-border);
-    border-radius: 6px; 
-    background-color: #1a3a5a; 
-    color: #fff; 
-    box-sizing: border-box; 
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-/* El textarea es un caso especial; si quieres que sea igual de ancho: */
 textarea {
-    width: 50%; /* Aplicar el mismo 50% de ancho */
-    min-height: 100px;
-    resize: vertical;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: #1a3a5a;
+  color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Enfocar/Seleccionar Input (mantener) */
-input[type="text"]:focus, 
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
 input[type="number"]:focus,
 textarea:focus {
-    border-color: var(--color-text); 
-    box-shadow: 0 0 5px rgba(247, 183, 49, 0.7); 
-    outline: none; 
-    background-color: #2a4c6a; 
+  border-color: var(--color-text);
+  box-shadow: 0 0 5px rgba(247, 183, 49, 0.7);
+  outline: none;
+  background-color: #2a4c6a;
 }
 
-/* Estilo para el input[type="file"] (mantener 100% si deseas que el botón de subir sea visible) */
+/* === INPUT FILE ESTILIZADO === */
 input[type="file"] {
-    display: block;
-    width: 100%; /* Deja el input file al 100% para que se vea bien */
-    padding: 10px 0;
-    margin-top: 5px;
-    color: white;
-}
-
-/* === CARRUSEL CONTROLS (centrados y separados) === */
-.carrusel-container {
-  position: relative;
-}
-
-
-
-/* Botones del carrusel */
-.carrusel-controls  {
-
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-}
-
-.carrusel-controls button:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-}
-
-/* === INPUT FILE MODERNO === */
-input[type="file"] {
-  position: relative;
-  font-size: 14px;
-  color: #ccc;
- 
+  display: block;
+  width: 100%;
   padding: 10px;
-  width: 40%;
+  color: white;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
 }
 
-/* Oculta el input nativo (solo deja visible el botón personalizado) */
 input[type="file"]::file-selector-button {
- 
-  border-radius: 100px; 
+  border-radius: 100px;
   border: none;
-background-color: var(--color-text);
+  background-color: var(--color-text);
   padding: 8px 15px;
   font-weight: bold;
   cursor: pointer;
@@ -260,15 +154,213 @@ background-color: var(--color-text);
   transition: all 0.2s ease-in-out;
 }
 
-/* Hover del botón */
 input[type="file"]::file-selector-button:hover {
   opacity: 0.9;
   transform: scale(1.05);
 }
 
-/* Texto del nombre del archivo */
-input[type="file"]:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #fff;
+/* =========================================================
+   🔘 BOTONES
+========================================================= */
+button,
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-disabled {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
 }
 
+.btn-primary {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+.btn-danger {
+  background-color: var(--color-error);
+  color: white;
+}
+.btn-disabled {
+  background-color: #555;
+  color: #bbb;
+  cursor: not-allowed;
+}
+button:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-danger:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* =========================================================
+   📊 TABLAS
+========================================================= */
+.table-section {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  min-width: 600px;
+}
+
+th,
+td {
+  border: 1px solid var(--color-border);
+  padding: 12px;
+  text-align: left;
+  color: white;
+  vertical-align: middle;
+}
+
+th {
+  background-color: var(--color-text);
+  color: var(--color-background);
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #001a33;
+}
+
+.actions a {
+  margin-right: 5px;
+}
+
+/* =========================================================
+   🎠 CARRUSEL
+========================================================= */
+.carrusel-container {
+  position: relative;
+  margin-top: 15px;
+}
+
+.carrusel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* =========================================================
+   📱 RESPONSIVE DESIGN
+========================================================= */
+
+/* --- Tablets (max 992px) --- */
+@media (max-width: 992px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+  }
+
+  .form-section {
+    padding: 15px;
+  }
+
+  .nav-links {
+    text-align: center;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Móviles (max 768px) --- */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  input[type="file"] {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-danger {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .table-section {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 500px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+/* --- Teléfonos pequeños (max 480px) --- */
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px;
+  }
+
+  h1,
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  input,
+  textarea,
+  button {
+    font-size: 0.9rem;
+  }
+
+  table th,
+  table td {
+    padding: 8px;
+  }
+}
