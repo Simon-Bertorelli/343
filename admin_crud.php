@@ -660,7 +660,7 @@ $slides_result = $conexion->query("
                     <td><?= htmlspecialchars(substr($slide['contenido'], 0, 50)) ?>...</td> 
                     <td><?= $slide['activo'] ? 'Sí' : 'No' ?></td>
                     <td class="actions">
-                        <a href="edit_slide.php?id=<?= $slide['id_slide'] ?>" class="btn-secondary">Editar</a> 
+                        <a href="edit_carrusel.php?id=<?= $slide['id_slide'] ?>" class="btn-secondary">Editar</a> 
                         <a href="?action=delete_slide&id=<?= $slide['id_slide'] ?>" class="btn-danger" 
                             onclick="return confirm('¿Seguro de eliminar este Slide?');">Eliminar</a>
                     </td>

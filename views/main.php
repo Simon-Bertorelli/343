@@ -40,7 +40,7 @@ if (isset($conexion) && $conexion) {
     <main>
         
     <section class="noticias">
-        <h2>CARRUSEL PRINCIPAL</h2> 
+        <h2>NOTICIAS</h2> 
         <div class="noticias-carrusel-wrapper">
             <div class="noticias-carrusel">
             
