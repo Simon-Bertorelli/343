@@ -1,254 +1,367 @@
 /* ============================================
-   🎨 FORO 343 - ESTILO COMPLETO Y RESPONSIVO
-   ============================================ */
+ * 🎨 ESTILOS PROFESIONALES UNIFICADOS (GRUPOS)
+ * ============================================ */
 
-/* === VARIABLES DE COLOR === */
+/* === VARIABLES DE COLOR (Paleta Profesional 343 - Refinada) === */
 :root {
-    --color-background: #002244; /* Azul oscuro principal */
-    --color-text: #f7b731; /* Amarillo/Naranja de acento */
-    --color-light-bg: #003366; /* Fondo más claro para el contenedor */
-    --color-card-bg: #01182c; /* Fondo para publicaciones anidadas */
-    --color-border: #0055aa; /* Borde azul medio */
-    --color-link: #f7b731;
-    --color-date: #aaa;
+    --color-primary-dark: #0A1C2E;        /* Fondo principal muy oscuro */
+    --color-primary-mid: #1A324E;         /* Fondo de la "tarjeta" principal */
+    --color-secondary-dark: #0E253A;      /* Fondo de las cards de grupo */
+    --color-accent: #FFC300;              /* Dorado vibrante y fuerte */
+    --color-link: #66CCFF;                /* Azul cielo para enlaces y acentos */
+    --color-text-light: #E0E0E0;          /* Texto principal */
+    --color-text-subtle: #A0A0A0;         /* Texto secundario/descripciones */
+    --color-border-subtle: rgba(102, 204, 255, 0.2); /* Borde sutil del acento */
+    --color-shadow-strong: rgba(0, 0, 0, 0.7); /* Sombra intensa para profundidad */
+    --color-shadow-subtle: rgba(0, 0, 0, 0.3); /* Sombra ligera para elementos */
+
+    --font-primary: 'Inter', sans-serif;  /* Tipografía moderna y limpia */
+    --font-secondary: 'Roboto', sans-serif; /* Para texto de cuerpo y descripciones */
 }
 
-/* === ESTILO GENERAL === */
+/* Importar tipografías de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap');
+
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--color-background);
-    color: white;
     margin: 0;
-    padding: 0;
+    font-family: var(--font-secondary); /* Roboto para el cuerpo */
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Suavizado de fuente para una mejor lectura */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-    width: 90%;
-    max-width: 900px;
-    margin: 30px auto;
-    background-color: var(--color-light-bg);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+/* -------------------------------------- */
+/* 0. Header (Basado en la captura)       */
+/* -------------------------------------- */
+.header { /* Asumo que tu header tiene la clase 'header' */
+    background-color: var(--color-primary-mid); /* Un azul más oscuro */
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px var(--color-shadow-strong); /* Sombra para profundidad */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
 }
 
-/* === TÍTULOS === */
-h2 {
-    color: var(--color-text);
-    border-bottom: 2px solid var(--color-text);
-    padding-bottom: 12px;
-    margin-top: 25px;
+.header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* === NAVEGACIÓN (Volver / Cerrar sesión) === */
-.nav-links {
-    text-align: right;
-    margin-bottom: 20px;
+.header .logo img {
+    height: 40px; /* Tamaño del logo */
 }
 
-.nav-links a {
-    color: var(--color-link);
+.header .logo span {
+    color: var(--color-text-light);
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-family: var(--font-primary);
+}
+
+.header .nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.header .nav-menu a {
+    color: var(--color-text-light);
     text-decoration: none;
-    margin-left: 15px;
-    font-weight: bold;
-    transition: color 0.2s;
-}
-
-.nav-links a:hover {
-    color: #ffd76d;
-}
-
-/* ============================================
-   📝 FORMULARIO PUBLICAR
-   ============================================ */
-.form-publicar {
-    padding: 20px;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    margin-bottom: 30px;
-    background-color: var(--color-background);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    border: 2px solid #555;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    background-color: #1a1a1a;
-    color: white;
-    box-sizing: border-box;
-    resize: vertical;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-textarea:focus {
-    border-color: var(--color-text);
-    box-shadow: 0 0 8px rgba(247, 183, 49, 0.7);
-    outline: none;
-}
-
-.btn-publicar {
-    padding: 10px 20px;
-    background-color: var(--color-text);
-    color: var(--color-background);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.btn-publicar:hover {
-    background-color: #ffc950;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
-}
-
-/* ============================================
-   💬 PUBLICACIONES Y RESPUESTAS
-   ============================================ */
-.publicaciones-container > ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Tarjetas de publicación */
-.publicaciones-container li {
-    background-color: var(--color-light-bg);
-    border-radius: 12px;
-    padding: 18px 20px;
-    margin: 15px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 5px 0;
     position: relative;
-    word-wrap: break-word;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: color 0.3s ease;
 }
 
-.publicaciones-container li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+.header .nav-menu a:hover {
+    color: var(--color-accent);
 }
 
-/* Cabecera (usuario + fecha) */
-.meta-publicacion {
+.header .nav-menu a::after { /* Animación de subrayado */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.header .nav-menu a:hover::after {
+    width: 100%;
+}
+
+.header .user-profile {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 10px;
+    gap: 15px;
 }
 
-.meta-publicacion b {
-    color: var(--color-text);
-    font-size: 1.1em;
-}
-
-.meta-publicacion .fecha-publicacion {
-    color: var(--color-date);
-    font-size: 0.9em;
-}
-
-/* Contenido del mensaje */
-.contenido-publicacion {
-    color: #e0e0e0;
-    line-height: 1.6;
-    margin: 10px 0;
-    font-size: 1rem;
-    white-space: pre-wrap;
-}
-
-/* Interacciones (like / responder) */
-.interacciones {
+.header .user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-link);
+    border-radius: 50%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding-top: 8px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-.interacciones span {
-    font-weight: 600;
-    color: #fff;
+.header .user-icon:hover {
+    background-color: var(--color-accent);
 }
 
-.interacciones a {
-    color: var(--color-text);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s, background-color 0.2s;
-    padding: 4px 8px;
+.header .logout-btn {
+    background-color: #E74C3C; /* Rojo de salida */
+    color: white;
+    border: none;
+    padding: 8px 15px;
     border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.interacciones a:hover {
-    background-color: rgba(247, 183, 49, 0.1);
-    color: #ffd76d;
+.header .logout-btn:hover {
+    background-color: #C0392B;
+    transform: translateY(-1px);
 }
 
-/* === Respuestas anidadas === */
-.publicaciones-container ul ul {
-    margin-left: 25px;
-    margin-top: 12px;
-    padding-left: 15px;
-    border-left: 2px solid rgba(247, 183, 49, 0.3);
+
+/* -------------------------------------- */
+/* 1. Contenedor Principal de la Página */
+/* -------------------------------------- */
+.grupos-page-container {
+    max-width: 1200px; /* Un poco más amplio para más aire */
+    margin: 40px auto; /* Más espacio arriba/abajo */
+    padding: 30px;
+    background-color: var(--color-primary-mid); /* Fondo principal de la página de grupos */
+    border-radius: 18px; /* Bordes más suaves */
+    box-shadow: 0 10px 30px var(--color-shadow-strong); /* Sombra profunda y marcada */
+    border: 1px solid var(--color-border-subtle); /* Borde sutil */
 }
 
-.publicaciones-container ul ul li {
-    background-color: var(--color-card-bg);
-    box-shadow: none;
-    margin: 10px 0;
-    padding: 15px;
+/* Título principal de la página */
+.grupos-page-container h1 {
+    font-family: var(--font-primary);
+    font-size: 2.5rem; /* Más grande y prominente */
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 800;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Sombra de texto sutil */
+    position: relative;
+    padding-bottom: 10px;
 }
 
-/* Limitar profundidad de anidación (3 niveles) */
-.publicaciones-container ul ul ul ul {
-    border-left: none;
-    margin-left: 0;
+.grupos-page-container h1::after { /* Línea decorativa bajo el título */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-link);
+    border-radius: 2px;
 }
 
-/* ============================================
-   📱 RESPONSIVE
-   ============================================ */
-@media screen and (max-width: 600px) {
-    .container {
-        width: 95%;
+/* Botón "Volver" (si existe) */
+.back-button {
+    display: inline-block;
+    background-color: var(--color-link);
+    color: var(--color-primary-dark);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: 25px; /* Espacio debajo del botón */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.back-button:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--color-shadow-subtle);
+}
+
+/* -------------------------------------- */
+/* 2. Secciones de Grupos (Mis Grupos, Grupos Disponibles) */
+/* -------------------------------------- */
+.seccion-grupos {
+    margin-bottom: 40px; /* Más espacio entre secciones */
+}
+
+.seccion-grupos h2 {
+    font-family: var(--font-primary);
+    font-size: 1.8rem; /* Títulos de sección */
+    color: var(--color-link);
+    margin-bottom: 20px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--color-border-subtle); /* Separador sutil */
+    padding-bottom: 8px;
+}
+
+/* Contenedor de las tarjetas de grupo */
+.lista-grupos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo y adaptable */
+    gap: 25px; /* Más espacio entre tarjetas */
+}
+
+/* -------------------------------------- */
+/* 3. Estilo de las Tarjetas de Grupo */
+/* -------------------------------------- */
+.grupo-card {
+    background-color: var(--color-secondary-dark); /* Fondo un poco más oscuro que el contenedor principal */
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 20px var(--color-shadow-subtle); /* Sombra más suave para las cards internas */
+    border: 1px solid var(--color-border-subtle);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para empujar los botones abajo */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto hover */
+}
+
+.grupo-card:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento */
+    box-shadow: 0 8px 25px var(--color-shadow-strong); /* Sombra más pronunciada al hover */
+}
+
+.grupo-card h3 {
+    font-family: var(--font-primary);
+    font-size: 1.6rem; /* Título del grupo */
+    color: var(--color-accent);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.grupo-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-subtle);
+    margin-bottom: 20px; /* Espacio antes de los botones */
+    line-height: 1.5;
+}
+
+.grupo-card .acciones {
+    display: flex;
+    gap: 15px; /* Espacio entre botones */
+    margin-top: auto; /* Empuja los botones a la parte inferior de la card */
+}
+
+.grupo-card .btn-accion {
+    background-color: var(--color-link);
+    color: var(--color-primary-dark);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.grupo-card .btn-accion:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-1px);
+}
+
+/* Estilo específico para el botón "Salir" */
+.grupo-card .btn-salir {
+    background-color: #E74C3C; /* Rojo */
+}
+
+.grupo-card .btn-salir:hover {
+    background-color: #C0392B;
+}
+
+/* Estilo específico para el botón "Entrar" */
+.grupo-card .btn-entrar {
+    background-color: var(--color-accent); /* Dorado */
+    color: var(--color-primary-dark);
+}
+
+.grupo-card .btn-entrar:hover {
+    background-color: #e6b300;
+}
+
+/* -------------------------------------- */
+/* 4. Ajustes Responsivos Profesionales */
+/* -------------------------------------- */
+@media (max-width: 1024px) {
+    .grupos-page-container {
+        margin: 30px 20px;
+        padding: 25px;
+    }
+    .grupos-page-container h1 {
+        font-size: 2.2rem;
+    }
+    .seccion-grupos h2 {
+        font-size: 1.6rem;
+    }
+    .lista-grupos {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    .grupo-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
         padding: 15px;
-        margin: 15px auto;
-        border-radius: 8px;
     }
-
-    .meta-publicacion {
-        flex-direction: column;
-        align-items: flex-start;
+    .header .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 25px;
     }
-
-    .interacciones {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-    }
-
-    .interacciones a,
-    .interacciones span {
+    .header .user-profile {
         width: 100%;
-        box-sizing: border-box;
+        justify-content: center;
+        margin-top: 10px;
     }
-
-    .btn-publicar {
-        display: block;
+    .grupos-page-container {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    .grupos-page-container h1 {
+        font-size: 1.8rem;
+    }
+    .seccion-grupos h2 {
+        font-size: 1.4rem;
+    }
+    .lista-grupos {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        gap: 15px;
+    }
+    .grupo-card .acciones {
+        flex-direction: column; /* Botones apilados en móvil */
+        gap: 10px;
+    }
+    .grupo-card .btn-accion {
         width: 100%;
-        box-sizing: border-box;
-    }
-
-    .publicaciones-container ul ul {
-        margin-left: 12px;
-        padding-left: 10px;
+        text-align: center;
     }
 }
