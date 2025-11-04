@@ -20,6 +20,7 @@ $noticias_result = $conexion->query("
     <link rel="icon" href="../img/343-logo.png" type="image/png">
     <link rel="stylesheet" href="../css/noticia.css"> 
 </head>
+<div class="page-wrapper">
 <body>
       <?php include 'header.php'; ?>
     <main class="news-container">
@@ -53,6 +54,7 @@ $noticias_result = $conexion->query("
             <?php endif; ?>
         </section>
     </main>
+</div>
  <?php include 'footer.php'; ?>
     </body>
 </html>

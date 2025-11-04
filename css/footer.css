@@ -1,6 +1,13 @@
 /* ======================================= */
 /* ESTILOS BASE DEL FOOTER                 */
 /* ======================================= */
+
+
+.page-wrapper {
+    min-height: calc(100vh - 180px); /* AJUSTÁ ESTE VALOR a la altura real del footer */
+}
+
+
 footer {
     display: flex;
     justify-content: space-around;

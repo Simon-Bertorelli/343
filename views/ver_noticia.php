@@ -33,6 +33,7 @@ if ($id_noticia > 0) {
     <title><?= $noticia ? htmlspecialchars($noticia['titulo']) : 'Noticia No Encontrada' ?> - Tu Portal</title>
     <link rel="stylesheet" href="./css/style.css"> 
     <link rel="stylesheet" href="../css/ver_noticia.css"> </head>
+    <div class="page-wrapper">
 <body>
       <?php include 'header.php'; ?>
     <main class="news-detail-container">
@@ -65,6 +66,7 @@ if ($id_noticia > 0) {
             </div>
         <?php endif; ?>
     </main>
+</div>
  <?php include 'footer.php'; ?>
     </body>
 </html>

@@ -2,36 +2,40 @@ const carrusel = document.querySelector(".noticias-carrusel");
 const prev = document.getElementById("prev");
 const next = document.getElementById("next");
 
-// Se asegura que existan elementos antes de calcular
 const firstCard = carrusel ? carrusel.querySelector(".card") : null;
 
 if (carrusel && prev && next && firstCard) {
-    // Obtiene el ancho real calculado de la primera tarjeta
     const cardWidth = firstCard.getBoundingClientRect().width;
-    
-    // Obtiene el valor numérico del gap (ej. "15px" -> 15)
     const gapStyle = getComputedStyle(carrusel).gap;
     const gap = parseFloat(gapStyle) || 0; 
     
-    // La cantidad de desplazamiento es el ancho de una tarjeta más el gap
-    const fullScrollAmount = cardWidth + gap;
-
-    // -----------------------------------------------------------------
-    // MODIFICACIÓN CLAVE: Reducir la distancia para mayor "fluidez"
-    // -----------------------------------------------------------------
-    // Reduce el desplazamiento al 75% de una tarjeta.
-    // Puedes ajustar el 0.75 a un valor menor (ej. 0.5) para más fluidez, 
-    // o a un valor mayor (ej. 1.2) si quieres que se mueva más rápido.
-    const scrollFactor = 0.1; 
-    const scrollAmount = fullScrollAmount * scrollFactor; 
-    // -----------------------------------------------------------------
+    // Desplazamiento de exactamente una tarjeta completa
+    const scrollAmount = cardWidth + gap;
+    
+    // Variable para prevenir clicks múltiples durante la animación
+    let isScrolling = false;
 
     next.addEventListener("click", function() {
+        if (isScrolling) return;
+        
+        isScrolling = true;
         carrusel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        
+        // Libera después de la animación (ajusta el tiempo si es necesario)
+        setTimeout(() => {
+            isScrolling = false;
+        }, 400);
     });
 
     prev.addEventListener("click", function() {
+        if (isScrolling) return;
+        
+        isScrolling = true;
         carrusel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        
+        setTimeout(() => {
+            isScrolling = false;
+        }, 400);
     });
 } else {
     console.error("No se pudieron encontrar todos los elementos del carrusel.");
