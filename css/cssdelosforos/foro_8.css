@@ -1,11 +1,11 @@
 /* Variables de color */
 :root {
-    --color-background: #009933;   /* verde esmeralda */
-    --color-text: #ffffff;         /* blanco */
-    --color-light-bg: #33cc66;
-    --color-card-bg: #007a26;
-    --color-border: #00551a;
-    --color-link: #ffffff;
+    --color-background: #ee0000;   /* rojo fuerte */
+    --color-text: #ffcc00;         /* amarillo acento */
+    --color-light-bg: #ff4d4d;
+    --color-card-bg: #cc0000;
+    --color-border: #990000;
+    --color-link: #ffcc00;
 }
 
 /* Estilos Generales */

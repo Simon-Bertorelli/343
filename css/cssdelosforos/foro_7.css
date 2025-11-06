@@ -1,10 +1,10 @@
 /* Variables de color */
 :root {
-    --color-background: #5c0230;   /* granate */
-    --color-text: #ffffff;         /* blanco */
-    --color-light-bg: #7a0444;
-    --color-card-bg: #4d0026;
-    --color-border: #33001a;
+    --color-background: #003399;   /* azul */
+    --color-text: #ffffff;         /* blanco como acento */
+    --color-light-bg: #3355cc;
+    --color-card-bg: #1f2d8c;
+    --color-border: #002266;
     --color-link: #ffffff;
 }
 

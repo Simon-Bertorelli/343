@@ -1,18 +1,18 @@
 /* Variables de color */
 :root {
-    --color-background: #c8102e;   /* rojo Estudiantes (primario) */
-    --color-text: #ffffff;         /* blanco para contraste */
-    --color-light-bg: #f7d6da;     /* rojo muy claro / fondo suave */
-    --color-card-bg: #a60f22;      /* variante más oscura para tarjetas */
-    --color-border: #7a0a18;       /* borde rojo profundo */
-    --color-link: #ffffff;         /* enlaces en blanco */
+    --color-background: #ffffff;   /* blanco */
+    --color-text: #ff0000;         /* rojo */
+    --color-light-bg: #ffe5e5;
+    --color-card-bg: #ffd9d9;
+    --color-border: #cc0000;
+    --color-link: #ff0000;
 }
 
 /* Estilos Generales */
 body {
     font-family: Arial, sans-serif;
     background-color: var(--color-background);
-    color: white; 
+    color: rgb(63, 55, 55); 
     margin: 0;
     padding: 0;
 }
@@ -68,7 +68,7 @@ textarea {
     border-radius: 4px; 
     margin-bottom: 10px;
     background-color: #fff;
-    color: var(--color-background);
+    color: var(--color-text);
     box-sizing: border-box;
     resize: vertical; /* Permite redimensionar solo verticalmente */
 }
@@ -137,7 +137,7 @@ li b {
     white-space: pre-wrap;
     margin-top: 5px;
     margin-bottom: 10px;
-    color: #ccc; 
+    color: #5a5a5a; 
     line-height: 1.4; /* Mejora la legibilidad del texto largo */
 }
 

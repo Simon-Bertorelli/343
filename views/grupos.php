@@ -34,7 +34,7 @@ $grupos_disponibles = $conexion->query("
     <meta charset="UTF-8">
     <title>Grupos - 343</title>
     <link rel="icon" href="../img/343-logo.png" type="image/png">
-    <link rel="stylesheet" href="../css/grupos.css"> 
+    <link rel="stylesheet" href="../css/grupos.css">
 </head>
 <body>
     <?php include 'header.php'; ?>

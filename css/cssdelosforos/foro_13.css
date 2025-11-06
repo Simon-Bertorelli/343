@@ -1,11 +1,11 @@
 /* Variables de color */
 :root {
-    --color-background: #ffffff;   /* blanco */
-    --color-text: #d30000;         /* rojo balón / acento */
-    --color-light-bg: #fff2f2;     /* fondo suave rosado claro */
-    --color-card-bg: #ffdcdc;      /* tarjeta ligeramente más intensa */
-    --color-border: #b20000;       /* borde rojo oscuro */
-    --color-link: #d30000;         /* enlaces en rojo */
+    --color-background: #f7d6da;   /* rojo Estudiantes (primario) */
+    --color-text: #ffffff;         /* blanco para contraste */
+    --color-light-bg: #c8102e;     /* rojo muy claro / fondo suave */
+    --color-card-bg: #a60f22;      /* variante más oscura para tarjetas */
+    --color-border: #7a0a18;       /* borde rojo profundo */
+    --color-link: #ffffff;         /* enlaces en blanco */
 }
 
 /* Estilos Generales */

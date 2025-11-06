@@ -1,11 +1,11 @@
 /* Variables de color */
 :root {
-    --color-background: #ffffff;   /* blanco */
-    --color-text: #ff0000;         /* rojo */
-    --color-Light-bg: #ffe5e5;
-    --color-card-bg: #ffd9d9;
-    --color-border: #cc0000;
-    --color-link: #ff0000;
+    --color-background: #730019;   /* granate principal */
+    --color-text: #ffffff;         /* blanco */
+    --color-light-bg: #8b0021;     /* granate claro */
+    --color-card-bg: #590014;      /* granate oscuro */
+    --color-border: #3d0010;       /* borde granate profundo */
+    --color-link: #ffffff;         /* enlaces en blanco */
 }
 
 /* Estilos Generales */

@@ -1,11 +1,11 @@
 /* Variables de color */
 :root {
-    --color-background: #ffffff;   /* blanco */
-    --color-text: #ff0000;         /* rojo */
-    --color-light-bg: #ffe5e5;
-    --color-card-bg: #ffd9d9;
-    --color-border: #cc0000;
-    --color-link: #ff0000;
+    --color-background: #002244; /* Azul oscuro principal */
+    --color-text: #f7b731;     /* Amarillo/Naranja de acento */
+    --color-light-bg: #003366; /* Fondo más claro para el contenedor */
+    --color-card-bg: #01182c;  /* Fondo para publicaciones anidadas */
+    --color-border: #444;      /* Borde gris oscuro */
+    --color-link: #f7b731;     /* Color de enlaces */
 }
 
 /* Estilos Generales */

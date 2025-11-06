@@ -127,7 +127,18 @@ function mostrar_publicaciones($conexion, $id_grupo, $parent_id = NULL) {
 <meta charset="UTF-8">
 <title>Foro - 343</title>
 <link rel="icon" href="../img/343-logo.png" type="image/png">
-<link rel="stylesheet" href="../css/foro.css"> 
+    <?php
+    // Ruta base común
+    echo '<link rel="stylesheet" href="../css/foro.css">';
+
+    // Agregar CSS específico según el grupo
+    $css_grupo = "../css/cssdelosforos/foro_" . $id_grupo . ".css";
+
+    if (file_exists($css_grupo)) {
+        echo '<link rel="stylesheet" href="' . $css_grupo . '">';
+    }
+    ?>
+
 
 <script>
     // --- FUNCIÓN PARA RESPONDER ---
