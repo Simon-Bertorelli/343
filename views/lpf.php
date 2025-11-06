@@ -133,48 +133,69 @@ function obtener_slug($nombre_equipo_corto) {
         <section class="estadisticas">
             <div class="card">
                 <h2>GOLEADORES</h2>
-                <ul class="tabla">
-                    <li><span class="pos azul">1</span><a href="equipo.php?equipo=<?php echo obtener_slug('Boca Jrs.'); ?>">Juan Pérez (Boca)</a> - 15 goles</li>
-                    <li><span class="pos azul">2</span><a href="equipo.php?equipo=<?php echo obtener_slug('River'); ?>">Carlos Rodríguez (River)</a> - 12 goles</li>
-                    <li><span class="pos azul">3</span><a href="equipo.php?equipo=<?php echo obtener_slug('Vélez'); ?>">José Fernández (Vélez)</a> - 10 goles</li>
-                    <li><span class="pos azul">4</span><a href="equipo.php?equipo=<?php echo obtener_slug('Huracán'); ?>">Marcos González (Huracán)</a> - 9 goles</li>
-                    <li><span class="pos azul">5</span><a href="equipo.php?equipo=<?php echo obtener_slug('Banfield'); ?>">Lucas Martínez (Banfield)</a> - 8 goles</li>
-                </ul>
+                <table class="tabla-estadisticas">
+                    <thead>
+                        <tr><th>#</th><th>Jugador</th><th>Equipo</th><th>Goles</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Juan Pérez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Boca Jrs.'); ?>">Boca</a></td><td>15</td></tr>
+                        <tr><td>2</td><td>Carlos Rodríguez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('River'); ?>">River</a></td><td>12</td></tr>
+                        <tr><td>3</td><td>José Fernández</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Vélez'); ?>">Vélez</a></td><td>10</td></tr>
+                        <tr><td>4</td><td>Marcos González</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Huracán'); ?>">Huracán</a></td><td>9</td></tr>
+                        <tr><td>5</td><td>Lucas Martínez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Banfield'); ?>">Banfield</a></td><td>8</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="card">
                 <h2>ASISTIDORES</h2>
-                <ul class="tabla">
-                    <li><span class="pos azul">1</span><a href="equipo.php?equipo=<?php echo obtener_slug('River'); ?>">Martín Díaz (River)</a> - 10 asistencias</li>
-                    <li><span class="pos azul">2</span><a href="equipo.php?equipo=<?php echo obtener_slug('Boca Jrs.'); ?>">Leonardo García (Boca)</a> - 8 asistencias</li>
-                    <li><span class="pos azul">3</span><a href="equipo.php?equipo=<?php echo obtener_slug('Vélez'); ?>">Federico Sánchez (Vélez)</a> - 7 asistencias</li>
-                    <li><span class="pos azul">4</span><a href="equipo.php?equipo=<?php echo obtener_slug('San Lorenzo'); ?>">Hernán Martínez (San Lorenzo)</a> - 6 asistencias</li>
-                    <li><span class="pos azul">5</span><a href="equipo.php?equipo=<?php echo obtener_slug('Estudiantes'); ?>">Diego Rodríguez (Estudiantes)</a> - 5 asistencias</li>
-                </ul>
+                <table class="tabla-estadisticas">
+                    <thead>
+                        <tr><th>#</th><th>Jugador</th><th>Equipo</th><th>Asistencias</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Martín Díaz</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('River'); ?>">River</a></td><td>10</td></tr>
+                        <tr><td>2</td><td>Leonardo García</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Boca Jrs.'); ?>">Boca</a></td><td>8</td></tr>
+                        <tr><td>3</td><td>Federico Sánchez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Vélez'); ?>">Vélez</a></td><td>7</td></tr>
+                        <tr><td>4</td><td>Hernán Martínez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('San Lorenzo'); ?>">San Lorenzo</a></td><td>6</td></tr>
+                        <tr><td>5</td><td>Diego Rodríguez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Estudiantes'); ?>">Estudiantes</a></td><td>5</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="card">
                 <h2>AMARILLAS</h2>
-                <ul class="tabla">
-                    <li><span class="pos azul">1</span><a href="equipo.php?equipo=<?php echo obtener_slug('Independiente'); ?>">Tomás García (Independiente)</a> - 6 amarillas</li>
-                    <li><span class="pos azul">2</span><a href="equipo.php?equipo=<?php echo obtener_slug('Central'); ?>">Diego López (Rosario Central)</a> - 5 amarillas</li>
-                    <li><span class="pos azul">3</span><a href="equipo.php?equipo=<?php echo obtener_slug('Gimnasia'); ?>">Federico González (Gimnasia LP)</a> - 4 amarillas</li>
-                    <li><span class="pos azul">4</span><a href="equipo.php?equipo=<?php echo obtener_slug('Atl. Tucumán'); ?>">Juan Cruz (Atlético Tucumán)</a> - 4 amarillas</li>
-                    <li><span class="pos azul">5</span><a href="equipo.php?equipo=<?php echo obtener_slug('Racing'); ?>">César Rodríguez (Racing)</a> - 3 amarillas</li>
-                </ul>
+                <table class="tabla-estadisticas">
+                    <thead>
+                        <tr><th>#</th><th>Jugador</th><th>Equipo</th><th>Amarillas</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Tomás García</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Independiente'); ?>">Independiente</a></td><td>6</td></tr>
+                        <tr><td>2</td><td>Diego López</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Central'); ?>">Rosario Central</a></td><td>5</td></tr>
+                        <tr><td>3</td><td>Federico González</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Gimnasia'); ?>">Gimnasia</a></td><td>4</td></tr>
+                        <tr><td>4</td><td>Juan Cruz</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Atl. Tucumán'); ?>">Atl. Tucumán</a></td><td>4</td></tr>
+                        <tr><td>5</td><td>César Rodríguez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Racing'); ?>">Racing</a></td><td>3</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="card">
                 <h2>ROJAS</h2>
-                <ul class="tabla">
-                    <li><span class="pos azul">1</span><a href="equipo.php?equipo=<?php echo obtener_slug('Talleres'); ?>">Ramón Silva (Talleres)</a> - 2 rojas</li>
-                    <li><span class="pos azul">2</span><a href="equipo.php?equipo=<?php echo obtener_slug('Independiente'); ?>">Martín Pérez (Independiente)</a> - 2 rojas</li>
-                    <li><span class="pos azul">3</span><a href="equipo.php?equipo=<?php echo obtener_slug('Platense'); ?>">José Pérez (Platense)</a> - 1 roja</li>
-                    <li><span class="pos azul">4</span><a href="equipo.php?equipo=<?php echo obtener_slug('Banfield'); ?>">Enzo Sánchez (Banfield)</a> - 1 roja</li>
-                    <li><span class="pos azul">5</span><a href="equipo.php?equipo=<?php echo obtener_slug('Newell’s'); ?>">Lucas Rodríguez (Newell's)</a> - 1 roja</li>
-                </ul>
+                <table class="tabla-estadisticas">
+                    <thead>
+                        <tr><th>#</th><th>Jugador</th><th>Equipo</th><th>Rojas</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Ramón Silva</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Talleres'); ?>">Talleres</a></td><td>2</td></tr>
+                        <tr><td>2</td><td>Martín Pérez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Independiente'); ?>">Independiente</a></td><td>2</td></tr>
+                        <tr><td>3</td><td>José Pérez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Platense'); ?>">Platense</a></td><td>1</td></tr>
+                        <tr><td>4</td><td>Enzo Sánchez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Banfield'); ?>">Banfield</a></td><td>1</td></tr>
+                        <tr><td>5</td><td>Lucas Rodríguez</td><td><a href="equipo.php?equipo=<?php echo obtener_slug('Newell’s'); ?>">Newell’s</a></td><td>1</td></tr>
+                    </tbody>
+                </table>
             </div>
         </section>
+
     </main>
     
     <?php include 'footer.php'; ?>

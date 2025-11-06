@@ -200,6 +200,96 @@ body {
     background: #ffcc33;
 }
 
+/* ==============================
+/* 7. Tablas de Estadísticas      */
+/* ============================== */
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;  /* mismo ancho que la tabla de posiciones */
+    margin: 30px auto;  /* centra horizontalmente */
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.card {
+    background-color: #002b45;
+    border: 1px solid #f7b731;
+    border-radius: 8px;
+    padding: 12px 15px;
+    color: #f7b731;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.card h2 {
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f7b731;
+    padding-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Tablas */
+.tabla-estadisticas {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: center;
+}
+
+.tabla-estadisticas thead {
+    background-color: #003a5c;
+    color: #f7b731;
+}
+
+.tabla-estadisticas th,
+.tabla-estadisticas td {
+    padding: 6px 8px;
+    border-bottom: 1px solid rgba(247, 183, 49, 0.3);
+}
+
+.tabla-estadisticas tbody tr:nth-child(even) {
+    background-color: #00324f;
+}
+
+.tabla-estadisticas tbody tr:hover {
+    background-color: #004366;
+    transition: 0.3s;
+}
+
+.tabla-estadisticas a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tabla-estadisticas a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card h2 {
+        font-size: 15px;
+    }
+
+    .tabla-estadisticas th,
+    .tabla-estadisticas td {
+        font-size: 12px;
+        padding: 4px 5px;
+    }
+}
+
 
 /* =========================================== */
 /* === AJUSTES RESPONSIVOS (TABLET Y MÓVIL) === */
