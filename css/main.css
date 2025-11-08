@@ -52,14 +52,16 @@ h2 {
     /* Ocultar barra de desplazamiento */
     -ms-overflow-style: none;
     scrollbar-width: none;
+    scroll-snap-type: x mandatory; /* Agregado: Chasquea a tarjetas completas para mejor UX */
+    transition: transform 0.5s ease; /* Opcional: Transiciones suaves si usas JS para mover */
 }
 .noticias-carrusel::-webkit-scrollbar {
     display: none;
 }
 
 .noticias-carrusel .card {
-    /* Muestra 2.5 tarjetas en desktop */
-    flex: 0 0 calc(50% - 7.5px); 
+    /* Muestra 1 tarjeta completa (cambiado de 50% para solo una visible) */
+    flex: 0 0 calc(100% - 15px); /* Ajustado para accounting del gap; usa 100% si quitas gap */
     flex-shrink: 0;
     background: #012a4a;
     color: white;
@@ -75,11 +77,13 @@ h2 {
     
     /* CORRECCIÓN: Aumento de altura para evitar texto cortado */
     height: 320px; 
+    scroll-snap-align: start; /* Agregado: Alinea cada card al inicio del viewport */
 }
 
 .noticias-carrusel img {
     width: 60%;
     max-height: 120px;
+    height: 120px; /* Agregado: Altura fija para uniformidad si imágenes varían */
     object-fit: contain;
     /* CORRECCIÓN: Separación más segura entre imagen y texto */
     margin-bottom: 20px; 
@@ -111,6 +115,18 @@ h2 {
     background: #f7b731;
     color: #001f3f;
     font-weight: bold;
+} 
+
+/* Media queries para responsividad (opcional: ajusta según necesidad) */
+@media (max-width: 768px) {
+    .noticias-carrusel .card {
+        flex: 0 0 calc(100% - 15px); /* 1 por vez en mobile */
+    }
+}
+@media (min-width: 769px) {
+    .noticias-carrusel .card {
+        flex: 0 0 calc(100% - 15px); /* 1 por vez en desktop también; cambia a 50% si quieres 2 */
+    }
 }
 
 /* ------------------------------------------- */

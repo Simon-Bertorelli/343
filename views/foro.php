@@ -175,6 +175,7 @@ function mostrar_publicaciones($conexion, $id_grupo, $parent_id = NULL) {
 </script>
 </head>
 <body>
+    <div class="page-wrapper">
     <?php include 'header.php'; // Asegúrate de que 'header.php' exista ?>
     <div class="container">
         <div class="nav-links">
@@ -194,6 +195,7 @@ function mostrar_publicaciones($conexion, $id_grupo, $parent_id = NULL) {
             <?php mostrar_publicaciones($conexion, $id_grupo); ?>
         </div>
     </div>
+</div>
     <?php include 'footer.php'; // Asegúrate de que 'footer.php' exista ?>
 </body>
 </html>
