@@ -14,7 +14,7 @@
         <ul>
             <li><a href="main.php">Inicio</a></li>
             <li>Partidos</li>
-            <li>Contacto</li>
+            <li><a href="contacto.php">Contacto</a></li>
             <li><a href="noticia.php">Noticias</a></li>
 
             <?php if (isset($_SESSION['usuario_id'])): ?>

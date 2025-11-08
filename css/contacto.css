@@ -1,0 +1,130 @@
+/* --- Colores de la temática ---
+    Fondo principal: #001f3f (Azul oscuro)
+    Color principal (texto/bordes/botones): #f7b731 (Amarillo/Oro)
+    Texto secundario: #ffffff (Blanco)
+*/
+
+/* ======================================= */
+/* ESTILOS BASE Y DESKTOP                  */
+/* ======================================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #001f3f;
+    color: #f7b731;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.contacto {
+    background: #012a4a;
+    border: 1px solid #f7b731;
+    border-radius: 12px;
+    padding: 30px 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.contacto h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #f7b731;
+}
+
+/* --- FORMULARIO --- */
+.form-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-contacto label {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.form-contacto input,
+.form-contacto textarea {
+    background: #001f3f;
+    color: #ffffff;
+    border: 1px solid #f7b731;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-contacto input:focus,
+.form-contacto textarea:focus {
+    outline: none;
+    border-color: #ffcc33;
+    box-shadow: 0 0 5px rgba(247, 183, 49, 0.6);
+}
+
+.form-contacto textarea {
+    resize: none;
+}
+
+/* --- BOTÓN --- */
+.form-contacto button {
+    background: #f7b731;
+    color: #001f3f;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.form-contacto button:hover {
+    background: #ffcc33;
+    transform: translateY(-2px);
+}
+
+/* ======================================= */
+/* ESTILOS RESPONSIVE (MÓVILES)            */
+/* ======================================= */
+
+@media screen and (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    .contacto {
+        padding: 25px 20px;
+    }
+
+    .contacto h1 {
+        font-size: 1.7em;
+        margin-bottom: 20px;
+    }
+
+    .form-contacto {
+        gap: 12px;
+    }
+
+    .form-contacto input,
+    .form-contacto textarea {
+        font-size: 0.95em;
+        padding: 8px;
+    }
+
+    .form-contacto button {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+}
