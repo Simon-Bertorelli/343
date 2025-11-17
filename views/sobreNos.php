@@ -47,7 +47,7 @@
         <div class="int info-card"
              data-titulo="Juan Chiriff"
              data-detalle="Rol: Scrum Master. Responsable de la gestión del equipo y metodologías ágiles.">
-          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <img src="../img/tucuman.png" alt="Integrante">
           <h2>Juan Chiriff</h2>
           <h3>Scrum Master</h3>
         </div>
@@ -55,7 +55,7 @@
         <div class="int info-card"
              data-titulo="Theo Soiffer"
              data-detalle="Rol: Back-End: Desarrollo de la lógica y la gestión de la base de datos.">
-          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <img src="../img/huracan.png" alt="Integrante">
           <h2>Theo Soiffer</h2>
           <h3>Back-End</h3>
         </div>
@@ -63,7 +63,7 @@
         <div class="int info-card"
              data-titulo="Simón Basante"
              data-detalle="Rol: Back-End. Implementación de la API, seguridad y optimización..">
-          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <img src="../img/simon.jpg" alt="Integrante">
           <h2>Simón Basante</h2>
           <h3>Back-End</h3>
         </div>
@@ -71,7 +71,7 @@
         <div class="int info-card"
              data-titulo="Ciro Galiana"
              data-detalle="Rol: Front-End & Diseñador: Diseño de interfaz y desarrollo de la parte visual.">
-          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <img src="../img/343-logo.png" alt="Integrante">
           <h2>Ciro Galiana</h2>
           <h3>Front-End & Diseñador</h3>
         </div>
@@ -79,7 +79,7 @@
         <div class="int info-card"
              data-titulo="Benicio Lovato"
              data-detalle="Rol: Front-End & Tester: Implementación de CSS para el cliente y control de calidad de la pagina.">
-          <img src="../img/user-sin-foto.png" alt="Integrante">
+          <img src="../img/boca.png" alt="Integrante">
           <h2>Benicio Lovato</h2>
           <h3>Front-End & Tester</h3>
         </div>

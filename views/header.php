@@ -55,7 +55,7 @@ if (isset($_SESSION['usuario_id'])) {
     <nav class="nav-menu">
         <ul>
             <li><a href="main.php">Inicio</a></li>
-            <li>Partidos</li>
+            <li><a href="partidos.php">Partidos</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="noticia.php">Noticias</a></li>
             <?php if (isset($_SESSION['usuario_id'])): ?>
