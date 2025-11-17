@@ -48,7 +48,7 @@ $css_dinamico = $equipo['css_file'] ?? '../css/default.css';
 
     <main class="layout-equipo">
         <div class="perfil-header">
-            <img src="../img/dyj.png" alt="Escudo de <?php echo $nombre_completo; ?>" class="equipo-escudo">
+            <img src="<?php echo htmlspecialchars($icono_url); ?>" alt="Escudo de <?php echo $nombre_completo; ?>" class="equipo-escudo">
             <h1><?php echo htmlspecialchars($nombre_completo); ?></h1>
             <p class="equipo-apodo">"<?php echo htmlspecialchars($apodo); ?>"</p>
         </div>

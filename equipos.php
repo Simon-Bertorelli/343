@@ -14,7 +14,7 @@ $datos_equipos = [
         'estadio' => 'José María Minella',
         'ciudad' => 'Mar del Plata',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Club_Aldosivi.png',
+        'icono_url' => '../img/aldosivi.png',
         'imagen_principal' => '../img/aldosivi.png',
         'proximos_partidos' => [
             ['dia' => '10/11', 'lv' => 'L', 'rival' => 'Banfield', 'hora' => '15:00', 'es_clasico' => false],
@@ -61,8 +61,8 @@ $datos_equipos = [
         'estadio' => 'Diego Armando Maradona',
         'ciudad' => 'Buenos Aires',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/3/34/Asociaci%C3%B3n_Atl%C3%A9tica_Argentinos_Juniors_%28escudo%29.png',
-        'imagen_principal' => '../img/argentinosjuniors.png',
+        'icono_url' => '../img/aaaj.png',
+        'imagen_principal' => '../img/aaaj.png',
         'proximos_partidos' => [
             ['dia' => '11/11', 'lv' => 'V', 'rival' => 'Atlético Tucumán', 'hora' => '20:00', 'es_clasico' => false],
             ['dia' => '18/11', 'lv' => 'L', 'rival' => 'Banfield', 'hora' => '16:00', 'es_clasico' => false],
@@ -108,8 +108,8 @@ $datos_equipos = [
         'estadio' => 'Monumental José Fierro',
         'ciudad' => 'Tucumán',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/8/88/Escudo_del_Club_Atl%C3%A9tico_Tucum%C3%A1n.svg',
-        'imagen_principal' => '../img/atleticotucuman.png',
+        'icono_url' => '../img/tucuman.png',
+        'imagen_principal' => '../img/tucuman.png',
         'proximos_partidos' => [
             ['dia' => '12/11', 'lv' => 'L', 'rival' => 'Belgrano', 'hora' => '19:00', 'es_clasico' => false],
             ['dia' => '19/11', 'lv' => 'V', 'rival' => 'Boca Juniors', 'hora' => '21:00', 'es_clasico' => false],
@@ -155,7 +155,7 @@ $datos_equipos = [
         'estadio' => 'Florencio Sola',
         'ciudad' => 'Banfield',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/4/43/Club_Atl%C3%A9tico_Banfield_%28escudo%29.png',
+        'icono_url' => '../img/banfield.png',
         'imagen_principal' => '../img/banfield.png',
         'proximos_partidos' => [
             ['dia' => '13/11', 'lv' => 'V', 'rival' => 'Barracas Central', 'hora' => '17:00', 'es_clasico' => false],
@@ -202,8 +202,8 @@ $datos_equipos = [
         'estadio' => 'Claudio "Chiqui" Tapia',
         'ciudad' => 'Buenos Aires',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Escudo_del_Club_Atl%C3%A9tico_Barracas_Central.png',
-        'imagen_principal' => '../img/barracascentral.png',
+        'icono_url' => '../img/barracas.png',
+        'imagen_principal' => '../img/barracas.png',
         'proximos_partidos' => [
             ['dia' => '14/11', 'lv' => 'L', 'rival' => 'Belgrano', 'hora' => '15:30', 'es_clasico' => false],
             ['dia' => '21/11', 'lv' => 'V', 'rival' => 'Boca Juniors', 'hora' => '18:00', 'es_clasico' => false],
@@ -249,7 +249,7 @@ $datos_equipos = [
         'estadio' => 'Julio César Villagra',
         'ciudad' => 'Córdoba',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/6/6f/Escudo_del_Club_Atl%C3%A9tico_Belgrano_%28C%C3%B3rdoba%29.svg',
+        'icono_url' => '../img/belgrano.png',
         'imagen_principal' => '../img/belgrano.png',
         'proximos_partidos' => [
             ['dia' => '15/11', 'lv' => 'V', 'rival' => 'Boca Juniors', 'hora' => '20:30', 'es_clasico' => false],
@@ -296,7 +296,7 @@ $datos_equipos = [
         'estadio' => 'La Bombonera',
         'ciudad' => 'Buenos Aires',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Escudo_del_Club_Atl%C3%A9tico_Boca_Juniors.png',
+        'icono_url' => '../img/boca.png',
         'imagen_principal' => '../img/boca.png',
         'proximos_partidos' => [
             ['dia' => '09/11', 'lv' => 'L', 'rival' => 'River Plate', 'hora' => '16:00', 'es_clasico' => true],
@@ -360,7 +360,7 @@ $datos_equipos = [
         'estadio' => 'Único Madre de Ciudades / Alfredo Terrera',
         'ciudad' => 'Santiago del Estero',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Escudo_del_Club_Atl%C3%A9tico_Central_C%C3%B3rdoba_%28Santiago_del_Estero%29.png',
+        'icono_url' => '../img/centralcba.png',
         'imagen_principal' => '../img/centralcordoba.png',
         'proximos_partidos' => [
             ['dia' => '16/11', 'lv' => 'L', 'rival' => 'Defensa y Justicia', 'hora' => '16:00', 'es_clasico' => false],
@@ -407,8 +407,8 @@ $datos_equipos = [
         'estadio' => 'Norberto "Tito" Tomaghello',
         'ciudad' => 'Florencio Varela',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/2/2e/Escudo_del_Club_Social_y_Deportivo_Defensa_y_Justicia.svg',
-        'imagen_principal' => '../img/defensayjusticia.png',
+        'icono_url' => '../img/dyj.png',
+        'imagen_principal' => '../img/dyj.png',
         'proximos_partidos' => [
             ['dia' => '17/11', 'lv' => 'V', 'rival' => 'Deportivo Riestra', 'hora' => '18:30', 'es_clasico' => false],
             ['dia' => '24/11', 'lv' => 'L', 'rival' => 'Estudiantes', 'hora' => '20:00', 'es_clasico' => false],
@@ -454,8 +454,8 @@ $datos_equipos = [
         'estadio' => 'Guillermo Laza',
         'ciudad' => 'Buenos Aires',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Escudo_del_Club_Deportivo_Riestra.png',
-        'imagen_principal' => '../img/deportivoriestra.png',
+        'icono_url' => '../img/riestra.png',
+        'imagen_principal' => '../img/riestra.png',
         'proximos_partidos' => [
             ['dia' => '18/11', 'lv' => 'L', 'rival' => 'Estudiantes', 'hora' => '15:00', 'es_clasico' => false],
             ['dia' => '25/11', 'lv' => 'V', 'rival' => 'Gimnasia', 'hora' => '17:30', 'es_clasico' => false],
@@ -501,8 +501,8 @@ $datos_equipos = [
         'estadio' => 'Jorge Luis Hirschi',
         'ciudad' => 'La Plata',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Estudiantes_de_la_plata.svg',
-        'imagen_principal' => '../img/estudiantes.png',
+        'icono_url' => '../img/edlp.png',
+        'imagen_principal' => '../img/edlp.png',
         'proximos_partidos' => [
             ['dia' => '19/11', 'lv' => 'V', 'rival' => 'Gimnasia', 'hora' => '21:00', 'es_clasico' => true],
             ['dia' => '26/11', 'lv' => 'L', 'rival' => 'Godoy Cruz', 'hora' => '18:00', 'es_clasico' => false],
@@ -548,8 +548,8 @@ $datos_equipos = [
         'estadio' => 'Juan Carmelo Zerillo',
         'ciudad' => 'La Plata',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/4/45/Club_de_Gimnasia_y_Esgrima_La_Plata_%28escudo%29.png',
-        'imagen_principal' => '../img/gimnasia.png',
+        'icono_url' => '../img/gelp.png',
+        'imagen_principal' => '../img/gelp.png',
         'proximos_partidos' => [
             ['dia' => '20/11', 'lv' => 'L', 'rival' => 'Godoy Cruz', 'hora' => '16:00', 'es_clasico' => false],
             ['dia' => '27/11', 'lv' => 'V', 'rival' => 'Huracán', 'hora' => '19:00', 'es_clasico' => false],
@@ -595,8 +595,8 @@ $datos_equipos = [
         'estadio' => 'Feliciano Gambarte / Malvinas Argentinas',
         'ciudad' => 'Godoy Cruz',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/1/1c/Escudo_del_Club_Deportivo_Godoy_Cruz_Antonio_Tomba.svg',
-        'imagen_principal' => '../img/godoycruz.png',
+        'icono_url' => '../img/godoy.png',
+        'imagen_principal' => '../img/godoy.png',
         'proximos_partidos' => [
             ['dia' => '21/11', 'lv' => 'V', 'rival' => 'Huracán', 'hora' => '20:30', 'es_clasico' => false],
             ['dia' => '28/11', 'lv' => 'L', 'rival' => 'Independiente', 'hora' => '17:00', 'es_clasico' => false],
@@ -642,7 +642,7 @@ $datos_equipos = [
         'estadio' => 'Tomás Adolfo Ducó',
         'ciudad' => 'Buenos Aires',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/7/71/Escudo_del_Club_Atl%C3%A9tico_Hurac%C3%A1n.svg',
+        'icono_url' => '../img/huracan.png',
         'imagen_principal' => '../img/huracan.png',
         'proximos_partidos' => [
             ['dia' => '22/11', 'lv' => 'L', 'rival' => 'Independiente', 'hora' => '19:30', 'es_clasico' => false],
@@ -689,7 +689,7 @@ $datos_equipos = [
         'estadio' => 'Libertadores de América',
         'ciudad' => 'Avellaneda',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/7/70/Escudo_del_Club_Atl%C3%A9tico_Independiente.svg',
+        'icono_url' => '../img/independiente.png',
         'imagen_principal' => '../img/independiente.png',
         'proximos_partidos' => [
             ['dia' => '23/11', 'lv' => 'V', 'rival' => 'Independiente Rivadavia', 'hora' => '18:00', 'es_clasico' => false],
@@ -736,8 +736,8 @@ $datos_equipos = [
         'estadio' => 'Bautista Gargantini',
         'ciudad' => 'Mendoza',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/9/9c/Escudo_del_Club_Sportivo_Independiente_Rivadavia.png',
-        'imagen_principal' => '../img/independienterivadavia.png',
+        'icono_url' => '../img/rivadavia.png',
+        'imagen_principal' => '../img/rivadavia.png',
         'proximos_partidos' => [
             ['dia' => '24/11', 'lv' => 'L', 'rival' => 'Instituto', 'hora' => '16:30', 'es_clasico' => false],
             ['dia' => '01/12', 'lv' => 'V', 'rival' => 'Lanús', 'hora' => '19:00', 'es_clasico' => false],
@@ -783,7 +783,7 @@ $datos_equipos = [
         'estadio' => 'Juan Domingo Perón',
         'ciudad' => 'Córdoba',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/4/41/Instituto_AC_C%C3%B3rdoba_%28escudo%29.png',
+        'icono_url' => '../img/instituto.png',
         'imagen_principal' => '../img/instituto.png',
         'proximos_partidos' => [
             ['dia' => '25/11', 'lv' => 'V', 'rival' => 'Lanús', 'hora' => '18:00', 'es_clasico' => false],
@@ -830,7 +830,7 @@ $datos_equipos = [
         'estadio' => 'Ciudad de Lanús - Néstor Díaz Pérez',
         'ciudad' => 'Lanús',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Club_Atl%C3%A9tico_Lan%C3%BAs_%28escudo%29.png',
+        'icono_url' => '../img/lanus.png',
         'imagen_principal' => '../img/lanus.png',
         'proximos_partidos' => [
             ['dia' => '26/11', 'lv' => 'L', 'rival' => 'Newell\'s', 'hora' => '17:30', 'es_clasico' => false],
@@ -877,7 +877,7 @@ $datos_equipos = [
         'estadio' => 'Marcelo Bielsa',
         'ciudad' => 'Rosario',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/2/24/Escudo_del_Club_Atl%C3%A9tico_Newell%27s_Old_Boys.svg',
+        'icono_url' => '../img/newells.png',
         'imagen_principal' => '../img/newells.png',
         'proximos_partidos' => [
             ['dia' => '27/11', 'lv' => 'V', 'rival' => 'Platense', 'hora' => '19:00', 'es_clasico' => false],
@@ -924,7 +924,7 @@ $datos_equipos = [
         'estadio' => 'Ciudad de Vicente López',
         'ciudad' => 'Florida Este',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/3/3a/Escudo_del_Club_Atl%C3%A9tico_Platense.png',
+        'icono_url' => '../img/platense.png',
         'imagen_principal' => '../img/platense.png',
         'proximos_partidos' => [
             ['dia' => '28/11', 'lv' => 'L', 'rival' => 'Racing', 'hora' => '16:00', 'es_clasico' => false],
@@ -971,7 +971,7 @@ $datos_equipos = [
         'estadio' => 'El Cilindro',
         'ciudad' => 'Avellaneda',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Racing_Club_de_Avellaneda_%28escudo%29.png',
+        'icono_url' => '../img/racing.png',
         'imagen_principal' => '../img/racing.png',
         'proximos_partidos' => [
             ['dia' => '29/11', 'lv' => 'V', 'rival' => 'River Plate', 'hora' => '20:00', 'es_clasico' => false],
@@ -1018,8 +1018,8 @@ $datos_equipos = [
         'estadio' => 'Mâs Monumental',
         'ciudad' => 'Buenos Aires',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Escudo_del_Club_Atl%C3%A9tico_River_Plate.png',
-        'imagen_principal' => '../img/river.png',
+        'icono_url' => '../img/riber.png',
+        'imagen_principal' => '../img/riber.png',
         'proximos_partidos' => [
             ['dia' => '12/11', 'lv' => 'L', 'rival' => 'Argentinos Jrs', 'hora' => '21:30', 'es_clasico' => false],
             ['dia' => '19/11', 'lv' => 'V', 'rival' => 'Rosario Central', 'hora' => '18:00', 'es_clasico' => false],
@@ -1072,8 +1072,8 @@ $datos_equipos = [
         'estadio' => 'Gigante de Arroyito',
         'ciudad' => 'Rosario',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Rosario_Central_-_crest.svg',
-        'imagen_principal' => '../img/rosariocentral.png',
+        'icono_url' => '../img/central.png',
+        'imagen_principal' => '../img/central.png',
         'proximos_partidos' => [
             ['dia' => '30/11', 'lv' => 'L', 'rival' => 'San Lorenzo', 'hora' => '18:30', 'es_clasico' => true],
             ['dia' => '07/12', 'lv' => 'V', 'rival' => 'San Martín', 'hora' => '21:00', 'es_clasico' => false],
@@ -1119,8 +1119,8 @@ $datos_equipos = [
         'estadio' => 'Pedro Bidegain',
         'ciudad' => 'Buenos Aires',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/1/11/Escudo_del_Club_Atl%C3%A9tico_San_Lorenzo_de_Almagro.svg',
-        'imagen_principal' => '../img/sanlorenzo.png',
+        'icono_url' => '../img/casla.png',
+        'imagen_principal' => '../img/casla.png',
         'proximos_partidos' => [
             ['dia' => '01/12', 'lv' => 'V', 'rival' => 'San Martín', 'hora' => '17:00', 'es_clasico' => false],
             ['dia' => '08/12', 'lv' => 'L', 'rival' => 'Sarmiento', 'hora' => '19:30', 'es_clasico' => false],
@@ -1166,7 +1166,7 @@ $datos_equipos = [
         'estadio' => 'Ingeniero Hilario Sánchez',
         'ciudad' => 'San Juan',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/3/36/Escudo_del_Club_Atl%C3%A9tico_San_Mart%C3%ADn_%28San_Juan%29.png',
+        'icono_url' => '../img/sanmartin.png',
         'imagen_principal' => '../img/sanmartin.png',
         'proximos_partidos' => [
             ['dia' => '02/12', 'lv' => 'L', 'rival' => 'Sarmiento', 'hora' => '15:00', 'es_clasico' => false],
@@ -1213,7 +1213,7 @@ $datos_equipos = [
         'estadio' => 'Eva Perón',
         'ciudad' => 'Junín',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/6/64/Escudo_del_Club_Atl%C3%A9tico_Sarmiento_%28Jun%C3%ADn%29.png',
+        'icono_url' => '../img/sarmiento.png',
         'imagen_principal' => '../img/sarmiento.png',
         'proximos_partidos' => [
             ['dia' => '03/12', 'lv' => 'V', 'rival' => 'Talleres', 'hora' => '16:00', 'es_clasico' => false],
@@ -1260,7 +1260,7 @@ $datos_equipos = [
         'estadio' => 'Mario Alberto Kempes',
         'ciudad' => 'Córdoba',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/d/d6/Escudo_del_Club_Atl%C3%A9tico_Talleres.svg',
+        'icono_url' => '../img/talleres.png',
         'imagen_principal' => '../img/talleres.png',
         'proximos_partidos' => [
             ['dia' => '04/12', 'lv' => 'L', 'rival' => 'Tigre', 'hora' => '15:30', 'es_clasico' => false],
@@ -1307,7 +1307,7 @@ $datos_equipos = [
         'estadio' => 'José Dellagiovanna',
         'ciudad' => 'Victoria',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Escudo_del_Club_Atl%C3%A9tico_Tigre.svg',
+        'icono_url' => '../img/tigre.png',
         'imagen_principal' => '../img/tigre.png',
         'proximos_partidos' => [
             ['dia' => '05/12', 'lv' => 'V', 'rival' => 'Unión', 'hora' => '17:00', 'es_clasico' => false],
@@ -1354,7 +1354,7 @@ $datos_equipos = [
         'estadio' => '15 de Abril',
         'ciudad' => 'Santa Fe',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Escudo_del_Club_Atl%C3%A9tico_Uni%C3%B3n.svg',
+        'icono_url' => '../img/union.png',
         'imagen_principal' => '../img/union.png',
         'proximos_partidos' => [
             ['dia' => '06/12', 'lv' => 'L', 'rival' => 'Vélez', 'hora' => '16:00', 'es_clasico' => false],
@@ -1401,7 +1401,7 @@ $datos_equipos = [
         'estadio' => 'José Amalfitani',
         'ciudad' => 'Buenos Aires',
         'css_file' => '../css/Boca.css',
-        'icono_url' => 'https://upload.wikimedia.org/wikipedia/commons/4/40/Escudo_del_Club_Atl%C3%A9tico_V%C3%A9lez_Sarsfield.svg',
+        'icono_url' => '../img/velez.png',
         'imagen_principal' => '../img/velez.png',
         'proximos_partidos' => [
             ['dia' => '07/12', 'lv' => 'V', 'rival' => 'Aldosivi', 'hora' => '19:00', 'es_clasico' => false],
