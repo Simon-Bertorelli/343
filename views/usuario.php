@@ -1,78 +1,86 @@
 <?php 
 session_start(); 
 
+// 1. Seguridad de Sesión
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../Inicio-sesion-html.php");
     exit;
 }
 
+// 2. Inicialización de variables por defecto (Evita errores si falla la DB)
+$user_data = [
+    'nombre_usuario' => 'Cargando...',
+    'email' => '',
+    'descripcion' => '',
+    'club_favorito' => 'Ninguno',
+    'club_logo' => '../img/sin-equipo.png',
+    'foto_perfil' => '../img/user-sin-foto.png'
+];
+
+// 3. Conexión a la Base de Datos (Exclusiva para esta página)
 $servername = "localhost";
-$db_username = "root";
-$db_password = "";
+$username = "root";
+$password = "";
 $dbname = "343db";
 
-// Conexión a la base de datos
-$conn = new mysqli($servername, $db_username, $db_password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+if (!$conn->connect_error) {
+    $user_id = $_SESSION['usuario_id'];
+
+    // Consulta completa recuperando datos del usuario y del equipo
+    $sql = "
+        SELECT 
+            u.id_usuario,
+            u.nombre_usuario,
+            u.email,
+            u.descripcion,
+            u.foto_perfil,
+            e.nombre AS club_favorito
+        FROM usuario u
+        LEFT JOIN equipo e ON u.id_equipo_favorito = e.id_equipo
+        WHERE u.id_usuario = ?
+    ";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $db_data = $result->fetch_assoc();
+        
+        // Lógica del Club Favorito
+        $club_favorito_nombre = $db_data['club_favorito'] ?? 'Ninguno';
+        
+        // Generación de ruta de imagen del club (Lógica original restaurada)
+        if ($club_favorito_nombre != 'Ninguno' && $club_favorito_nombre != '') {
+            $club_logo_path = "../img/" . str_replace(' ', '', $club_favorito_nombre) . ".png";
+        } else {
+            $club_logo_path = "../img/sin-equipo.png";
+        }
+        
+        // Lógica de la Foto de Perfil (Con corrección de ruta relativa)
+        $foto_perfil_path = $db_data['foto_perfil'] ?? '../img/user-sin-foto.png';
+        
+        // Si la foto viene de 'uploads/' y no tiene '../', se lo agregamos para que se vea desde 'views/'
+        if (strpos($foto_perfil_path, 'uploads/') !== false && strpos($foto_perfil_path, '../') === false) {
+            $foto_perfil_path = '../' . $foto_perfil_path;
+        }
+
+        // Asignación final
+        $user_data = [
+            'nombre_usuario' => $db_data['nombre_usuario'],
+            'email' => $db_data['email'],
+            'descripcion' => $db_data['descripcion'] ?? '',
+            'club_favorito' => $club_favorito_nombre,
+            'club_logo' => $club_logo_path,
+            'foto_perfil' => $foto_perfil_path
+        ];
+    } 
+    $stmt->close();
+    // Mantenemos la conexión abierta hasta el final del HTML por seguridad, aunque el header usa la suya propia.
 }
-
-$user_id = $_SESSION['usuario_id'];
-
-// Consulta: unir usuario con su equipo favorito (si existe)
-$sql = "
-    SELECT 
-        u.id_usuario,
-        u.nombre_usuario,
-        u.email,
-        u.descripcion,
-        e.nombre AS club_favorito
-    FROM usuario u
-    LEFT JOIN equipo e ON u.id_equipo_favorito = e.id_equipo
-    WHERE u.id_usuario = ?
-";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows > 0) {
-    $db_data = $result->fetch_assoc();
-    
-    $club_favorito_nombre = $db_data['club_favorito'] ?? 'Ninguno';
-    
-    // Generación de ruta de imagen (Asumimos que el logo se llama: 'ClubNombreSinEspacios.png')
-    if ($club_favorito_nombre != 'Ninguno' && $club_favorito_nombre != '') {
-        $club_logo_path = "../img/" . str_replace(' ', '', $club_favorito_nombre) . ".png";
-    } else {
-        // Imagen por defecto si no hay club favorito
-        $club_logo_path = "../img/sin-equipo.png";
-    }
-    
-    $user_data = [
-        'nombre_usuario' => $db_data['nombre_usuario'],
-        'email' => $db_data['email'],
-        'descripcion' => $db_data['descripcion'] ?? '',
-        'club_favorito' => $club_favorito_nombre,
-        'club_logo' => $club_logo_path,
-        'foto_perfil' => '../img/user-sin-foto.png' // Se mantiene la foto de perfil estática por ahora
-    ];
-} else {
-    // Si no se encuentra el usuario (caso raro)
-    $user_data = [
-        'nombre_usuario' => 'Desconocido',
-        'email' => '',
-        'descripcion' => '',
-        'club_favorito' => 'Ninguno',
-        'club_logo' => '../img/sin-equipo.png',
-        'foto_perfil' => '../img/user-sin-foto.png'
-    ];
-}
-
-$stmt->close();
-$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -84,7 +92,7 @@ $conn->close();
     <link rel="stylesheet" href="../css/usuario.css">
 </head>
 <body>
-    <?php include 'header.php'; // Suponiendo que este archivo existe ?>
+    <?php include 'header.php'; ?>
     
     <main class="profile-container">
 
@@ -93,7 +101,6 @@ $conn->close();
                 <?php echo $_SESSION['message']; ?>
             </div>
             <?php
-                // Limpiar la sesión para que el mensaje no se muestre de nuevo
                 unset($_SESSION['message']);
                 unset($_SESSION['msg_type']);
             ?>
@@ -101,14 +108,14 @@ $conn->close();
         
         <div class="profile-header">
             <div class="profile-photo-container">
-                <img src="<?php echo $user_data['foto_perfil']; ?>" alt="Foto de Perfil" id="profile-photo">
+                <img src="<?php echo htmlspecialchars($user_data['foto_perfil']); ?>" alt="Foto de Perfil" id="profile-photo">
+                
                 <button type="button" class="edit-btn photo-edit-btn" title="Cambiar Foto">&#9998;</button>
-                <input type="file" id="photo-upload" style="display: none;">
+                <input type="file" id="photo-upload" style="display: none;" accept="image/jpeg, image/png">
             </div>
             <h1 class="user-title"><?php echo htmlspecialchars($user_data['nombre_usuario']); ?></h1>
         </div>
 
-        <!-- La acción del formulario apunta correctamente a procesar_actualizacion.php -->
         <form action="../procesar_actualizacion.php" method="POST" class="profile-form">
             
             <section class="form-section">
@@ -143,7 +150,6 @@ $conn->close();
                 <div class="form-group club-selector">
                     <label for="club-input">Buscar y Seleccionar tu Club</label>
                     
-                    <!-- CAMPO DE AUTOCOMPLETADO (Reemplaza al SELECT) -->
                     <input 
                         type="text" 
                         id="club-input" 
@@ -153,13 +159,11 @@ $conn->close();
                         placeholder="Escribe el nombre de tu club..."
                     >
                     
-                    <!-- Datalist, se rellena dinámicamente con JS -->
                     <datalist id="clubes-disponibles"></datalist>
 
-                    
                     <div class="current-club-display" id="club-display">
                         <span class="club-label">Club Actual:</span>
-                       
+                        
                         <span id="club-name-span"><?php echo htmlspecialchars($user_data['club_favorito']); ?></span>
                     </div>
                 </div>
@@ -171,122 +175,132 @@ $conn->close();
         </form>
     </main>
     
-    <?php include 'footer.php'; // Suponiendo que este archivo existe ?>
+    <?php include 'footer.php'; ?>
 
-    <!-- BLOQUE JAVASCRIPT PARA EL AUTOCOMPLETADO Y VISUALIZACIÓN -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            
+            // ---------------------------------------------------------
+            // 1. LÓGICA DE CLUBES (Autocompletado y Visualización)
+            // ---------------------------------------------------------
             const clubInput = document.getElementById('club-input');
             const datalist = document.getElementById('clubes-disponibles');
-            const clubLogoImg = document.getElementById('club-logo-img');
             const clubNameSpan = document.getElementById('club-name-span');
-            const clearClubBtn = document.getElementById('clear-club-btn');
+            // const clubLogoImg = document.getElementById('club-logo-img'); // Si usas imagen de club
             
             let fetchTimeout;
             
-            // Función para obtener equipos mediante AJAX
             const fetchClubs = (term) => {
                 clearTimeout(fetchTimeout);
-                
-                // Mínimo 2 caracteres para buscar en la DB
                 if (term.length < 2) { 
                     datalist.innerHTML = '';
                     return;
                 }
                 
-                // Retraso de 300ms para evitar llamadas excesivas
                 fetchTimeout = setTimeout(async () => {
-                    // LLAMADA AL ENDPOINT: views/buscar_equipos.php
-                    const response = await fetch(`buscar_equipos.php?term=${encodeURIComponent(term)}`);
-                    if (!response.ok) {
-                        console.error('Error al buscar equipos.');
-                        return;
-                    }
-
-                    const clubs = await response.json();
-
-                    datalist.innerHTML = ''; // Limpia la lista anterior
-                    
-                    if (clubs.length > 0) {
-                        clubs.forEach(club => {
-                            const option = document.createElement('option');
-                            option.value = club;
-                            datalist.appendChild(option);
-                        });
+                    // Asume que tienes un archivo buscar_equipos.php funcional
+                    try {
+                        const response = await fetch(`buscar_equipos.php?term=${encodeURIComponent(term)}`);
+                        if (!response.ok) return;
+                        const clubs = await response.json();
+                        datalist.innerHTML = '';
+                        if (clubs.length > 0) {
+                            clubs.forEach(club => {
+                                const option = document.createElement('option');
+                                option.value = club;
+                                datalist.appendChild(option);
+                            });
+                        }
+                    } catch (e) {
+                        console.error("Error buscando equipos", e);
                     }
                 }, 300);
             };
 
-            // Función auxiliar para actualizar la visualización del club
-            function updateClubDisplay(name, path) {
+            function updateClubDisplay(name) {
                 const safeName = name === '' ? 'Ninguno' : name;
-                const safePath = path || '../img/sin-equipo.png';
-
                 clubNameSpan.textContent = safeName;
-                clubLogoImg.src = safePath;
-                clubLogoImg.alt = safeName;
                 
-                // Configurar el handler de error para la imagen
-                clubLogoImg.onerror = () => {
-                    clubLogoImg.src = '../img/sin-equipo.png';
-                    clubLogoImg.alt = 'Sin equipo';
-                };
+                // Lógica opcional para actualizar logo del club en JS si existe la etiqueta img
+                /*
+                if (clubLogoImg) {
+                   if(safeName !== 'Ninguno') {
+                       const imgName = safeName.replace(/\s/g, '') + '.png';
+                       clubLogoImg.src = '../img/' + imgName;
+                   } else {
+                       clubLogoImg.src = '../img/sin-equipo.png';
+                   }
+                }
+                */
             }
 
-            // 1. Manejar la escritura para el autocompletado
             clubInput.addEventListener('input', (e) => {
                 fetchClubs(e.target.value);
             });
 
-            // 2. Manejar la selección de un equipo
             clubInput.addEventListener('change', () => {
                 const selectedClubName = clubInput.value.trim();
-                
-                if (selectedClubName.length > 0) {
-                    // Normalizamos el nombre para buscar la imagen (quitando espacios)
-                    const imageFileName = selectedClubName.replace(/\s/g, '') + '.png';
-                    const imagePath = `../img/${imageFileName}`;
-                    
-                    updateClubDisplay(selectedClubName, imagePath);
-                } else {
-                    updateClubDisplay('Ninguno', '../img/sin-equipo.png');
-                }
-            });
-            
-            // 3. Botón para limpiar la selección
-            clearClubBtn.addEventListener('click', () => {
-                clubInput.value = '';
-                updateClubDisplay('Ninguno', '../img/sin-equipo.png');
+                updateClubDisplay(selectedClubName);
             });
 
-            // 4. Funcionalidad de cambio de foto de perfil (simulado)
+
+            // ---------------------------------------------------------
+            // 2. LÓGICA DE FOTO DE PERFIL (AJAX)
+            // ---------------------------------------------------------
             const photoUpload = document.getElementById('photo-upload');
+            const profilePhoto = document.getElementById('profile-photo');
             const profilePhotoContainer = document.querySelector('.profile-photo-container');
+            const initialPhotoPath = "<?php echo $user_data['foto_perfil']; ?>"; 
 
+            // Click en el botón lápiz activa el input oculto
             profilePhotoContainer.querySelector('.photo-edit-btn').addEventListener('click', () => {
                 photoUpload.click();
             });
 
-            photoUpload.addEventListener('change', (event) => {
+            photoUpload.addEventListener('change', async (event) => {
                 const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        document.getElementById('profile-photo').src = e.target.result;
-                        // Nota: La subida real de la imagen al servidor y la base de datos 
-                        // requeriría una llamada AJAX separada al presionar "Guardar Cambios".
-                        console.log('Previsualización de foto de perfil lista.');
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-            
-            // Inicializar la visualización del club actual al cargar la página
-            const initialClubName = "<?php echo htmlspecialchars($user_data['club_favorito']); ?>";
-            const initialClubLogo = "<?php echo htmlspecialchars($user_data['club_logo']); ?>";
-            updateClubDisplay(initialClubName, initialClubLogo);
+                if (!file) return;
 
+                // A. Previsualización
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    profilePhoto.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+
+                // B. Subida al servidor
+                const formData = new FormData();
+                formData.append('profile_photo', file);
+                
+                try {
+                    const response = await fetch('../subir_foto_perfil.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        console.log('✅ Foto actualizada.');
+                    } else {
+                        alert('Error: ' + result.message);
+                        profilePhoto.src = initialPhotoPath; // Revertir
+                    }
+                } catch (error) {
+                    console.error('Error de red:', error);
+                    alert('Error de conexión.');
+                    profilePhoto.src = initialPhotoPath; // Revertir
+                }
+                
+                event.target.value = null; 
+            });
         });
     </script>
 </body>
 </html>
+<?php
+// Cierre de conexión seguro al final
+if (isset($conn) && $conn instanceof mysqli) {
+    $conn->close();
+}
+?>
