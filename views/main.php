@@ -1,13 +1,11 @@
 <?php 
 session_start(); 
 
-// 🚨 IMPORTANTE: Asegúrate de que la ruta a tu archivo de conexión es correcta.
 include '../conexion.php'; 
 
 // Inicializa $result_carrusel a null para evitar el 'Undefined variable' Warning
 $result_carrusel = null; 
 
-// 1. 🚨 CORRECCIÓN CLAVE: OBTENER SLIDES DEL CARRUSEL (Añadido 'contenido')
 $sql_carrusel = "SELECT imagen_url, titulo, contenido FROM carrusel_slide WHERE activo = TRUE ORDER BY orden ASC, fecha_creacion DESC LIMIT 10"; 
 
 // Comprobar la conexión y ejecutar la consulta de forma segura
