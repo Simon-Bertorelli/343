@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2025 a las 23:56:30
+-- Tiempo de generación: 17-11-2025 a las 19:10:03
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -631,17 +631,18 @@ CREATE TABLE `usuario` (
   `email` varchar(100) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `id_equipo_favorito` int(11) DEFAULT NULL,
-  `rol` enum('admin','user') NOT NULL DEFAULT 'user'
+  `rol` enum('admin','user') NOT NULL DEFAULT 'user',
+  `foto_perfil` varchar(255) DEFAULT 'uploads/profiles/user-sin-foto.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `contrasena`, `email`, `descripcion`, `id_equipo_favorito`, `rol`) VALUES
-(1, 'juan', '$2y$10$61SVLlkhjGAJiUJfUR7tke2hO6qgDWRwEBWhhIr0D0j62rhQ69nlC', 'juanpatriciochiriff@gmail.com', 'sfdsdf', 2, 'admin'),
-(2, 'theo', '$2y$10$t.elQ9lhFM/rBptAowvDZu6qf5zRYT9e155peCwoNerhFJAYwU6Ru', 'gchiriff@gmail.com', NULL, NULL, 'user'),
-(3, 'ciro', '$2y$10$7LOJydmEYq5o7zXHo4CTOetYBhk.WNrNCoM13vf7Q.2aA98vWZWVm', 'theo@gmail.com', NULL, NULL, 'user');
+INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `contrasena`, `email`, `descripcion`, `id_equipo_favorito`, `rol`, `foto_perfil`) VALUES
+(1, 'juan', '$2y$10$61SVLlkhjGAJiUJfUR7tke2hO6qgDWRwEBWhhIr0D0j62rhQ69nlC', 'juanpatriciochiriff@gmail.com', 'sfdsdf', 2, 'admin', 'uploads/profiles/1_1763402484.jpg'),
+(2, 'theo', '$2y$10$t.elQ9lhFM/rBptAowvDZu6qf5zRYT9e155peCwoNerhFJAYwU6Ru', 'gchiriff@gmail.com', NULL, NULL, 'user', '../img/user-sin-foto.png'),
+(3, 'ciro', '$2y$10$7LOJydmEYq5o7zXHo4CTOetYBhk.WNrNCoM13vf7Q.2aA98vWZWVm', 'theo@gmail.com', NULL, NULL, 'user', '../img/user-sin-foto.png');
 
 -- --------------------------------------------------------
 
