@@ -1,3 +1,7 @@
+/* =============================== */
+/* ESTILOS BASE (DESKTOP)         */
+/* =============================== */
+
 body {
     margin: 0;
     padding: 0;
@@ -23,6 +27,10 @@ h2 {
     letter-spacing: 2px;
 }
 
+/* =============================== */
+/* TABLAS                         */
+/* =============================== */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -41,4 +49,101 @@ th, td {
 
 tbody tr:hover {
     background: rgba(247, 183, 49, 0.1);
+}
+
+/* =============================== */
+/* PUBLICIDAD                     */
+/* =============================== */
+
+.publicidad {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.publicidad img {
+    width: 50%;
+    max-width: 800px;
+    height: auto;
+}
+
+/* =============================== */
+/* RESPONSIVE: TABLET             */
+/* =============================== */
+
+@media (max-width: 992px) {
+
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 0.95em;
+    }
+
+    .publicidad img {
+        width: 70%;
+    }
+}
+
+/* =============================== */
+/* RESPONSIVE: MÓVIL GRANDE       */
+/* =============================== */
+
+@media (max-width: 768px) {
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    .container {
+        width: 92%;
+        padding: 18px;
+    }
+
+    table th, table td {
+        padding: 7px;
+        font-size: 0.9em;
+    }
+
+    /* Permitir scroll horizontal si la tabla no entra */
+    .tabla-partidos {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .publicidad img {
+        width: 85%;
+    }
+}
+
+/* =============================== */
+/* RESPONSIVE: MÓVIL CHICO        */
+/* =============================== */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    table th, table td {
+        font-size: 0.85em;
+        padding: 6px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    /* Publicidad ocupa todo el ancho posible en mobile */
+    .publicidad img {
+        width: 95%;
+    }
 }

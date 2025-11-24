@@ -12,6 +12,10 @@
 <body>
       <?php include 'header.php'; ?>
 
+    <div class="publicidad">
+        <a href="https://maples.com/directorship-and-fund-governance-services?utm_source=bing&utm_medium=display&utm_campaign=486898705&utm_content=1227056218999618&utm_term=c&utm_campaign=486898705&utm_medium=display&utm_source=bing&utm_term=c&utm_content=1227056218999618&msclkid=9ec6376a66ef1ca0188c5e4eebb02b36"><img src="../img/publicidad3.jpg" alt="Publicidad"></a>
+    </div>
+
     <main>
     <h1>Sobre Nosotros</h1>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - 343</title>
+    <title>Partidos - 343</title>
     <link rel="stylesheet" href="../css/partidos.css">
     <link rel="icon" href="../img/343-logo.png" type="image/png">
     <script src="../js/carrusel.js" defer></script>
@@ -14,7 +14,6 @@
     
     <?php include 'header.php'; ?>
 
-   
 <div class="container">
     <h2>PARTIDOS DE HOY</h2>
 
