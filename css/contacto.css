@@ -21,9 +21,11 @@ body {
 main {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
+    gap: 40px;
 }
 
 .contacto {
@@ -126,5 +128,42 @@ main {
     .form-contacto button {
         font-size: 0.95em;
         padding: 10px;
+    }
+}
+
+.publicidad {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.publicidad img {
+    width: 50%;
+    max-width: 800px;
+    height: auto;
+}
+
+@media (max-width: 992px) {
+    .publicidad img {
+        width: 70%;
+    }
+}
+
+/* =============================== */
+/* RESPONSIVE: MÓVIL GRANDE       */
+/* =============================== */
+
+@media (max-width: 768px) {
+    .publicidad img {
+        width: 85%;
+    }
+}
+
+/* =============================== */
+/* RESPONSIVE: MÓVIL CHICO        */
+/* =============================== */
+
+@media (max-width: 480px) {
+    .publicidad img {
+        width: 95%;
     }
 }
