@@ -1,22 +1,27 @@
 /* ============================================================
-   VARIABLES DE COLOR
-   ============================================================ */
+    VARIABLES DE COLOR Y FUENTE
+    ============================================================ */
 :root {
-    --color-background: #002244;      /* Azul oscuro principal */
-    --color-text: #f7b731;            /* Amarillo/Naranja de acento */
-    --color-light-bg: #003366;        /* Fondo más claro para el contenedor */
-    --color-card-bg: #01182c;         /* Fondo para las tarjetas de grupo */
-    --color-border: #444;             /* Borde gris oscuro */
-    --color-danger: #f44336;          /* Rojo para el botón Salir */
-    --color-success: #4CAF50;         /* Verde para el botón Unirse/Crear */
-    --color-primary-dark: #002a44;    /* Fondo de contraste en botones */
+    --color-background: #001f3f;       /* Azul oscuro (ajustado para consistencia) */
+    --color-text: #f7b731;             /* Amarillo/Oro de acento */
+    --color-light-bg: #032b55;         /* Fondo más claro para el contenedor principal */
+    --color-card-bg: #002244;          /* Fondo para las tarjetas de grupo */
+    --color-border-default: #1a4d80;   /* Borde azul oscuro suave */
+    --color-danger: #e74c3c;           /* Rojo para el botón Salir */
+    --color-success: #2ecc71;          /* Verde para el botón Unirse/Crear */
+    --color-primary-dark: #001228;     /* Color de texto oscuro para botones claros */
+
+    --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.5);
+    --sombra-hover: 0 8px 25px rgba(247, 183, 49, 0.2);
+    --sombra-acento: 0 0 15px rgba(247, 183, 49, 0.4);
 }
 
 /* ============================================================
-   ESTILOS GENERALES
-   ============================================================ */
+    ESTILOS GENERALES
+    ============================================================ */
 body {
-    font-family: Arial, sans-serif;
+    /* Usa la fuente Inter, asumiendo que está cargada en el HTML */
+    font-family: 'Inter', sans-serif;
     background-color: var(--color-background);
     color: white;
     margin: 0;
@@ -24,145 +29,184 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 800px;
-    margin: 30px auto;
+    width: 95%;
+    max-width: 900px; /* Aumentado el ancho máximo */
+    margin: 40px auto;
     background-color: var(--color-light-bg);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
 h1 {
     color: var(--color-text);
     text-align: center;
-    border-bottom: 2px solid var(--color-text);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    border-bottom: 3px solid var(--color-text);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 900;
+    text-shadow: var(--sombra-acento);
 }
 
 /* ============================================================
-   TÍTULOS DE SECCIÓN
-   ============================================================ */
+    TÍTULOS DE SECCIÓN
+    ============================================================ */
 h2 {
-    color: var(--color-text);
-    margin-top: 25px;
-    padding-left: 10px;
-    border-left: 3px solid var(--color-text);
-    margin-bottom: 15px;
+    color: white;
+    margin-top: 40px;
+    padding-left: 15px;
+    /* Diseño de borde moderno */
+    border-left: 5px solid var(--color-text);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 800;
 }
 
 /* ============================================================
-   ENLACE VOLVER
-   ============================================================ */
+    ENLACE VOLVER
+    ============================================================ */
 .btn-volver {
     display: inline-block;
-    color: white;
-    background-color: #6c757d;
-    padding: 8px 15px;
-    border-radius: 5px;
+    color: var(--color-text);
+    background-color: transparent;
+    border: 2px solid var(--color-text);
+    padding: 10px 20px;
+    border-radius: 25px;
     text-decoration: none;
-    margin-bottom: 20px;
-    transition: background-color 0.2s;
+    margin-bottom: 25px;
+    transition: all 0.3s;
+    font-weight: 600;
 }
 
 .btn-volver:hover {
-    background-color: #5a6268;
+    background-color: var(--color-text);
+    color: var(--color-background);
+    box-shadow: var(--sombra-acento);
 }
 
 /* ============================================================
-   CONTENEDOR DE GRUPOS
-   ============================================================ */
+    CONTENEDOR DE GRUPOS (GRID)
+    ============================================================ */
 .group-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    /* Ajustado para mostrar 2 columnas en desktop, 1 en mobile */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
     padding: 10px 0;
 }
 
 /* ============================================================
-   TARJETAS DE GRUPOS
-   ============================================================ */
+    TARJETAS DE GRUPOS
+    ============================================================ */
 .group-card {
     background-color: var(--color-card-bg);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--sombra-card);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 150px;
-    transition: transform 0.2s;
+    min-height: 170px;
+    transition: transform 0.3s, box-shadow 0.3s;
     width: 100%;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.group-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--color-border-default);
 }
 
 .group-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
 }
 
-/* Mis grupos */
+/* Mis grupos (Destacado con el color de acento) */
 .group-card.my-group {
-    border: 2px solid var(--color-text);
+    border: 1px solid var(--color-text);
+}
+.group-card.my-group::before {
+    background: var(--color-text);
 }
 
 /* Grupos disponibles */
 .group-card.available-group {
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-default);
 }
 
 .group-card strong {
     color: var(--color-text);
-    font-size: 1.2em;
+    font-size: 1.5em;
+    font-weight: 800;
+    margin-bottom: 10px;
     display: block;
-    margin-bottom: 8px;
 }
 
 .description {
-    font-size: 0.9em;
-    color: #ccc;
-    margin-bottom: 15px;
+    font-size: 1em;
+    color: #c9d6e5; /* Azul claro para la descripción */
+    margin-bottom: 20px;
     flex-grow: 1;
 }
 
 .no-groups {
-    padding: 15px;
-    color: #ccc;
+    padding: 25px;
+    color: #88a0b9;
     text-align: center;
+    border: 1px dashed var(--color-border-default);
+    border-radius: 8px;
+    margin-top: 15px;
 }
 
 /* ============================================================
-   ACCIONES (BOTONES Y ENLACES)
-   ============================================================ */
+    ACCIONES (BOTONES)
+    ============================================================ */
 .actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Alinear botones a la derecha */
+    gap: 15px;
     align-items: center;
     margin-top: 10px;
 }
 
 /* Estilo base de botones */
 .btn-primary, .btn-danger, .btn-success {
-    padding: 8px 12px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
     text-decoration: none;
-    transition: background-color 0.2s;
-    font-size: 0.9em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-size: 1em;
     text-align: center;
     white-space: nowrap;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary:active, .btn-danger:active, .btn-success:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* Botón Entrar / Unirse */
-.btn-primary {
+.btn-primary, .btn-success {
     background-color: var(--color-text);
     color: var(--color-primary-dark);
 }
-
-.btn-primary:hover {
-    filter: brightness(0.9);
+.btn-primary:hover, .btn-success:hover {
+    background-color: #ffc457;
+    box-shadow: 0 0 10px var(--color-text);
 }
 
 /* Botón Salir */
@@ -170,40 +214,46 @@ h2 {
     background-color: var(--color-danger);
     color: white;
 }
-
 .btn-danger:hover {
-    background-color: #d32f2f;
+    background-color: #c0392b;
+    box-shadow: 0 0 10px var(--color-danger);
 }
 
-/* Formularios dentro de tarjetas (para botones tipo submit) */
+/* Formularios dentro de tarjetas */
 .group-card .actions button[type="submit"] {
+    /* Anula los estilos por defecto del navegador para el submit */
     all: unset;
-    padding: 8px 12px;
-    border-radius: 4px;
+    /* Aplica los estilos de botón definidos */
+    display: block;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 0.9em;
-    white-space: nowrap;
-    transition: background-color 0.2s;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
+
 
 /* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media screen and (max-width: 600px) {
+    RESPONSIVE
+    ============================================================ */
+@media screen and (max-width: 768px) {
     .container {
-        width: 95%;
-        margin: 15px auto;
+        width: 100%;
+        margin: 15px 0;
         padding: 15px;
+        border-radius: 0;
     }
-
+    
     h1 {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     .group-list {
+        /* Fuerza a 1 columna en móvil */
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 20px;
     }
 
     .group-card {
@@ -211,15 +261,17 @@ h2 {
     }
 
     .actions {
-        flex-direction: column;
+        /* En móvil, los botones ocupan todo el ancho */
+        flex-direction: row; 
+        justify-content: space-between;
         gap: 10px;
     }
 
     .actions .btn-primary,
     .actions .btn-danger,
-    .actions button[type="submit"] {
-        width: 100%;
-        box-sizing: border-box;
-        display: block;
+    .actions .btn-success {
+        flex-grow: 1; /* Permite que los botones crezcan */
+        font-size: 0.9em;
+        padding: 12px 10px;
     }
 }

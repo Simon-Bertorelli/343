@@ -1,149 +1,169 @@
 /* =============================== */
-/* ESTILOS BASE (DESKTOP)         */
+/* VARIABLES Y ESTILOS BASE        */
 /* =============================== */
+
+:root {
+    --color-principal: #002244; /* Azul Oscuro */
+    --color-acento: #f7b731;   /* Dorado/Amarillo */
+    --color-fondo-claro: #0a315e; /* Azul ligeramente más claro */
+    --sombra-fuerte: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
 
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: #002244;
-    color: #f7b731;
+    font-family: 'Montserrat', sans-serif; /* Usamos Montserrat */
+    background: var(--color-principal);
+    background-image: linear-gradient(180deg, var(--color-principal) 0%, #00152a 100%);
+    color: var(--color-acento);
+    min-height: 100vh;
 }
 
 .container {
     width: 95%;
-    max-width: 900px;
+    max-width: 950px;
     margin: 40px auto;
-    background: rgba(0, 0, 0, 0.25);
-    border: 2px solid #f7b731;
-    padding: 25px;
-    border-radius: 10px;
+    /* Fondo más oscuro con un borde de acento elegante */
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-acento);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--sombra-fuerte);
 }
 
 h2 {
     text-align: center;
-    color: #f7b731;
-    margin-bottom: 25px;
-    letter-spacing: 2px;
+    color: var(--color-acento);
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    font-weight: 900; /* Negrita extrema */
+    text-transform: uppercase;
+    /* Efecto de texto dorado con sombra */
+    text-shadow: 0 0 5px rgba(247, 183, 49, 0.7);
 }
 
 /* =============================== */
-/* TABLAS                         */
+/* TABLAS DE PARTIDOS              */
 /* =============================== */
+
+/* Contenedor para manejar el scroll horizontal en móvil */
+.tabla-responsive {
+    overflow-x: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: var(--sombra-fuerte);
+}
 
 table {
     width: 100%;
+    min-width: 600px; /* Asegura que la tabla tenga un ancho mínimo para scroll */
     border-collapse: collapse;
-    border: 1px solid #f7b731;
+    /* Eliminamos el borde exterior de la tabla y lo ponemos en el contenedor */
+    border: none; 
 }
 
 thead tr {
-    background: #011b33;
+    /* Gradiente sutil para el encabezado */
+    background: linear-gradient(90deg, #001a33 0%, var(--color-fondo-claro) 100%);
+    color: #ffffff; /* Letras blancas para el encabezado */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px 10px;
     text-align: center;
-    border-bottom: 1px solid #f7b731;
+    border: none; /* Quitamos los bordes internos */
+    border-right: 1px solid rgba(247, 183, 49, 0.2); /* Separador vertical suave */
+    border-bottom: 1px solid rgba(247, 183, 49, 0.2); /* Separador horizontal suave */
+    transition: background-color 0.3s;
 }
 
+/* Estilos para las celdas de enfrentamiento (vs) */
+tbody tr td:nth-child(3) {
+    color: var(--color-acento);
+    font-weight: bold;
+}
+
+/* Efecto hover en la fila */
 tbody tr:hover {
-    background: rgba(247, 183, 49, 0.1);
+    background: var(--color-fondo-claro);
+    color: var(--color-acento);
+    box-shadow: inset 0 0 10px rgba(247, 183, 49, 0.3);
+}
+
+/* Líneas alternas para mejor legibilidad */
+tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* =============================== */
-/* PUBLICIDAD                     */
+/* PUBLICIDAD                      */
 /* =============================== */
 
 .publicidad {
     text-align: center;
-    margin: 25px auto;
+    margin: 40px auto;
 }
 
 .publicidad img {
-    width: 50%;
+    width: 90%;
     max-width: 800px;
     height: auto;
+    border-radius: 8px;
+    border: 3px solid var(--color-acento);
+    box-shadow: var(--sombra-fuerte);
+    transition: transform 0.3s ease;
+}
+
+.publicidad img:hover {
+    transform: scale(1.01);
 }
 
 /* =============================== */
-/* RESPONSIVE: TABLET             */
-/* =============================== */
-
-@media (max-width: 992px) {
-
-    .container {
-        width: 90%;
-        padding: 20px;
-    }
-
-    table th, table td {
-        padding: 8px;
-        font-size: 0.95em;
-    }
-
-    .publicidad img {
-        width: 70%;
-    }
-}
-
-/* =============================== */
-/* RESPONSIVE: MÓVIL GRANDE       */
+/* RESPONSIVE                      */
 /* =============================== */
 
 @media (max-width: 768px) {
+    
+    .container {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px 15px;
+    }
 
     h2 {
-        font-size: 1.4em;
+        font-size: 1.5em;
+        margin-bottom: 20px;
     }
 
-    .container {
-        width: 92%;
-        padding: 18px;
-    }
-
+    /* En móvil, la tabla debe hacer scroll horizontal, ya manejado por .tabla-responsive */
     table th, table td {
-        padding: 7px;
-        font-size: 0.9em;
+        padding: 8px 6px;
+        font-size: 0.85em;
     }
-
-    /* Permitir scroll horizontal si la tabla no entra */
-    .tabla-partidos {
-        display: block;
-        overflow-x: auto;
+    
+    /* Aseguramos que los nombres de equipos y estadios sean legibles */
+    tbody tr td:nth-child(2),
+    tbody tr td:nth-child(4),
+    tbody tr td:nth-child(5) {
         white-space: nowrap;
     }
 
     .publicidad img {
-        width: 85%;
+        width: 100%;
+        border-width: 2px;
     }
 }
 
-/* =============================== */
-/* RESPONSIVE: MÓVIL CHICO        */
-/* =============================== */
-
 @media (max-width: 480px) {
-
     body {
         font-size: 14px;
     }
-
-    .container {
-        padding: 15px;
-    }
-
-    table th, table td {
-        font-size: 0.85em;
-        padding: 6px;
-    }
-
+    
     h2 {
-        font-size: 1.2em;
-    }
-
-    /* Publicidad ocupa todo el ancho posible en mobile */
-    .publicidad img {
-        width: 95%;
+        font-size: 1.3em;
+        letter-spacing: 2px;
     }
 }
