@@ -118,6 +118,10 @@ if (isset($conexion) && $conexion) {
             </div>
             </div>
         </section>
+
+        <div class="publicidad">
+            <a href="https://www.ticketek.com.ar/argentina-open-wta/tenis-club-argentino"><img src="../img/publicidad1.jpg" alt="Publicidad"></a>
+        </div>
     </main>
 
     <?php include 'footer.php'; ?>

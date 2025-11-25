@@ -270,3 +270,39 @@ h2 {
         padding: 0 5px;
     }
 }
+
+.publicidad {
+    margin: 20px 0;
+    position: absolute;
+    top: 150px;
+    right: 10px
+}
+
+/* --- PUBLICIDAD (desktop) --- */
+.publicidad {
+margin: 20px 0;
+position: absolute;
+top: 150px;
+right: 10px;
+width: 200px;
+}
+
+.publicidad img {
+width: 100%;
+height: auto;
+}
+/* --- PUBLICIDAD RESPONSIVE --- */
+@media screen and (max-width: 1300px) {
+.publicidad {
+position: static;
+margin: 20px auto;
+width: 60%;
+text-align: center;
+}
+}
+
+@media screen and (max-width: 768px) {
+.publicidad {
+width: 90%;
+}
+}
